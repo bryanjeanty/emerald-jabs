@@ -1,0 +1,5 @@
+<h1>Assignments Page</h1>
+<% @assignments.each do |assignment| %>
+    <%= assignment.title %>
+    <%= image_tag(assignment.image) %>
+<% end %>
