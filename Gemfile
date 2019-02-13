@@ -58,6 +58,16 @@ group :test do
   gem 'chromedriver-helper'
 end
 
+
+# Manually added Gems
 gem 'devise', '~> 4.2'
 
 gem 'twitter-bootstrap-rails', '~> 4.0'
+
+#text editor
+gem 'trix', '~> 0.9.0'
+
+# PDF generator
+gem 'prawn', '~> 2.2', '>= 2.2.2'
+
+gem 'activestorage', '~> 5.2', '>= 5.2.2'
