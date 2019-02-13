@@ -24,9 +24,9 @@ default: &default
 development:
   <<: *default
   database: emerald-app_development
+  host: localhost
   username: postgres
   password: <%= ENV["POSTGRESQL"]%>
-  host: localhost
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -58,9 +58,9 @@ development:
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
-test:
-  <<: *default
-  database: emerald-app_test
+# test:
+#   <<: *default
+#   database: emerald-app_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -81,8 +81,9 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-production:
-  <<: *default
-  database: emerald-app_production
-  username: emerald-app
-  password: <%= ENV['EMERALD-APP_DATABASE_PASSWORD'] %>
+
+# production:
+#   <<: *default
+#   database: emerald-app_production
+#   username: emerald-app
+#   password: <%= ENV['EMERALD-APP_DATABASE_PASSWORD'] %>
