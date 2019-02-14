@@ -38,6 +38,8 @@ ActiveRecord::Schema.define(version: 2019_02_14_162206) do
 
   create_table "assignments", force: :cascade do |t|
     t.string "title"
+    t.string "todo"
+    t.date "due_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -52,6 +54,14 @@ ActiveRecord::Schema.define(version: 2019_02_14_162206) do
   end
 
   create_table "settings", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "students", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

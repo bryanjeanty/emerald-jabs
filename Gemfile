@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 2.5'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
+gem 'activestorage'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -58,6 +59,17 @@ group :test do
   gem 'chromedriver-helper'
 end
 
+
+# Manually added Gems
 gem 'devise', '~> 4.2'
 
 gem 'twitter-bootstrap-rails', '~> 4.0'
+
+#text editor
+gem 'trix', '~> 0.9.0'
+
+# PDF generator
+gem 'prawn', '~> 2.2', '>= 2.2.2'
+gem 'pdf-reader', '~> 0.9.0'
+
+
