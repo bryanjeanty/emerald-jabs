@@ -60,4 +60,4 @@ end
 
 gem 'devise', '~> 4.2'
 
-gem 'twitter-bootstrap-rails', '~> 4.0'
+gem 'bcrypt', '~> 3.1', '>= 3.1.12'
