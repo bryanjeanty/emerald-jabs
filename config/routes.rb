@@ -10,5 +10,7 @@ landing-bryan
   post '/assignments' => 'assignments#create'
   resources :forum
   resources :settings
+  resources :students
   resources :workspace
+  resources :assignments
 end

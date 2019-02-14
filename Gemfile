@@ -72,3 +72,5 @@ gem 'trix', '~> 0.9.0'
 gem 'prawn', '~> 2.2', '>= 2.2.2'
 
 gem 'activestorage', '~> 5.2', '>= 5.2.2'
+
+gem 'pdf-reader', '~> 0.9.0'

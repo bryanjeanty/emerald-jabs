@@ -1,1 +1,13 @@
-hello emerald!
+
+<%= link_to new_assignment_path do %>
+    <button type="button" class="btn btn-success">
+    Add Assignment
+    </button>
+    <% end %><br>
+<h2>Assignments</h2>
+  <% @assignment.each do |t| %>
+    <a href="/assignments/<%= t.id %>">
+    <%= t.title %> </a>(<%= t.due_date%>)<br>
+    <%= t.todo %>
+    <br>
+    <% end %>
