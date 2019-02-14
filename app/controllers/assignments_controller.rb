@@ -15,6 +15,10 @@ class AssignmentsController < ApplicationController
         end
     end
 
+    def show
+        @assignment = Assignment.find(params[:id])
+    end
+
     private
     def assignments_params
         params.permit(:title, :image)
