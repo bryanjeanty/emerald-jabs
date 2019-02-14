@@ -61,3 +61,4 @@ end
 gem 'devise', '~> 4.2'
 
 gem 'twitter-bootstrap-rails', '~> 4.0'
+
