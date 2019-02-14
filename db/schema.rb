@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2019_02_14_161508) do
   create_table "assignments", force: :cascade do |t|
     t.string "title"
     t.string "todo"
-    t.date "start_date"
+    t.date "due_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

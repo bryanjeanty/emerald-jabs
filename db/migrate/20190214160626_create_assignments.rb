@@ -3,7 +3,7 @@ class CreateAssignments < ActiveRecord::Migration[5.2]
     create_table :assignments do |a|
       a.string :title
       a.string :todo
-      a.date :start_date
+      a.date :due_date
 
       a.timestamps
     end

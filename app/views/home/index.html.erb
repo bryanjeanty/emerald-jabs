@@ -7,7 +7,7 @@
 <h2>Assignments</h2>
   <% @assignment.each do |t| %>
     <a href="/assignments/<%= t.id %>">
-    <%= t.title %> </a>(<%= t.start_date%>)<br>
+    <%= t.title %> </a>(<%= t.due_date%>)<br>
     <%= t.todo %>
     <br>
     <% end %>

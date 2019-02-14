@@ -23,14 +23,6 @@
       <%= link_to 'Settings', settings_path, :class => 'navbar-link' %> |
       <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
       <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-  
-  <% elsif student_signed_in? %>
-      <%= link_to 'Home', home_index_path, :class => 'navbar-link' %> |
-      <%= link_to 'Forum', forum_index_path, :class => 'navbar-link' %> |
-      <%= link_to 'Workspace', workspace_index_path, :class => 'navbar-link' %> |
-      <%= link_to 'Settings', settings_path, :class => 'navbar-link' %> |
-      <%= link_to 'Edit profile', edit_student_registration_path, :class => 'navbar-link' %> |
-      <%= link_to "Logout", destroy_student_session_path, method: :delete, :class => 'navbar-link'  %>
 
   <% else %>
   <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
