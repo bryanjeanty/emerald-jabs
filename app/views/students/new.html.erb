@@ -1,0 +1,15 @@
+<%= form_for(@student) do |form| %>
+    <label> First name</label><br>
+    <%= form.text_field :first_name %> <br>
+
+    <label> Last name</label><br>
+    <%= form.text_field :last_name %> <br>
+
+    <label> E-mail</label><br>
+    <%= form.email :email %> <br>
+
+
+    <%= form.submit "Add Student", {class: "btn btn-success"} %><br><br>
+
+    <%= link_to "Back", :back %>
+    <% end %>
