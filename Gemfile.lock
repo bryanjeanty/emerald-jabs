@@ -227,7 +227,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activestorage (~> 5.2, >= 5.2.2)
+landing-bryan
+  activestorage
   bootsnap (>= 1.1.0)
   byebug
   capybara (>= 2.15)
