@@ -1,5 +1,5 @@
 <h1>Create New Forum Post</h1>
-<%= form_with(model: @post, local: true, url: forum_index_path, method: :post) do |f| %>
+<%= form_with(model: @post, local: true, url: user_posts_path(current_user), method: :post) do |f| %>
     <%= f.label :title %> <br>
     <%= f.text_field :title %> <br>
     <%= f.label :content %> <br>

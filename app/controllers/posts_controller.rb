@@ -1,4 +1,4 @@
-class ForumController < ApplicationController
+class PostsController < ApplicationController
     def index
 
     end
@@ -8,7 +8,7 @@ class ForumController < ApplicationController
     end
 
     def create
-        @post = Post.create!(params.require(:post).permit(:title, :content))
+        @post = current_user.posts.create!(params.require(:post).permit(:title, :content))
         @post.image.attach(params[:post][:image])
         redirect_to root_path
     end
