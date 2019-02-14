@@ -11,9 +11,10 @@
 </div>
 
 <div class="posts" style="border: 1px solid black; height: 35vh; width: 100%">
-    <%= link_to "Create New Post", new_forum_path %>
+    <%= link_to "Create New Post", new_forum_path %> <br>
     <% @posts.each do |post| %>
         <%= link_to post.title, forum_path(post) %>
+        <br>
     <% end %>
 </div>
 
