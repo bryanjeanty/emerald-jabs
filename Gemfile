@@ -69,3 +69,4 @@ gem 'twitter-bootstrap-rails', '~> 4.0'
 # PDF generator
 gem 'prawn', '~> 2.2', '>= 2.2.2'
 gem 'pdf-reader', '~> 0.9.0'
+
