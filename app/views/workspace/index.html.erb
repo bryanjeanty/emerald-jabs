@@ -1,7 +1,6 @@
 <h1> Workspace </h1>
 
 <div class="workspace">
-  <span class="editor">
   <!-- Include stylesheet -->
 <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 
@@ -21,15 +20,5 @@
     theme: 'snow'
   });
 </script>
- <br>
-  </span>
-  
-  <span class="assignment">
-  <% @assignments.each do |assignment| %>
-        <%= link_to assignment.title, assignment_path(assignment) %> <br>
-        <%= assignment.due_date%>)<br>
-        <%= assignment.todo %>
-        <br>
-    <% end %>
-    </span>
+
 </div>
