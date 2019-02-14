@@ -4,6 +4,7 @@ class AssignmentsController < ApplicationController
     end
 
     def new
+        @assignment = Assignment.new
     end
     
     def create
@@ -19,8 +20,14 @@ class AssignmentsController < ApplicationController
         @assignment = Assignment.find(params[:id])
     end
 
+    def destroy
+        @assignment = Assignment.find(params[:id])
+        @assignment.destroy
+        redirect_to root_path
+    end
+
     private
     def assignments_params
-        params.permit(:title, :image)
+        params.require(:assignment).permit(:title, :image)
     end
 end
