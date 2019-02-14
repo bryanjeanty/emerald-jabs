@@ -63,6 +63,7 @@ end
 # Manually added Gems
 gem 'devise', '~> 4.2'
 
+gem 'bcrypt', '~> 3.1', '>= 3.1.12'
 gem 'twitter-bootstrap-rails', '~> 4.0'
 
 #text editor
@@ -71,5 +72,3 @@ gem 'trix', '~> 0.9.0'
 # PDF generator
 gem 'prawn', '~> 2.2', '>= 2.2.2'
 gem 'pdf-reader', '~> 0.9.0'
-
-

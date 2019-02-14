@@ -1,4 +1,13 @@
-<h2>Log in</h2>
+<body><div class="bgImglanding">
+  
+
+<div class="topBanner">
+<div class="logo"></div>
+</div>
+<div class="card" style="width: 30rem;">
+   <div class="card-body">
+
+<!--<h2 class="card-title"><strong>Log in</strong></h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
@@ -23,4 +32,47 @@
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<%= render "devise/shared/links" %>-->
+<h1>Create a New Account</h1>
+<h3>It's free for students</h3>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %> <br>
+  </div>
+<div class="field">
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+</div>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+<!--<%= render "devise/shared/links" %>-->
+
+  </div>
+</div>
+</body>
