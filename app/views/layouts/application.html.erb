@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Rum+Raisin" rel="stylesheet">
     <title>EmeraldApp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="bootstrap.min.css">
   </head>
 
-  <body>
+  <body class="bgImg">
 
   <p class="alert-success"><%= notice %></p>
   <p class="alert-danger"><%= alert %></p>
@@ -18,9 +20,9 @@
 <% if user_signed_in? %>
   Logged in as <strong><%= current_user.email %></strong>.
       <%= link_to 'Home', home_index_path, :class => 'navbar-link' %> |
-      <%= link_to 'Forum', forum_index_path, :class => 'navbar-link' %> |
+      
       <%= link_to 'Workspace', workspace_index_path, :class => 'navbar-link' %> |
-      <%= link_to 'Settings', settings_path, :class => 'navbar-link' %> |
+      
       <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
       <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
 
@@ -29,7 +31,7 @@
   <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
 <% end %>
 </p>
-
+</div>
 
     <%= yield %>
 
