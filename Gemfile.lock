@@ -230,7 +230,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-landing-bryan
   activestorage
   bootsnap (>= 1.1.0)
   byebug
