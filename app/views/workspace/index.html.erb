@@ -1,8 +1,15 @@
 <h1><%= @student[:first_name].capitalize %>'s Workspace
 
 <div class="workspace">
-
-    <%= f.trix_editor :body %> <br>
-
-
+  <span class="editor">
+  <%= f.trix_editor :body %> <br>
+  </span>
+  <span class="assignment">
+  <% @assignments.each do |assignment| %>
+        <%= link_to assignment.title, assignment_path(assignment) %> <br>
+        <%= assignment.due_date%>)<br>
+        <%= assignment.todo %>
+        <br>
+    <% end %>
+    </span>
 </div>
