@@ -1,4 +1,5 @@
 class AssignmentsController < ApplicationController
+
   def index
     @assignment = Assignment.all
   end
@@ -16,7 +17,9 @@ class AssignmentsController < ApplicationController
    if @assignment.valid?
      @assignment.save
      redirect_to home_index_path
-    end
+   else
+     redirect_to new_assignment_path
+   end
   end
 
   def edit
@@ -34,6 +37,7 @@ class AssignmentsController < ApplicationController
   redirect_to home_index_path
   end
 
+  private
   def assignment_params
     params.require(:assignment).permit(:title, :todo, :due_date)
   end
