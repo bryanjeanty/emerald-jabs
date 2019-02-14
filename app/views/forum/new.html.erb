@@ -1,7 +1,10 @@
 <h1>Create New Forum Post</h1>
-<%= form_with(model: @post, url: forum_index_path, method: :post) do |f| %>
-    <%= f.text_field :title %>
-    <%= f.text_area :content %>
-    <%= f.file_field :image %>
+<%= form_with(model: @post, local: true, url: forum_index_path, method: :post) do |f| %>
+    <%= f.label :title %> <br>
+    <%= f.text_field :title %> <br>
+    <%= f.label :content %> <br>
+    <%= f.text_area :content %> <br>
+    <%= f.label :upload_image_below %> <br>
+    <%= f.file_field :image %> <br> <br>
     <%= f.submit %>
 <% end %>
