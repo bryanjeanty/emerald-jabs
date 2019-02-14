@@ -2,7 +2,8 @@ class HomeController < ApplicationController
 
 
   def index
-    
+    @assignment = Assignment.all
+    @student = Student.all
   end
 
   def home
