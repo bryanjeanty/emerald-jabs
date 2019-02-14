@@ -1,16 +1,16 @@
 class ForumController < ApplicationController
+    def index
+
+    end
 
     def new
         @post = Post.new
     end
 
     def create
-        @post = Post.new(posts_params)
-        if @post.save
-            redirect_to root_path
-        else
-            redirect_to new_forum_path
-        end
+        @post = Post.create!(params.require(:post).permit(:title, :content))
+        @post.image.attach(params[:post][:image])
+        redirect_to root_path
     end
     
     def show
@@ -20,5 +20,9 @@ class ForumController < ApplicationController
     private
     def posts_params
         params.require(:post).permit(:title, :content, :image)
+    end
+
+    def attach_params
+        params[:post][:image]
     end
 end
