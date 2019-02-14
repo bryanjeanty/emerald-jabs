@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   resources :forum
-  resources :settings
   resources :students
   resources :workspace
   resources :assignments
+
 end
