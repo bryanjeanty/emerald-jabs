@@ -2,7 +2,8 @@ class HomeController < ApplicationController
 
 
   def index
-    @assignment = Assignment.all
+    @assignments = Assignment.all
+    @posts = Post.all
     @student = Student.all
   end
 

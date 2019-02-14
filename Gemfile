@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 2.5'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
+gem 'activestorage'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -69,7 +70,6 @@ gem 'trix', '~> 0.9.0'
 
 # PDF generator
 gem 'prawn', '~> 2.2', '>= 2.2.2'
-
-gem 'activestorage', '~> 5.2', '>= 5.2.2'
-
 gem 'pdf-reader', '~> 0.9.0'
+
+

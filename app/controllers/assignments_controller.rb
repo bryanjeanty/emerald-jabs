@@ -16,7 +16,9 @@ class AssignmentsController < ApplicationController
    if @assignment.valid?
      @assignment.save
      redirect_to home_index_path
-    end
+   else
+     redirect_to new_assignment_path
+   end
   end
 
   def edit
@@ -30,11 +32,13 @@ class AssignmentsController < ApplicationController
   end
 
   def destroy
-  Assignment.destroy(params[:id])
-  redirect_to home_index_path
-  end
+        @assignment = Assignment.find(params[:id])
+        @assignment.destroy
+        redirect_to root_path
+    end
 
+  private
   def assignment_params
-    params.require(:assignment).permit(:title, :todo, :due_date)
+    params.require(:assignment).permit(:title, :todo, :due_date, :image)
   end
 end
