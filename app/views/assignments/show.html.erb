@@ -1,3 +1,29 @@
+
 <h1><%= @assignment.title %> Page</h1>
 <%= image_tag(@assignment.image, width: '300') %>
 <%= link_to "Delete Assignment", assignment_path(@assignment), method: :delete %>
+
+
+<%= link_to edit_assignment_path do %>
+    <button type="button" class="btn btn-primary">
+    Edit
+    </button>
+    <% end %>
+    
+    <%= link_to assignment_path(@assignment), method: :delete  do %>
+    <button type="button" class="btn btn-danger">
+    Delete
+    </button>
+    <% end %>
+    <br>
+  
+    <h4><strong>
+    <%= @assignment.title %>
+    </strong></h4><br>
+    <%= @assignment.due_date %>
+    <br>
+    <%= @assignment.todo %>
+    <br><br>
+
+    <%= link_to "Back", :back %>
+

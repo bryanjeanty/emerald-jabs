@@ -1,8 +1,12 @@
+
 <h1>Dashboard</h1>
 <div class="assignments" style="border: 1px solid black; height: 35vh; width: 100%">
     <%= link_to "Add New Assignment", new_assignment_path %>
     <% @assignments.each do |assignment| %>
         <%= link_to assignment.title, assignment_path(assignment) %> <br>
+        <%= assignment.due_date%>)<br>
+        <%= assignment.todo %>
+        <br>
     <% end %>
 </div>
 
@@ -12,3 +16,4 @@
         <%= link_to post.title, forum_path(post) %>
     <% end %>
 </div>
+

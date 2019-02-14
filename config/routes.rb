@@ -7,5 +7,7 @@ Rails.application.routes.draw do
   resources :assignments
   resources :forum
   resources :settings
+  resources :students
   resources :workspace
+  resources :assignments
 end

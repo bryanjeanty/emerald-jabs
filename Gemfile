@@ -70,3 +70,5 @@ gem 'trix', '~> 0.9.0'
 
 # PDF generator
 gem 'prawn', '~> 2.2', '>= 2.2.2'
+gem 'pdf-reader', '~> 0.9.0'
+
