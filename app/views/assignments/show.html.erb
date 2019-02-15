@@ -1,7 +1,10 @@
 
 <h1><%= @assignment.title %> Page</h1>
-<%= image_tag(@assignment.image, width: '300') %>
+<% if @assignment.image.attached? %> 
+<%= image_tag(@assignment.image, width: '300') %> 
+<% else %> <%= @assignment.file %> <%end%>
 <%= link_to "Delete Assignment", assignment_path(@assignment), method: :delete %>
+
 
 
 <%= link_to edit_assignment_path do %>
@@ -24,6 +27,8 @@
     <br>
     <%= @assignment.todo %>
     <br><br>
+
+    
 
     <%= link_to "Back", :back %>
 
