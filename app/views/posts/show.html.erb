@@ -1,4 +1,5 @@
-<%= link_to edit_user_post_path(@post.user, @post) do %> <button type="button" class="btn btn-primary"> Edit </button><% end %>
+<%= link_to edit_user_post_path(@post.user, @post) do %> 
+<button type="button" class="btn btn-primary"> Edit </button><% end %>
 
 <%= link_to user_post_path(@post.user, @post), method: :delete do %>
 <button type="button" class="btn btn-danger">Delete </button>
@@ -11,7 +12,7 @@
 <% end %>
 <h5>Add Comment</h5>
 <%= form_with model: @comment, url: post_comments_path(@post), method: :post do |f| %>
-    <%= f.label :title %> <br>
+    <%= f.label :title %> <br> 
     <%= f.text_field :title %> <br>
     <%= f.label :content %> <br>
     <%= f.text_area :content %> <br>
@@ -21,14 +22,19 @@
     <%= f.submit "Create Comment" %>
 <% end %>
 <h4>Comment Section</h4>
-
-    <% @post.comments.each do |comment| %>
-        <%= comment.title %> 
-        <%= comment.content %> 
+    <% count = 0 %>
+    <%= @comments.count %>
+    <% @comments.each do |comment| %>
+        <div class="comment">
+            <%= comment.title %> 
+            <%= comment.content %>
+        </div>
         <% if comment.image.attached? %>
             <%= image_tag(comment.image, width: '150') %> <br>
         <% end %>
+        <%= link_to "Delete Comment", delete_post_comment_path(@post), method: :delete %>
+        <%= count += 1 %>
     <% end %>
-
+    <br>
 
 <%= link_to "Back", :back %>
