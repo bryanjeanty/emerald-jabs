@@ -1,9 +1,4 @@
-
-<h1><%= @assignment.title %> Page</h1>
-<%= image_tag(@assignment.image, width: '300') %>
-<%= link_to "Delete Assignment", assignment_path(@assignment), method: :delete %>
-
-
+<center>
 <%= link_to edit_assignment_path do %>
     <button type="button" class="btn btn-primary">
     Edit
@@ -16,14 +11,22 @@
     </button>
     <% end %>
     <br>
+
+<h1><%= @assignment.title %> Page</h1>
+<% if @assignment.image.attached? %>
+    <%= image_tag(@assignment.image, width: '200') %>
+    <% end %> <br>
   
-    <h4><strong>
+    <h1><strong>
     <%= @assignment.title %>
-    </strong></h4><br>
+    </strong></h1><br>
     <%= @assignment.due_date %>
     <br>
     <%= @assignment.todo %>
     <br><br>
 
+    <embed src="<%= File.path("/pdfSample.pdf") %>" type="application/pdf" width="50%" height="700rem">
+
     <%= link_to "Back", :back %>
 
+</center>
