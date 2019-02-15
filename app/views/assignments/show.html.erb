@@ -1,3 +1,10 @@
+
+<h1><%= @assignment.title %> Page</h1>
+<% if @assignment.image.attached? %> 
+<%= image_tag(@assignment.image, width: '300') %> 
+<% else %> <%= @assignment.file %> <%end%>
+<%= link_to "Delete Assignment", assignment_path(@assignment), method: :delete %>
+
 <div class="row">
     <div class="col-6 pull-left">
         <%= link_to edit_assignment_path do %>
@@ -45,3 +52,43 @@
         </div>
     </div>
 </div>
+
+
+<center>
+
+<%= link_to edit_assignment_path do %>
+    <button type="button" class="btn btn-primary">
+    Edit
+    </button>
+    <% end %>
+    
+    <%= link_to assignment_path(@assignment), method: :delete  do %>
+    <button type="button" class="btn btn-danger">
+    Delete
+    </button>
+    <% end %>
+    <br>
+
+<h1><%= @assignment.title %> Page</h1>
+<% if @assignment.image.attached? %>
+    <%= image_tag(@assignment.image, width: '200') %>
+    <% end %> <br>
+  
+    <h1><strong>
+    <%= @assignment.title %>
+    </strong></h1><br>
+    <%= @assignment.due_date %>
+    <br>
+    <%= @assignment.todo %>
+    <br><br>
+
+
+    
+
+    <embed src="<%= File.path("/pdfSample.pdf") %>" type="application/pdf" width="50%" height="700rem">
+
+
+    <%= link_to "Back", :back %>
+
+</center>
+
