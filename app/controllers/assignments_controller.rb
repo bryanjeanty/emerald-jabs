@@ -28,7 +28,7 @@ class AssignmentsController < ApplicationController
   def update
     @assignment = Assignment.find(params[:id])
     @assignment.update(assignment_params)
-    redirect_to home_index_path
+    redirect_to assignments_path
   end
 
   def destroy
