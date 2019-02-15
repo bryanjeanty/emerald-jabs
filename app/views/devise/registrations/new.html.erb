@@ -1,9 +1,8 @@
-<%= form_for(resource, as: resource_name, url: user_registration_path(resource_name)) do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
-      
+<div id="hero">
 <div class="topBanner">
-  <div class="logo"></div>
+<div class="logo"></div>
 </div>
+
 <div class="card" style="width: 30rem;">
    <div class="card-body">
 
@@ -15,14 +14,6 @@
         <%= f.text_field :first_name, autofocus: true %>
       </div>
 
-<<<<<<< HEAD
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-  
-    
-=======
       <div class="field">
         <%= f.label :last_name %><br />
         <%= f.text_field :last_name, autofocus: true %>
@@ -32,7 +23,6 @@
         <%= f.label :email %><br />
         <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
       </div>
->>>>>>> d5e372735cf1de162485f9a3dfce41f6ca9cebd9
 
       <div class="field">
         <%= f.label :password %>
@@ -55,6 +45,7 @@
     <% end %>
 
     <%= render "devise/shared/links" %>
+    </div>
   </div>
 </div>
 
