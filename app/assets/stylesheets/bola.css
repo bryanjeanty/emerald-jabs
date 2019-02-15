@@ -33,12 +33,31 @@ a {
 }
 .heroImg {
    background-image: url('/images/children-banner.jpg');
-   height: 100vh;
+   background-size: cover;
+   height: 70vh;
 }
-.hero-text {
-   width: 400px;
+
+.hero-text-container {
+   width: 500px;
    height: 30vh;
    float: left;
-   background-color: red;
-   margin: 80px 80px 80px 80px;
+   margin: 48px 80px 80px 80px;
+}
+.hero-text {
+   font-size: 7.5rem;
+   font-family:'Rum Raisin', sans-serif;
+   line-height: 7.5rem;
+   color: #066D0A;
+}
+.hero-text-butt {
+   border-top: black 1px solid;
+   padding: 15px 0 0 0;
+   font-size: 3.5rem;
+   font-family:'Roboto', sans-serif;
+   line-height: 3.5rem;
+   color: #000000;
+}
+.wrapper {
+   width: 1240px;
+   margin: 0 auto;
 }
