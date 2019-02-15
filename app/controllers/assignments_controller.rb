@@ -15,7 +15,7 @@ class AssignmentsController < ApplicationController
    @assignment = Assignment.new(assignment_params)
    if @assignment.valid?
      @assignment.save
-     redirect_to home_index_path
+     redirect_to assignments_path
    else
      redirect_to new_assignment_path
    end
