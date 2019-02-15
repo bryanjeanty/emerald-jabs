@@ -31,3 +31,23 @@ a {
 .hero {
    background: url('children-banner.jpg') no-repeat center fixed;
 }
+
+.assignments {
+   border: 1px solid black;
+   padding: 1rem;
+   height: 15rem;
+   width: 100%;
+   overflow: hidden;
+   overflow-y: scroll;
+   object-fit: contain;
+}
+
+.posts {
+   border: 1px solid black;
+   padding: 1rem;
+   height: 15rem;
+   width: 100%;
+   overflow: hidden;
+   overflow-y: scroll;
+   object-fit: contain;
+}
