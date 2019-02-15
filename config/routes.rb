@@ -12,6 +12,11 @@ Rails.application.routes.draw do
   get '/users/:user_id/posts/:id/edit' => 'posts#edit', as: 'edit_user_post'
   patch '/users/:user_id/posts/:id' => 'posts#update'
   delete '/users/:user_id/posts/:id' => 'posts#destroy'
+  
+  post '/posts/:post_id/comments' => 'comments#create', as: 'post_comments'
+  # resources :posts do 
+    # resources :comments
+  # end
   resources :assignments
   resources :students
   resources :workspace
