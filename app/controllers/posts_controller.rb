@@ -8,13 +8,18 @@ class PostsController < ApplicationController
     end
 
     def create
-        @post = current_user.posts.create!(params.require(:post).permit(:title, :content))
-        @post.image.attach(params[:post][:image])
+        if params[:post][:image].nil?
+            @post = current_user.posts.create!(params.require(:post).permit(:title, :content))
+        else
+            @post.image.attach(params[:post][:image])
+            @post = current_user.posts.create!(params.require(:post).permit(:title, :content))
+        end
         redirect_to root_path
     end
     
     def show
         @post = Post.find(params[:id])
+        @comment = @post.comments.new
     end
 
     def edit
@@ -32,11 +37,6 @@ class PostsController < ApplicationController
             @post.update(params.require(:post).permit(:title, :content))
         end
         redirect_to root_path
-        # if @post
-        #     redirect_to root_path
-        # else
-        #     redirect_to edit_user_post(@user, @post)
-        # end
     end
 
     def destroy

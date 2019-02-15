@@ -1,5 +1,6 @@
 class AssignmentsController < ApplicationController
   def index
+    @student = Student.all
     @assignment = Assignment.all
   end
 
@@ -39,6 +40,6 @@ class AssignmentsController < ApplicationController
 
   private
   def assignment_params
-    params.require(:assignment).permit(:title, :todo, :due_date, :image)
+    params.require(:assignment).permit(:title, :todo, :due_date, :image, :file)
   end
 end
