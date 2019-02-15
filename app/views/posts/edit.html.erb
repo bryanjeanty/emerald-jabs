@@ -1,0 +1,10 @@
+<h1>Edit <%= @post.title %></h1>
+<%= form_with model: @post, url: user_post_path(@user, @post), method: :patch do |f| %>
+    <%= f.label :title %> <br>
+    <%= f.text_field :title %> <br>
+    <%= f.label :content %> <br>
+    <%= f.text_area :content %> <br> 
+    <%= f.label :upload_image_below %> <br>
+    <%= f.file_field :image %> <br>
+    <%= f.submit "Update Post" %>
+<% end %>

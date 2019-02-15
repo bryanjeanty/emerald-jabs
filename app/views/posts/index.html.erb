@@ -1,0 +1,6 @@
+<h1>Public Forum</h1>
+<% @posts.each do |post| %>
+    <%= link_to post.title, user_post_path(post.user, post) %> <br>
+    <%= post.content %> <br>
+    <%= image_tag(post.image, width: '350') %> <br> <br>
+<% end %>
