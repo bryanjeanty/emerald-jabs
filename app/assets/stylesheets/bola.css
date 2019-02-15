@@ -37,7 +37,6 @@ a {
    padding: 1rem;
    height: 15rem;
    width: 100%;
-   overflow: hidden;
    overflow-y: scroll;
    object-fit: contain;
 }
@@ -47,7 +46,6 @@ a {
    padding: 1rem;
    height: 15rem;
    width: 100%;
-   overflow: hidden;
    overflow-y: scroll;
    object-fit: contain;
 }
