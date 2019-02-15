@@ -1,5 +1,6 @@
 class AssignmentsController < ApplicationController
   def index
+    @student = Student.all
     @assignment = Assignment.all
   end
 
