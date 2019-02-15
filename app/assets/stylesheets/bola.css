@@ -1,21 +1,32 @@
+a {
+   padding: .8rem;
+   color: #066D0A;
+}
+.logo {
+   float: left;
+   font-weight: bolder;
+   color: #066D0A;
+   font-size: 1.5rem;
+   width: 40px;
+}
+.logo img {
+   width: 40px;
+}
 .navlinks {
    float: left;
-   background-color: pink;
-   width: 600px;
-   margin: 1.5rem;
-   font-size:1.5rem; 
+   width: 650px;
+   font-size:1.25rem; 
 }
 .navEmail {
    float: left;
-   background-color: aquamarine;
    width: 400px;
+   font-size:1.25rem; 
 }
 .barnav {
-   display: flex;
-   justify-content: space0-around;
    align-items: center;
-   height: 100px;
-   background-color: #066D0A;
+   background-color: rgb(204, 224, 205);
+   padding: 5px 0 0 0;
+   height: 80px;
 }
 .hero {
    background: url('children-banner.jpg') no-repeat center fixed;
