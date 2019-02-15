@@ -1,4 +1,13 @@
+
+
+<h1><%= @assignment.title %> Page</h1>
+<% if @assignment.image.attached? %> 
+<%= image_tag(@assignment.image, width: '300') %> 
+<% else %> <%= @assignment.file %> <%end%>
+<%= link_to "Delete Assignment", assignment_path(@assignment), method: :delete %>
+
 <center>
+
 <%= link_to edit_assignment_path do %>
     <button type="button" class="btn btn-primary">
     Edit
@@ -25,7 +34,11 @@
     <%= @assignment.todo %>
     <br><br>
 
+
+    
+
     <embed src="<%= File.path("/pdfSample.pdf") %>" type="application/pdf" width="50%" height="700rem">
+
 
     <%= link_to "Back", :back %>
 
