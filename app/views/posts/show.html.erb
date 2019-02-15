@@ -9,7 +9,7 @@
 <% if @post.image.attached? %>
     <%= image_tag(@post.image, width: '200') %> <br>
 <% end %>
-<h3>Comment Section</h3>
+<h5>Add Comment</h5>
 <%= form_with model: @comment, url: post_comments_path(@post), method: :post do |f| %>
     <%= f.label :title %> <br>
     <%= f.text_field :title %> <br>
@@ -20,11 +20,15 @@
     <%= f.hidden_field :user_id, :value => current_user.id %>
     <%= f.submit "Create Comment" %>
 <% end %>
-<% @post.comments.each do |comment| %>
-    <%= comment.title %> <br>
-    <%= comment.content %> <br>
-    <% if comment.image.attached? %>
-        <%= image_tag(comment.image, width: '150') %> <br>
+<h4>Comment Section</h4>
+<% unless @post.comments.nil? %>
+    <% @post.comments.each do |comment| %>
+        <%= comment.title %> <br>
+        <%= comment.content %> <br>
+        <% if comment.image.attached? %>
+            <%= image_tag(comment.image, width: '150') %> <br>
+        <% end %>   
+        
     <% end %>
 <% end %>
 

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
     registrations: 'users/registrations'
   } 
+  # User posts routes
   get '/forum' => 'posts#index', as: 'forum'
   get '/users/:user_id/posts/new' => 'posts#new', as: 'new_user_post'
   post '/users/:user_id/posts' => 'posts#create', as: 'user_posts'
@@ -13,10 +14,10 @@ Rails.application.routes.draw do
   patch '/users/:user_id/posts/:id' => 'posts#update'
   delete '/users/:user_id/posts/:id' => 'posts#destroy'
   
+  # Post comments routes
   post '/posts/:post_id/comments' => 'comments#create', as: 'post_comments'
-  # resources :posts do 
-    # resources :comments
-  # end
+  delete 'users/:user_id/posts/:post_id/comments/:id' => 'comments#destroy', as: 'delete_user_post_comment'
+
   resources :assignments
   resources :students
   resources :workspace
