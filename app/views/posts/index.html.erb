@@ -2,5 +2,7 @@
 <% @posts.each do |post| %>
     <%= link_to post.title, user_post_path(post.user, post) %> <br>
     <%= post.content %> <br>
-    <%= image_tag(post.image, width: '350') %> <br> <br>
+    <% if post.image.attached? %>
+        <%= image_tag(post.image, width: '350') %> <br> <br>
+    <% end %>
 <% end %>
