@@ -1,3 +1,22 @@
-.test {
-   opacity: 4;
+.navlinks {
+   float: left;
+   background-color: pink;
+   width: 600px;
+   margin: 1.5rem;
+   font-size:1.5rem; 
+}
+.navEmail {
+   float: left;
+   background-color: aquamarine;
+   width: 400px;
+}
+.barnav {
+   display: flex;
+   justify-content: space0-around;
+   align-items: center;
+   height: 100px;
+   background-color: #066D0A;
+}
+.hero {
+   background: url('children-banner.jpg') no-repeat center fixed;
 }
