@@ -15,14 +15,28 @@
 //= require turbolinks
 //= require_tree .
 document.addEventListener('DOMContentLoaded', () => {
-    document.addEventon('page:change', () => {
+    document.addEventListener("turbolinks:load", () => {
         let comment = document.querySelectorAll('.comment');
         let editCommentForm = document.querySelectorAll('.edit-comment-form');
         let editCommentBtn = document.querySelectorAll('.edit-comment-btn');
+        let postText = document.querySelectorAll('.post-text');
 
         function toggleEditComment(elem1, elem2) {
             elem1.style.display = 'block';
             elem2.style.display = 'none';
+        }
+
+        for(let i = 0; i < postText.length; i++) {
+            if (postText[i].innerHTML.includes("@")) {
+                let newStr = postText[i].innerHTML
+                newRes = newStr.replace("@", "<mark style='background-color: red'>");
+                postText[i].innerHTML = `${ newRes }`
+            }
+            if (postText[i].innerHTML.includes("$")) {
+                let newStr = postText[i].innerHTML
+                newRes = newStr.replace("$", "</mark>");
+                postText[i].innerHTML = `${ newRes }`
+            }
         }
 
         for(let i = 0; i < comment.length; i++) {
@@ -34,6 +48,5 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             })
         }
-        document.location.reload();
     });
 });
