@@ -1,8 +1,16 @@
 <h1>Public Forum</h1>
 <% @posts.each do |post| %>
-    <%= link_to post.title, user_post_path(post.user, post) %> <br>
-    <%= post.content %> <br>
-    <% if post.image.attached? %>
-        <%= image_tag(post.image, width: '350') %> <br> <br>
-    <% end %>
+    <div style="display: flex; height: 100%">
+        <div style="width: 60%; height: 100%; margin-left: auto; margin-right: auto;">
+            <div class="card bg-light " style="padding:0; width: 100%">
+            <div class="card-header"><%= link_to post.title, user_post_path(post.user, post) %></div>
+                <% if post.image.attached? %>
+                        <%= image_tag(post.image, class: "card-img-top") %>
+                <% end %>
+                <div class="card-body">
+                    <p class="card-text"><%= post.content %></p>
+                </div>
+            </div>
+        </div>
+    </div>    
 <% end %>
