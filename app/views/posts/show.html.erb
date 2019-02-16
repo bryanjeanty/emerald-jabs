@@ -23,8 +23,8 @@
 <% end %>
 <h4>Comment Section</h4>
     <% count = 0 %>
-    <%= @comments.count %>
-    <% @comments.each do |comment| %>
+    <%= @post.comments.count %>
+    <% @post.comments.each do |comment| %>
         <div class="comment">
             <%= comment.title %> 
             <%= comment.content %>
@@ -32,7 +32,7 @@
         <% if comment.image.attached? %>
             <%= image_tag(comment.image, width: '150') %> <br>
         <% end %>
-        <%= link_to "Delete Comment", delete_post_comment_path(@post), method: :delete %>
+        <%= link_to "Delete Comment", delete_post_comment_path(@post, comment), method: :delete %>
         <%= count += 1 %>
     <% end %>
     <br>
