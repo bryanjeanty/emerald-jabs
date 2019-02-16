@@ -1,9 +1,7 @@
     
-<div class="assignments" style="border: 1px solid black; height: 35vh; width: 100%">
+<div class="assignments" style="border: 1px solid black; height: 35rem; width: 100%">
   <% @assignment.each do |assignment| %>
-    <%= link_to assignment.title, assignment_path(assignment) %> <br>
-    <%= assignment.due_date%>)<br>
-    <%= assignment.todo %>
-    <br>
+    <%= link_to assignment.title, assignment_path(assignment) %>
+    (<%= assignment.due_date%>)<br><br>
   <% end %>
 </div>
