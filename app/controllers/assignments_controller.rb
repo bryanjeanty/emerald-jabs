@@ -1,6 +1,5 @@
 class AssignmentsController < ApplicationController
   def index
-    @student = Student.all
     @assignment = Assignment.all
   end
 
@@ -29,7 +28,7 @@ class AssignmentsController < ApplicationController
   def update
     @assignment = Assignment.find(params[:id])
     @assignment.update(assignment_params)
-    redirect_to assignments_path
+    redirect_to home_index_path
   end
 
   def destroy
