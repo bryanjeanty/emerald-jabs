@@ -6,14 +6,15 @@ a {
    float: left;
    font-weight: bolder;
    color: #ffffff;
-   font-size: 2rem;
-   width: 140px;
-   margin: 0 0px 0 0px;
+   font-size: 2.5rem;
+   width: 180px;
+   padding: 0 0 0 15px;
+   border-left: #ffffff 1px solid;
 }
 .emerald img {
    width: 40px;
    float: left;
-   margin: 0 10px 0 20px;
+   margin: 0 10px 0 40px;
 }
 .navlinks {
    float: left;
@@ -32,7 +33,7 @@ a {
    height: 100px;
 }
 .heroImg {
-   background-image: url('/images/children-banner.jpg');
+   background-image: url('/images/children-banner.png');
    background-size: cover;
    height: 70vh;
 }
@@ -52,6 +53,7 @@ a {
 .hero-text-butt {
    border-top: black 1px solid;
    padding: 15px 0 0 0;
+   margin: 20px 0 0 0;
    font-size: 3.5rem;
    font-family:'Roboto', sans-serif;
    line-height: 3.5rem;
@@ -59,7 +61,7 @@ a {
 }
 
 .hero {
-   background: url('children-banner.jpg') no-repeat center fixed;
+   background: url('children-banner.png') no-repeat center fixed;
 }
 
 .assignments {
@@ -78,7 +80,7 @@ a {
    width: 100%;
    overflow-y: scroll;
    object-fit: contain;
-
+}
 .wrapper {
    width: 1240px;
    margin: 0 auto;
