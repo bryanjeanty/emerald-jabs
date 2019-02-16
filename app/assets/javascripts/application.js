@@ -27,14 +27,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         for(let i = 0; i < postText.length; i++) {
-            if (postText[i].innerHTML.includes("@")) {
+            if (postText[i].innerHTML.includes("[[")) {
                 let newStr = postText[i].innerHTML
-                newRes = newStr.replace("@", "<mark style='background-color: red'>");
+                newRes = newStr.replace("[[", "<mark style='background-color: red'>");
                 postText[i].innerHTML = `${ newRes }`
             }
-            if (postText[i].innerHTML.includes("$")) {
+            if (postText[i].innerHTML.includes("]]")) {
                 let newStr = postText[i].innerHTML
-                newRes = newStr.replace("$", "</mark>");
+                newRes = newStr.replace("]]", "</mark>");
                 postText[i].innerHTML = `${ newRes }`
             }
         }
