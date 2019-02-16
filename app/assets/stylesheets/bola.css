@@ -78,9 +78,18 @@ a {
    width: 100%;
    overflow-y: scroll;
    object-fit: contain;
+}
+
+.col-6 {
+   height: 30rem;
+}
 
 .wrapper {
    width: 1240px;
    margin: 0 auto;
+}
 
+.workspace {
+   height: 30rem;
+   width: 50rem;
 }
