@@ -1,87 +1,51 @@
 <div class="row">
-    <div class="col-6 pull-left" style="margin: 1rem;">
-        <%= link_to edit_assignment_path do %>
-        <button type="button" class="btn btn-primary">
-        Edit
-        </button>
-        <% end %>
+    <div class="card">
+        <div class="card-body">
+            <h2 class="card-title"></h2>
+            <%= link_to edit_assignment_path do %>
+            <button type="button" class="btn btn-primary">
+            Edit
+            </button>
+            <% end %>
 
-        <%= link_to assignment_path(@assignment), method: :delete  do %>
-        <button type="button" class="btn btn-danger">
-        Delete
-        </button>
-        <% end %>
-        <br>
+            <%= link_to assignment_path(@assignment), method: :delete  do %>
+            <button type="button" class="btn btn-danger">
+            Delete
+            </button>
+            <% end %>
+            <br>
 
-        <% if @assignment.image.attached? %>
-        <%= image_tag(@assignment.image, width: '200') %>
-        <% end %> <br>
+            <% if @assignment.image.attached? %>
+            <%= image_tag(@assignment.image, width: '200') %>
+            <% end %> <br>
 
-        <h1><strong>
-        <%= @assignment.title %>
-        </strong></h1><br>
-        <%= @assignment.due_date %>
-        <br>
-        <%= @assignment.todo %>
-        <br><br>
+            <h1 class="card-title"><%= @assignment.title %></h1>
+            <br>
+            <%= @assignment.due_date %>
+            <br>
+            <%= @assignment.todo %>
+            <br><br>
 
-        <embed src="<%= File.path("/pdfSample.pdf") %>" type="application/pdf" width="500rem" height="700rem">
-
-        <%= link_to "Back", :back %>
+            <%= link_to "Back", :back %>
+        </div>
     </div>
+</div>
+</center>
 
-    <div class="col-6 pull-right" style="margin: 1rem;">
-    <div class="workspace">
-
-        <!-- Create the editor container -->
-        <div id="editor">
-        <p>Hello World!</p>
-        <p><br></p>
+    <div class="row workspace">
+        <div class="col-6">
+            <embed src="<%= File.path("/pdfSample.pdf") %>" type="application/pdf" width="600rem" height="700rem">
         </div>
 
-
-       
-
+        <div class="col-6">
+            <!-- Create the editor container -->
+            <div id="editor" height="700rem">
+            <p>Hello World!</p>
+            <p><br></p>
+        </div>
         </div>
     </div>
 </div>
 
 
-<center>
-
-<%= link_to edit_assignment_path do %>
-    <button type="button" class="btn btn-primary">
-    Edit
-    </button>
-    <% end %>
-    
-    <%= link_to assignment_path(@assignment), method: :delete  do %>
-    <button type="button" class="btn btn-danger">
-    Delete
-    </button>
-    <% end %>
-    <br>
-
-<h1><%= @assignment.title %> Page</h1>
-<% if @assignment.image.attached? %>
-    <%= image_tag(@assignment.image, width: '200') %>
-    <% end %> <br>
-  
-    <h1><strong>
-    <%= @assignment.title %>
-    </strong></h1><br>
-    <%= @assignment.due_date %>
-    <br>
-    <%= @assignment.todo %>
-    <br><br>
-
-
-    
-
-    <embed src="<%= File.path("/pdfSample.pdf") %>" type="application/pdf" width="50%" height="700rem">
-
-
-    <%= link_to "Back", :back %>
-
-</center>
 
