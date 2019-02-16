@@ -1,5 +1,5 @@
 
-<%= form_for(@assignment, url: assignments_path, method: :post) do |form| %>
+<%= form_for(@assignment, html: {multipart:true}, url: assignments_path, method: :post) do |form| %>
     <label> Title</label><br>
     <%= form.text_field :title %> <br>
     <label>Due date</label><br>

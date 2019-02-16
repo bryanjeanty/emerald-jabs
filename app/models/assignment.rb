@@ -6,4 +6,6 @@ class Assignment < ApplicationRecord
   belongs_to :students, optional: true
   has_one_attached :image
   has_one_attached :file
+  
+
 end
