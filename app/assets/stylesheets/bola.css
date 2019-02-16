@@ -1,16 +1,19 @@
 a {
    padding: .8rem;
-   color: #066D0A;
+   color: #066D0A !important;
 }
 .logo {
    float: left;
    font-weight: bolder;
-   color: #066D0A;
-   font-size: 1.5rem;
-   width: 40px;
+   color: #ffffff;
+   font-size: 2rem;
+   width: 140px;
+   margin: 0 0px 0 0px;
 }
-.logo img {
+.emerald img {
    width: 40px;
+   float: left;
+   margin: 0 10px 0 20px;
 }
 .navlinks {
    float: left;
@@ -23,11 +26,38 @@ a {
    font-size:1.25rem; 
 }
 .barnav {
+   display: flex;
    align-items: center;
-   background-color: rgb(204, 224, 205);
-   padding: 5px 0 0 0;
-   height: 80px;
+   background-color: rgb(149, 179, 145);
+   height: 100px;
 }
+.heroImg {
+   background-image: url('/images/children-banner.jpg');
+   background-size: cover;
+   height: 70vh;
+}
+
+.hero-text-container {
+   width: 500px;
+   height: 30vh;
+   float: left;
+   margin: 48px 80px 80px 80px;
+}
+.hero-text {
+   font-size: 7.5rem;
+   font-family:'Rum Raisin', sans-serif;
+   line-height: 7.5rem;
+   color: #066D0A;
+}
+.hero-text-butt {
+   border-top: black 1px solid;
+   padding: 15px 0 0 0;
+   font-size: 3.5rem;
+   font-family:'Roboto', sans-serif;
+   line-height: 3.5rem;
+   color: #000000;
+}
+
 .hero {
    background: url('children-banner.jpg') no-repeat center fixed;
 }
@@ -48,4 +78,9 @@ a {
    width: 100%;
    overflow-y: scroll;
    object-fit: contain;
+
+.wrapper {
+   width: 1240px;
+   margin: 0 auto;
+
 }
