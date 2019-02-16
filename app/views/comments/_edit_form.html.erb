@@ -1,0 +1,10 @@
+<%= form_with model: @comment.find_by(id: comment.id), url: update_post_comments_path(@post, comment), method: :patch do |f| %>
+    <%= f.label :title %> <br> 
+    <%= f.text_field :title %> <br>
+    <%= f.label :content %> <br>
+    <%= f.text_area :content %> <br>
+    <%= f.label :upload_image_below %> <br>
+    <%= f.file_field :image %> <br>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <%= f.submit "Create Comment" %>
+<% end %>

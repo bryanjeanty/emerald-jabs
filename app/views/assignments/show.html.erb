@@ -3,7 +3,7 @@
 <% if @assignment.image.attached? %> 
 <% image_tag(@assignment.image, width: '300') %> 
 <% else %> <% @assignment.file %> <%end%>
-<%= link_to "Delete Assignment", assignment_path(@assignment), method: :delete %>
+<% link_to "Delete Assignment", assignment_path(@assignment), method: :delete %>
 
 <div class="row">
     <div class="col-6 pull-left">

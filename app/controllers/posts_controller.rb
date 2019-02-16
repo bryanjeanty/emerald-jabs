@@ -45,13 +45,4 @@ class PostsController < ApplicationController
         @post.destroy
         redirect_to root_path
     end
-
-    private
-    def posts_params
-        params.require(:post).permit(:title, :content, :image)
-    end
-
-    def attach_params
-        params[:post][:image]
-    end
 end

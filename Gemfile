@@ -31,6 +31,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'mini_magick', '~> 4.8'
 gem 'activestorage'
 
+# Turbolinks makes following links in your web application faster (use with Rails Asset Pipeline)
+gem 'turbolinks', '~> 2.5', '>= 2.5.3'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

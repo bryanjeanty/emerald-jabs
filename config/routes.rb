@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   
   # Post comments routes
   post '/posts/:post_id/comments' => 'comments#create', as: 'post_comments'
+  patch '/posts/:post_id/comments/:id' => 'comments#update', as: 'update_post_comment'
   delete '/posts/:post_id/comments/:id' => 'comments#destroy', as: 'delete_post_comment'
 
   resources :assignments
