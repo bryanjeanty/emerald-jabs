@@ -21,19 +21,16 @@
     <%= f.hidden_field :user_id, :value => current_user.id %>
     <%= f.submit "Create Comment" %>
 <% end %>
-<h4>Comment Section</h4>
-    <% count = 0 %>
-    <%= @post.comments.count %>
+<h4>Comment Section - <%= @post.comments.count %></h4>
     <% @post.comments.each do |comment| %>
         <div class="comment">
-            <%= comment.title %> 
+            <%= comment.title %> <br>
             <%= comment.content %>
         </div>
         <% if comment.image.attached? %>
             <%= image_tag(comment.image, width: '150') %> <br>
         <% end %>
         <%= link_to "Delete Comment", delete_post_comment_path(@post, comment), method: :delete %>
-        <%= count += 1 %>
     <% end %>
     <br>
 

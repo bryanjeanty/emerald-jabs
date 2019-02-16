@@ -6,8 +6,8 @@ class CommentsController < ApplicationController
             @comment = @post.comments.create(params.require(:comment).permit(:title, :content, :user_id))
         else
             @post = Post.find(params[:post_id])
-            @comment.image.attach(params[:comment][:image])
             @comment = @post.comments.create(params.require(:comment).permit(:title, :content, :user_id))
+            @comment.image.attach(params[:comment][:image])
         end
         redirect_to user_post_path(@post.user, @post)
     end
