@@ -64,6 +64,7 @@ gem 'devise', '~> 4.2'
 
 gem 'bcrypt', '~> 3.1', '>= 3.1.12'
 gem 'twitter-bootstrap-rails', '~> 4.0'
+gem 'carrierwave', '~> 1.0'
 
 # PDF generator
 gem 'prawn', '~> 2.2', '>= 2.2.2'

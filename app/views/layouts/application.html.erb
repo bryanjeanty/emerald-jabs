@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+  <meta name="google" content="notranslate" />
   <link href="https://fonts.googleapis.com/css?family=Roboto|Rum+Raisin" rel="stylesheet">
     <title>EmeraldApp</title>
     <%= csrf_meta_tags %>
@@ -14,14 +15,15 @@
   </head>
 
 <body>
-
+<div class="wrapper">
   <p class="alert-success"><%= notice %></p>
   <p class="alert-danger"><%= alert %></p>
 
   <div class="barnav">
   <p class="navbar-text pull-right">
     <% if user_signed_in? %>
-      <div class="logo"><%= image_tag ("emerald.png")%> emerald</div>
+      <div class="emerald"><%= image_tag ("emerald.png")%></div>
+      <div class="logo">emerald</div>
       <div class="navlinks">
       <%= link_to 'Home', root_path, :class => 'navbar-link' %> 
       <%= link_to 'Public Forum', forum_path, class: "navbar-link" %> 
@@ -38,7 +40,7 @@
   <%= yield %>
 
 
-  <!-- Include the Quill library -->
+      <!-- Include the Quill library -->
       <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 
       <!-- Initialize Quill editor -->
@@ -47,6 +49,6 @@
           theme: 'snow'
       });
       </script>
-
+</div><!-- close wrapper div -->
 </body>
 </html>
