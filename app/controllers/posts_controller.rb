@@ -19,8 +19,7 @@ class PostsController < ApplicationController
     
     def show
         @post = Post.find(params[:id])
-        @comments = @post.comments
-        @comment = @post.comments.new
+        @comment = @post.comments
     end
 
     def edit
@@ -45,14 +44,5 @@ class PostsController < ApplicationController
         @post = @user.posts.find(params[:id])
         @post.destroy
         redirect_to root_path
-    end
-
-    private
-    def posts_params
-        params.require(:post).permit(:title, :content, :image)
-    end
-
-    def attach_params
-        params[:post][:image]
     end
 end

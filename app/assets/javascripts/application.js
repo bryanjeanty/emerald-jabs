@@ -14,3 +14,26 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+document.addEventListener('DOMContentLoaded', () => {
+    document.addEventon('page:change', () => {
+        let comment = document.querySelectorAll('.comment');
+        let editCommentForm = document.querySelectorAll('.edit-comment-form');
+        let editCommentBtn = document.querySelectorAll('.edit-comment-btn');
+
+        function toggleEditComment(elem1, elem2) {
+            elem1.style.display = 'block';
+            elem2.style.display = 'none';
+        }
+
+        for(let i = 0; i < comment.length; i++) {
+            editCommentBtn[i].addEventListener('click', (event) => {
+                if (editCommentForm[i].style.display == 'none') {
+                    toggleEditComment(editCommentForm[i], comment[i]);
+                } else {
+                    toggleEditComment(comment[i], editCommentForm[i]);
+                }
+            })
+        }
+        document.location.reload();
+    });
+});
