@@ -15,7 +15,7 @@
 //= require turbolinks
 //= require_tree .
 document.addEventListener('DOMContentLoaded', () => {
-    document.addEventon('page:change', () => {
+    document.addEventListener("turbolinks:load", () => {
         let comment = document.querySelectorAll('.comment');
         let editCommentForm = document.querySelectorAll('.edit-comment-form');
         let editCommentBtn = document.querySelectorAll('.edit-comment-btn');
@@ -34,6 +34,5 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             })
         }
-        document.location.reload();
     });
 });
