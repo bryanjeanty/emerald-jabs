@@ -1,6 +1,7 @@
 class AssignmentsController < ApplicationController
   def index
     @assignment = Assignment.all
+    @user = User.all
   end
 
   def show

@@ -1,17 +1,21 @@
 
 <h1>Dashboard</h1>
-<div class="assignments" style="border: 1px solid black; height: 50%; width: 100%">
-    <%= link_to "Add New Assignment", new_assignment_path %><br>
+<div class="assignments">
+    <%= link_to new_assignment_path do %>
+    <button type="button" class="btn btn-success">New Assignment </button>
+<% end %><br> <br>
     <% @assignments.each do |assignment| %>
         <%= link_to assignment.title, assignment_path(assignment) %> <br>
-        <%= assignment.due_date%>)<br>
+        (<%= assignment.due_date%>)<br>
         <%= assignment.todo %>
         <br>
     <% end %>
 </div>
 
-<div class="posts" style="border: 1px solid black; height: 50%; width: 100%">
-    <%= link_to "Create New Post", new_user_post_path(current_user) %> <br> <br>
+<div class="posts">
+    <%= link_to new_user_post_path(current_user) do %>
+    <button type="button" class="btn btn-success">New Post </button>
+<% end %><br> <br>
     <% @posts.each do |post| %>
         <%= link_to post.title, user_post_path(current_user, post) %>
         <br>

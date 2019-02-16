@@ -1,12 +1,5 @@
-
-<h1><%= @assignment.title %> Page</h1>
-<% if @assignment.image.attached? %> 
-<%= image_tag(@assignment.image, width: '300') %> 
-<% else %> <%= @assignment.file %> <%end%>
-<%= link_to "Delete Assignment", assignment_path(@assignment), method: :delete %>
-
 <div class="row">
-    <div class="col-6 pull-left">
+    <div class="col-6 pull-left" style="margin: 1rem;">
         <%= link_to edit_assignment_path do %>
         <button type="button" class="btn btn-primary">
         Edit
@@ -37,7 +30,7 @@
         <%= link_to "Back", :back %>
     </div>
 
-    <div class="col-6 pull-right">
+    <div class="col-6 pull-right" style="margin: 1rem;">
     <div class="workspace">
 
         <!-- Create the editor container -->
