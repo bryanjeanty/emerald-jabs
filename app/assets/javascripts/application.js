@@ -19,24 +19,10 @@ document.addEventListener('DOMContentLoaded', () => {
         let comment = document.querySelectorAll('.comment');
         let editCommentForm = document.querySelectorAll('.edit-comment-form');
         let editCommentBtn = document.querySelectorAll('.edit-comment-btn');
-        let postText = document.querySelectorAll('.post-text');
 
         function toggleEditComment(elem1, elem2) {
             elem1.style.display = 'block';
             elem2.style.display = 'none';
-        }
-
-        for(let i = 0; i < postText.length; i++) {
-            if (postText[i].innerHTML.includes("[[")) {
-                let newStr = postText[i].innerHTML
-                newRes = newStr.replace("[[", "<mark style='background-color: red'>");
-                postText[i].innerHTML = `${ newRes }`
-            }
-            if (postText[i].innerHTML.includes("]]")) {
-                let newStr = postText[i].innerHTML
-                newRes = newStr.replace("]]", "</mark>");
-                postText[i].innerHTML = `${ newRes }`
-            }
         }
 
         for(let i = 0; i < comment.length; i++) {
@@ -47,6 +33,47 @@ document.addEventListener('DOMContentLoaded', () => {
                     toggleEditComment(comment[i], editCommentForm[i]);
                 }
             })
+        }
+
+        let postText = document.querySelectorAll('.post-text');
+
+        function storeHighlight(elem) {
+            elemArr = elem.split("");
+            let highlightArr = [];
+            for (let i = 0; i < elemArr.length; i++) {
+                if ((elemArr[i] == "[") && (elemArr[i+1] == "[")) {
+                    for(let j = i+2; j < elemArr.length; j++) {
+                        highlightArr.push(elemArr[j]);
+                        if ((elemArr[j+1] == "]") && (elemArr[j+2] == "]")) {
+                            highlightArr.push("<br>");
+                            break;
+                        }
+                    }
+                }
+            }
+            let highlight = highlightArr.join("");
+            return highlight;
+        }
+
+        function replaceAll(elem, marker, highlight) {
+            let newStr = elem.innerHTML;
+            newStr = newStr.split(marker);
+            newStr = newStr.join(highlight);
+            elem.innerHTML = `${ newStr }`
+        }
+
+        for(let i = 0; i < postText.length; i++) {
+            postStr = postText[i].innerHTML;
+            let highlightText = document.createElement('span');
+            highlightText.innerHTML += storeHighlight(postStr);
+
+            if (postText[i].innerHTML.includes("[[")) {
+                replaceAll(postText[i], "[[", "<mark style='background-color: red'>");
+            }
+            if (postText[i].innerHTML.includes("]]")) {
+                replaceAll(postText[i], "]]", "</mark>");
+            }
+            postText[i].appendChild(highlightText);
         }
     });
 });
