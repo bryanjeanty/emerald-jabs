@@ -12,7 +12,7 @@
             <% end %>
         </h3>
         <% @assignments.each do |assignment| %>
-        <%= link_to assignment.title, assignment_path(assignment) %>
+        <%= link_to assignment.title, user_assignment_path(assignment) %>
         (<%= assignment.due_date%>)<br>
         <% end %>
         

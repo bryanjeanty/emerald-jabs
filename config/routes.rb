@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   patch '/users/:user_id/assignments/:id' => 'assignments#update'
   delete '/users/:user_id/assignments/:id' => 'assignments#destroy'
 
-  resources :students
+  resources :admin
   resources :workspace
   
 end
