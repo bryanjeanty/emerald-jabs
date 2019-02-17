@@ -37,6 +37,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let postText = document.querySelectorAll('.post-text');
 
+        function storeHighlight(elem) {
+            elemArr = elem.split("");
+            let highlightArr = [];
+            for (let i = 0; i < elemArr.length; i++) {
+                if ((elemArr[i] == "[") && (elemArr[i+1] == "[")) {
+                    for(let j = i+2; j < elemArr.length; j++) {
+                        highlightArr.push(elemArr[j]);
+                        if ((elemArr[j+1] == "]") && (elemArr[j+2] == "]")) {
+                            highlightArr.push("<br>");
+                            break;
+                        }
+                    }
+                }
+            }
+            let highlight = highlightArr.join("");
+            return highlight;
+        }
+
         function replaceAll(elem, marker, highlight) {
             let newStr = elem.innerHTML;
             newStr = newStr.split(marker);
@@ -45,12 +63,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         for(let i = 0; i < postText.length; i++) {
+            postStr = postText[i].innerHTML;
+            let highlightText = document.createElement('span');
+            highlightText.innerHTML += storeHighlight(postStr);
+
             if (postText[i].innerHTML.includes("[[")) {
                 replaceAll(postText[i], "[[", "<mark style='background-color: red'>");
             }
             if (postText[i].innerHTML.includes("]]")) {
                 replaceAll(postText[i], "]]", "</mark>");
             }
+            postText[i].appendChild(highlightText);
         }
     });
 });
