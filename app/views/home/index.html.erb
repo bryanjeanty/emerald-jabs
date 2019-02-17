@@ -1,29 +1,35 @@
 
 <div class="row">
 <h1>Dashboard</h1>
-<div>
-<%= link_to new_assignment_path do %>
-    <button type="button" class="btn btn-success">New Assignment </button>
-<% end %>
-<%= link_to new_user_post_path(current_user) do %>
-    <button type="button" class="btn btn-success">New Post </button>
-<% end %>
-</div>
+
 </div>
 
 <div class="row">
     <div class="col-6 assignments">
-    <h1>Assignments</h1>
-    <% @assignments.each do |assignment| %>
+        <%= link_to assignments_path do %>
+        <h3 class="text-center">Assignments
+        <% end %>
+            <%= link_to new_assignment_path do %>
+            <button type="button" class="btn btn-success">New Assignment </button>
+            <% end %>
+        </h3>
+        <% @assignments.each do |assignment| %>
         <%= link_to assignment.title, assignment_path(assignment) %>
-        (<%= assignment.due_date%>)<br><br>
-    <% end %>
+        (<%= assignment.due_date%>)<br>
+        <% end %>
+        
     </div>
     <div class="col-6 posts">
-        <h1>Posts</h1>
+    <%= link_to forum_path do %>
+        <h3 class="text-center">Posts 
+        <% end %>
+            <%= link_to new_user_post_path(current_user) do %>
+            <button type="button" class="btn btn-success">New Post </button>
+            <% end %>
+        </h3>
         <% @posts.each do |post| %>
-            <%= link_to post.title, user_post_path(current_user, post) %>
-            <br>
+        <%= link_to post.title, user_post_path(current_user, post) %>
+        <br>
         <% end %>
     </div>
 </div>

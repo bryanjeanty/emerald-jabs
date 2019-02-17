@@ -1,46 +1,54 @@
-<div class="row">
-    <div class="card">
-        <div class="card-body">
-            <h2 class="card-title"></h2>
-            <%= link_to edit_assignment_path do %>
-            <button type="button" class="btn btn-primary">
-            Edit
-            </button>
-            <% end %>
+<div class="row workspace pull-right">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title"></h2>
+                <%= link_to edit_assignment_path do %>
+                <button type="button" class="btn btn-primary">
+                Edit
+                </button>
+                <% end %>
 
-            <%= link_to assignment_path(@assignment), method: :delete  do %>
-            <button type="button" class="btn btn-danger">
-            Delete
-            </button>
-            <% end %>
-            <br>
+                <%= link_to assignment_path(@assignment), method: :delete  do %>
+                <button type="button" class="btn btn-danger">
+                Delete
+                </button>
+                <% end %>
+                <br>
 
-            <% if @assignment.image.attached? %>
-            <%= image_tag(@assignment.image, width: '200') %>
-            <% end %> <br>
+                <% if @assignment.image.attached? %>
+                <%= image_tag(@assignment.image, width: '200') %>
+                <% end %> <br>
 
-            <h1 class="card-title"><%= @assignment.title %></h1>
-            <br>
-            <%= @assignment.due_date %>
-            <br>
-            <%= @assignment.todo %>
-            <br><br>
+                <h1 class="card-title"><%= @assignment.title %></h1>
+                <br>
+            </div>
+        </div>
 
-            <%= link_to "Back", :back %>
-      </div>
-    </div>
+        <div class="card">
+            <div class="card-body">
+                <%= @assignment.due_date %>
+                <br>
+                <%= @assignment.todo %>
+                <br><br>
+
+                <%= link_to "Back", :back %>
+            </div>
+        </div>
+
 </div>
 </center>
 
-    <div class="row workspace">
-        <div class="col-6">
-            <embed src="<%= File.path("/pdfSample.pdf") %>" type="application/pdf" width="600rem" height="600rem">
-        </div>
+<div class="row workspace">
+    <div class="col-6">
+    <h3>PDF Viewer</h3>
+        <embed src="<%= File.path("/pdfSample.pdf") %>" type="application/pdf" width="600rem" height="600rem">
+    </div>
 
-        <div class="col-6">
-            <!-- Create the editor container -->
-            <input name="about" type="hidden">
-            <div id="editor">
+    <div class="col-6">
+    <h3>Text Editor</h3>
+        <!-- Create the editor container -->
+        <input name="about" type="hidden">
+        <div id="editor">
             <h2>One Ring to Rule Them All</h2>
             <p><a href="http://en.wikipedia.org/wiki/One_Ring">http://en.wikipedia.org/wiki/One_Ring</a></p>
             <p><br/></p>
@@ -53,10 +61,10 @@
             <p>One Ring to <strong>rule</strong> them all, One Ring to <strong>find</strong> them,</p>
             <p>One Ring to <strong>bring</strong> them all and in the darkness <strong>bind</strong> them.</p>
             <p>In the Land of Mordor where the Shadows lie.</p>
-            </div>
-                <div>
-                <a class="btn btn-success" href="javascript: post()" role="button">Save</a>
-                </div>
         </div>
+            <div>
+            <a class="btn btn-success" href="javascript: post()" role="button">Save</a>
+            </div>
     </div>
 </div>
+
