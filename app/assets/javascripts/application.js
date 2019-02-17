@@ -59,9 +59,11 @@ document.addEventListener('DOMContentLoaded', () => {
         for (let i = 0; i < postText.length; i++) {
             let postStr = postText[i].innerHTML;
             let highlightText = storeHighlight(postStr);
-            // highlightText.innerHTML += storeHighlight(postStr);
-            // highlightTextBox[i].appendChild(highlightText);
-            highlightTextBox[i].innerHTML += `${ highlightText }`;
+            if (highlightText.length == 0) {
+                highlightTextBox[i].innerHTML = "Sorry No Highlights To View!";
+            } else {
+                highlightTextBox[i].innerHTML = `${ highlightText }`;
+            }
         }
 
         function replaceAll(elem, marker, highlight) {
