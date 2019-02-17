@@ -1,14 +1,14 @@
 
 <h1>Public Forum</h1>
 <% count = 0 %>
-<div style="border: 1px solid black; min-height: 100vh;">
+    
+
+<div class="list-group">
     <% @posts.each do |post| %>
-                        <%= link_to post.title, user_post_path(post.user, post) %>
-
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable-<%= count %>">
-                            View Highlights
-                        </button>
-
+        <div class="list-group-item list-group-item-action post-link">
+            <div class="d-flex w-100 justify-content-between">
+                <h5><%= link_to post.title, user_post_path(post.user, post) %></h5>
+                
                         <div class="modal fade" id="exampleModalScrollable-<%= count %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
                             <div class="highlight-box modal-dialog modal-dialog-scrollable modal-dialog-centered" role="document">
                                 <div class="modal-content">
@@ -28,14 +28,17 @@
                                 </div>
                             </div>
                         </div>
-
-                        <% if post.image.attached? %>
-                            <br>
-                            <%= image_tag(post.image, width: '200') %>
-                        <% end %>
-
-                        
-                        <p class="post-text"><%= post.content %></p>
+                        <small>3 days ago</small>
+            </div>
+            <div class="d-flex w-100 justify-content-between">
+                <p class="ml-2 post-text"><%= post.content %></p>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable-<%= count %>">
+                            View Highlights
+                        </button>
+            </div>
+            <small class="ml-2"><%= post.user.email %></small>
+        </div>
         <% count += 1 %>  
     <% end %>
 </div>
+
