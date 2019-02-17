@@ -1,16 +1,44 @@
 <h1>Public Forum</h1>
+<% count = 0 %>
 <% @posts.each do |post| %>
     <div style="display: flex; height: 100%">
         <div style="width: 60%; height: 100%; margin-left: auto; margin-right: auto;">
             <div class="card bg-light " style="padding:0; width: 100%">
-            <div class="card-header"><%= link_to post.title, user_post_path(post.user, post) %></div>
+            <div class="card-header">
+                <%= link_to post.title, user_post_path(post.user, post) %>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">
+                    View Highlights
+                </button>
+                <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                    <div class="highlight-box modal-dialog modal-dialog-scrollable modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalScrollableTitle">Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
                 <% if post.image.attached? %>
                         <%= image_tag(post.image, class: "card-img-top") %>
                 <% end %>
                 <div class="card-body">
                     <p class="card-text post-text"><%= post.content %></p>
+                    <p class="highlight-text-field">Replace Me!</p>
                 </div>
             </div>
         </div>
-    </div>    
+    </div>  
+    <% count += 1 %>  
 <% end %>

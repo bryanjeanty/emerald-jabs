@@ -19,24 +19,10 @@ document.addEventListener('DOMContentLoaded', () => {
         let comment = document.querySelectorAll('.comment');
         let editCommentForm = document.querySelectorAll('.edit-comment-form');
         let editCommentBtn = document.querySelectorAll('.edit-comment-btn');
-        let postText = document.querySelectorAll('.post-text');
 
         function toggleEditComment(elem1, elem2) {
             elem1.style.display = 'block';
             elem2.style.display = 'none';
-        }
-
-        for(let i = 0; i < postText.length; i++) {
-            if (postText[i].innerHTML.includes("@")) {
-                let newStr = postText[i].innerHTML
-                newRes = newStr.replace("@", "<mark style='background-color: red'>");
-                postText[i].innerHTML = `${ newRes }`
-            }
-            if (postText[i].innerHTML.includes("$")) {
-                let newStr = postText[i].innerHTML
-                newRes = newStr.replace("$", "</mark>");
-                postText[i].innerHTML = `${ newRes }`
-            }
         }
 
         for(let i = 0; i < comment.length; i++) {
@@ -48,5 +34,57 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             })
         }
+
+        let postText = document.querySelectorAll('.post-text');
+        let highlightTextField = document.querySelectorAll('.highlight-text-field');
+        let modalBody = document.getElementsByClassName('modal-body');
+        modalBody[2].innerHTML = 'what';
+        // for (let i = 0; i < highlightTextField.length; i++) {
+        //     highlightTextField[2].innerHTML = postText[2].innerHTML;
+        // }
+
+        function storeHighlight(elem) {
+            elemArr = elem.split("");
+            let highlightArr = [];
+            for (let i = 0; i < elemArr.length; i++) {
+                if ((elemArr[i] == "[") && (elemArr[i+1] == "[")) {
+                    for(let j = i+2; j < elemArr.length; j++) {
+                        highlightArr.push(elemArr[j]);
+                        if ((elemArr[j+1] == "]") && (elemArr[j+2] == "]")) {
+                            highlightArr.push("<br>");
+                            break;
+                        }
+                    }
+                }
+            }
+            let highlight = highlightArr.join("");
+            return highlight;
+        }
+
+        function replaceAll(elem, marker, highlight) {
+            let newStr = elem.innerHTML;
+            newStr = newStr.split(marker);
+            newStr = newStr.join(highlight);
+            elem.innerHTML = `${ newStr }`
+        }
+
+        // for(let i = 0; i < postText.length; i++) {
+        //     postStr = postText[i].innerHTML;
+        //     // let highlightText = document.createElement('p');
+        //     // highlightText.innerHTML = storeHighlight
+        //     // highlightTextField[i].appendChild(highlightTextBox);
+        //     // if (highlightText.innerHTML.length == 0) {
+        //     //     highlightTextField[i].innerHTML = "Sorry! No Highlighted Material!";
+        //     // } else {
+        //     //     highlightTextField[i].appendChild(highlightText);
+        //     // }
+
+        //     if (postText[i].innerHTML.includes("[[")) {
+        //         replaceAll(postText[i], "[[", "<mark style='background-color: red'>");
+        //     }
+        //     if (postText[i].innerHTML.includes("]]")) {
+        //         replaceAll(postText[i], "]]", "</mark>");
+        //     }
+        // }
     });
 });

@@ -59,7 +59,7 @@ a:hover {
 }
 
 .heroImg {
-   background-image: url('/images/children-banner.jpg');
+   background-image: url('/images/children-banner.png');
    background-size: cover;
    height: 70vh;
 }
@@ -87,8 +87,12 @@ a:hover {
    color: #000000;
 }
 
-.hero {
-   background: url('children-banner.jpg') no-repeat center fixed;
+.row {
+   margin: 0 !important;
+}
+
+.col-6 assignments card {
+   margin: 0 !important;
 }
 
 .assignments {
@@ -118,6 +122,7 @@ a:hover {
    /* height: 100%; */
    /* max-width: 45%; */
    margin: 0;
+
 }
 
 .card-body {
