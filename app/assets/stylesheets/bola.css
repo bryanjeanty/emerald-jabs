@@ -1,7 +1,29 @@
+* {
+   padding: 0;
+   margin: 0; }
+ 
+body {
+   background-color: #d9f1c6;
+   animation: fadeIn 1.5s forwards; 
+ }
+ 
+ @keyframes fadeIn {
+   0% {
+     opacity: 0; }
+   100% {
+     opacity: 1; } }
+ 
+
 a {
    padding: .8rem;
    color: #066D0A !important;
 }
+
+a:hover {
+   text-decoration: none;
+   color: rgb(9, 184, 15);
+ }
+
 .logo {
    float: left;
    font-weight: bolder;
@@ -10,27 +32,32 @@ a {
    width: 140px;
    margin: 0 0px 0 0px;
 }
+
 .emerald img {
    width: 40px;
    float: left;
    margin: 0 10px 0 20px;
 }
+
 .navlinks {
    float: left;
    width: 650px;
    font-size:1.25rem; 
 }
+
 .navEmail {
    float: left;
    width: 400px;
    font-size:1.25rem; 
 }
+
 .barnav {
    display: flex;
    align-items: center;
    background-color: rgb(149, 179, 145);
    height: 100px;
 }
+
 .heroImg {
    background-image: url('/images/children-banner.jpg');
    background-size: cover;
@@ -43,12 +70,14 @@ a {
    float: left;
    margin: 48px 80px 80px 80px;
 }
+
 .hero-text {
    font-size: 7.5rem;
    font-family:'Rum Raisin', sans-serif;
    line-height: 7.5rem;
    color: #066D0A;
 }
+
 .hero-text-butt {
    border-top: black 1px solid;
    padding: 15px 0 0 0;
@@ -63,42 +92,58 @@ a {
 }
 
 .assignments {
-   border: 1px solid black;
+   /* border: 1px solid black; */
    padding: 1rem;
    height: 26rem;
-   width: 100%;
+   width: 90%;
    overflow-y: scroll;
    object-fit: contain;
 }
 
 .posts {
-   border: 1px solid black;
+   /* border: 1px solid black; */
    padding: 1rem;
    height: 26rem;
-   width: 100%;
+   width: 90%;
    overflow-y: scroll;
    object-fit: contain;
 }
 
-.col-6{
+.row {
+   display: flex;
+   justify-content: center;
+   line-height: 2rem;
+}
+.col-6 {
    /* height: 100%; */
-   max-width: 45%;
+   /* max-width: 45%; */
+   margin: 0;
 }
 
-.card {
+.card-body {
    border-radius: 1.5rem;
    background-color: rgba(20, 107, 2, 0.70);
    margin: 1rem;
+   /* justify-content: center; */
  }
  
 .workspace {
    display: flex;
    height: 100vh;
-   width: 100vw;
+   width: 90vw;
+   /* background-color: #066D0A; */
  }
+
+
+
+#editor {
+   height: 33rem;
+   background-color: #23241f;
+   color: #f8f8f2;
+   overflow: visible;
+}
 
 .wrapper {
    width: 1240px;
    margin: 0 auto;
-
 }
