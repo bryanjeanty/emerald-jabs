@@ -13,13 +13,13 @@ class AssignmentsController < ApplicationController
   end
 
   def create
-   @assignment = Assignment.new(assignment_params)
-   if @assignment.valid?
-     @assignment.save
-     redirect_to assignments_path
-   else
-     redirect_to new_assignment_path
+  #  @assignment = Assignment.new(assignment_params)
+  if params[:assignment].nil?
+    @assignment = current_user.assignment.create!(params.require(:assignment).permit(:title, :todo))
+  #  else
+  #   @assignment = current_user.assignment.create!(params.require(:assignment).permit(:title, :content))
    end
+   redirect_to assignment_path
   end
 
   def edit

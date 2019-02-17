@@ -1,9 +1,8 @@
+
 <h1>Public Forum</h1>
 <% count = 0 %>
 <div style="border: 1px solid black; min-height: 100vh;">
     <% @posts.each do |post| %>
-                <%# <div class="card bg-light" style="padding: 0; width: 50%;"> %>
-                    <%# <div class="card-header"> %>
                         <%= link_to post.title, user_post_path(post.user, post) %>
 
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable-<%= count %>">
@@ -34,11 +33,7 @@
                             <br>
                             <%= image_tag(post.image, width: '200') %>
                         <% end %>
-                        <%# <div class="card-body"> %>
-                            <p class="card-text post-text"><%= post.content %></p>
-                        <%# </div> %>
-                    <%# </div> %>
-                <%# </div> %>
+                        <p class="card-text post-text"><%= post.content %></p>
         <% count += 1 %>  
     <% end %>
 </div>
