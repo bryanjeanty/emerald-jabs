@@ -5,6 +5,7 @@
 body {
    background-color: #d9f1c6;
    animation: fadeIn 1.5s forwards; 
+   font-family: Roboto;
  }
  
  @keyframes fadeIn {
