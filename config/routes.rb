@@ -19,7 +19,15 @@ Rails.application.routes.draw do
   patch '/posts/:post_id/comments/:id' => 'comments#update', as: 'update_post_comment'
   delete '/posts/:post_id/comments/:id' => 'comments#destroy', as: 'delete_post_comment'
 
-  resources :assignments
+  # User assignments routes
+  get '/assignment' => 'assignments#index', as: 'assignment'
+  get '/users/:user_id/assignments/new' => 'assignments#new', as: 'new_user_assignment'
+  post '/users/:user_id/assignments' => 'assignments#create', as: 'user_assignments'
+  get '/users/:user_id/assignments/:id' => 'assignments#show', as: 'user_assignment'
+  get '/users/:user_id/assignments/:id/edit' => 'assignments#edit', as: 'edit_user_assignment'
+  patch '/users/:user_id/assignments/:id' => 'assignments#update'
+  delete '/users/:user_id/assignments/:id' => 'assignments#destroy'
+
   resources :students
   resources :workspace
   

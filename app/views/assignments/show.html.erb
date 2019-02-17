@@ -1,42 +1,33 @@
 <div class="row workspace pull-right">
-        <div class="card">
-            <div class="card-body">
-                <h2 class="card-title"></h2>
-                <%= link_to edit_assignment_path do %>
-                <button type="button" class="btn btn-primary">
-                Edit
-                </button>
-                <% end %>
+    <h2 class="card-title"></h2>
+    <%= link_to edit_user_assignment_path do %>
+    <button type="button" class="btn btn-primary">
+    Edit
+    </button>
+    <% end %>
 
-                <%= link_to assignment_path(@assignment), method: :delete  do %>
-                <button type="button" class="btn btn-danger">
-                Delete
-                </button>
-                <% end %>
-                <br>
+    <%= link_to assignment_path(@assignment), method: :delete  do %>
+    <button type="button" class="btn btn-danger">
+    Delete
+    </button>
+    <% end %>
+    <br>
 
-                <% if @assignment.image.attached? %>
-                <%= image_tag(@assignment.image, width: '200') %>
-                <% end %> <br>
+    <% if @assignment.image.attached? %>
+    <%= image_tag(@assignment.image, width: '200') %>
+    <% end %> <br>
 
-                <h1 class="card-title"><%= @assignment.title %></h1>
-                <br>
-            </div>
-        </div>
+    <h1 class="card-title"><%= @assignment.title %></h1>
+    <br>
 
-        <div class="card">
-            <div class="card-body">
-                <%= @assignment.due_date %>
-                <br>
-                <%= @assignment.todo %>
-                <br><br>
+    <%= @assignment.due_date %>
+    <br>
+    <%= @assignment.todo %>
+    <br><br>
 
-                <%= link_to "Back", :back %>
-            </div>
-        </div>
+    <%= link_to "Back", :back %>
 
 </div>
-</center>
 
 <div class="row workspace">
     <div class="col-6">
