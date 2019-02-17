@@ -1,15 +1,27 @@
 
-<%= form_for(@assignment, html: {multipart:true}, url: assignments_path, method: :post) do |form| %>
+<%= form_for(@assignment, html: {multipart:true}, url: user_assignments_path, method: :post) do |form| %>
     <label> Title</label><br>
     <%= form.text_field :title %> <br>
     <label>Due date</label><br>
     <%= form.date_field :due_date %> <br>
     <label> Description</label><br>
     <%= form.text_area :todo %> <br>
-    <%= form.file_field :image %><br>
-    <%= form.file_field :file %><br> <br>
+
+    <div class="image-upload">
+      <label for="img-input">
+      <span class="far fa-images">
+      </span> Upload Image</label>
+      <%= form.file_field :image, id: "img-input" %><br>
+    </div>
+
+    <div class="image-upload">
+      <label for="file-input">
+      <span class="far fa-file-pdf">
+      </span>  Upload PDF</label>
+    <%= form.file_field :file, id: "file-input" %><br>
+    </div>
     
-    <%= form.submit "Add", {class: "btn btn-success"} %><br><br>
+    <%= form.submit "Add Assignment", {class: "btn btn-success"} %><br><br>
 
     <%= link_to "Back", :back %>
     <% end %>

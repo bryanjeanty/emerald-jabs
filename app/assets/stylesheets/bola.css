@@ -5,6 +5,7 @@
 body {
    background-color: #d9f1c6;
    animation: fadeIn 1.5s forwards; 
+   font-family: Roboto;
  }
  
  @keyframes fadeIn {
@@ -139,7 +140,13 @@ a:hover {
    /* background-color: #066D0A; */
  }
 
+.image-upload > input {
+   display: none
+}
 
+.image-upload > label {
+   cursor: pointer;
+}
 
 #editor {
    height: 33rem;
