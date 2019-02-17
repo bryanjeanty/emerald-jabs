@@ -1,6 +1,8 @@
-<h1>Public Forum</h1>
-<% count = 0 %>
-<% @posts.each do |post| %>
+<br>
+<div class="assignments" style="height: 35rem; width: 100%">
+    <h1>Public Forum</h1>
+    <% count = 0 %>
+    <% @posts.each do |post| %>
     <div style="display: flex; height: 100%">
         <div style="width: 60%; height: 100%; margin-left: auto; margin-right: auto;">
             <div class="card bg-light " style="padding:0; width: 100%">
@@ -41,4 +43,5 @@
         </div>
     </div>  
     <% count += 1 %>  
-<% end %>
+    <% end %>
+</div>

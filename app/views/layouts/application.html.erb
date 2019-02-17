@@ -2,6 +2,7 @@
 <html>
   <head>
   <meta name="google" content="notranslate" />
+  <link rel="favicon" href="./images/favicon.ico">
   <link href="https://fonts.googleapis.com/css?family=Roboto|Rum+Raisin" rel="stylesheet">
     <title>EmeraldApp</title>
     <%= csrf_meta_tags %>
@@ -23,18 +24,31 @@
   <div class="barnav">
   <p class="navbar-text">
     <% if user_signed_in? %>
-      <div class="emerald"><%= image_tag ("emerald.png")%></div>
-      <div class="logo">emerald</div>
+      <%= link_to root_path, :class => 'navbar-link' do %> 
+      <div class="emerald"><%= image_tag ("emerald.png")%>
+      emerald</div>
+      <% end %>
       <div class="navlinks">
-      <%= link_to 'Home', root_path, :class => 'navbar-link' %> 
-      <%= link_to 'Public Forum', forum_path, class: "navbar-link" %> 
-      <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> 
-      <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %>
+      
+      <%= link_to forum_path, class: "navbar-link" do %>
+      <button type="button" class="btn btn-secondary">Public Forum</button>
+      <% end %> 
+      <%= link_to edit_user_registration_path, :class => 'navbar-link' do %>
+      <button type="button" class="btn btn-secondary">Edit Profile</button>
+      <% end %>
+      <%= link_to destroy_user_session_path, method: :delete, :class => 'navbar-link' do %>
+      <button type="button" class="btn btn-danger">Logout</button>
+      <% end %>
       </div>
       <div class="navEmail">Logged in as <strong><%= current_user.email %></strong></div>
+    
     <% else %>
-      <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> 
-      <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+      <%= link_to new_user_registration_path, :class => 'navbar-link' do %>
+      <button type="button" class="btn btn-primary">Sign Up</button>
+      <% end %>
+      <%= link_to new_user_session_path, :class => 'navbar-link' do %>
+      <button type="button" class="btn btn-success">Log In</button>
+      <% end %>
     <% end %>
   </p>
 </div>
