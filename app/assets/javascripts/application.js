@@ -36,6 +36,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         let postText = document.querySelectorAll('.post-text');
+        let highlightTextField = document.querySelectorAll('.highlight-text-field');
+        let modalBody = document.getElementsByClassName('modal-body');
+        modalBody[2].innerHTML = 'what';
+        // for (let i = 0; i < highlightTextField.length; i++) {
+        //     highlightTextField[2].innerHTML = postText[2].innerHTML;
+        // }
 
         function storeHighlight(elem) {
             elemArr = elem.split("");
@@ -62,18 +68,23 @@ document.addEventListener('DOMContentLoaded', () => {
             elem.innerHTML = `${ newStr }`
         }
 
-        for(let i = 0; i < postText.length; i++) {
-            postStr = postText[i].innerHTML;
-            let highlightText = document.createElement('span');
-            highlightText.innerHTML += storeHighlight(postStr);
+        // for(let i = 0; i < postText.length; i++) {
+        //     postStr = postText[i].innerHTML;
+        //     // let highlightText = document.createElement('p');
+        //     // highlightText.innerHTML = storeHighlight
+        //     // highlightTextField[i].appendChild(highlightTextBox);
+        //     // if (highlightText.innerHTML.length == 0) {
+        //     //     highlightTextField[i].innerHTML = "Sorry! No Highlighted Material!";
+        //     // } else {
+        //     //     highlightTextField[i].appendChild(highlightText);
+        //     // }
 
-            if (postText[i].innerHTML.includes("[[")) {
-                replaceAll(postText[i], "[[", "<mark style='background-color: red'>");
-            }
-            if (postText[i].innerHTML.includes("]]")) {
-                replaceAll(postText[i], "]]", "</mark>");
-            }
-            postText[i].appendChild(highlightText);
-        }
+        //     if (postText[i].innerHTML.includes("[[")) {
+        //         replaceAll(postText[i], "[[", "<mark style='background-color: red'>");
+        //     }
+        //     if (postText[i].innerHTML.includes("]]")) {
+        //         replaceAll(postText[i], "]]", "</mark>");
+        //     }
+        // }
     });
 });
