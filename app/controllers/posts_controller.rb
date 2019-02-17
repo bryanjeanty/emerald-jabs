@@ -12,8 +12,8 @@ class PostsController < ApplicationController
         if params[:post][:image].nil?
             @post = current_user.posts.create!(params.require(:post).permit(:title, :content))
         else
-            @post.image.attach(params[:post][:image])
             @post = current_user.posts.create!(params.require(:post).permit(:title, :content))
+            @post.image.attach(params[:post][:image])
         end
         redirect_to root_path
     end
