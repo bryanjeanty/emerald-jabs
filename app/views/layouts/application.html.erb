@@ -40,18 +40,18 @@
       <button type="button" class="btn btn-danger">Logout</button>
       <% end %>
       </div>
-      <div class="navEmail">Logged in as <strong><%= current_user.email %></strong></div>
+      <div class="navEmail">Logged in as <strong><%= current_user.email %></strong></div><br>
     
     <% else %>
-      <%= link_to new_user_registration_path, :class => 'navbar-link' do %>
-      <button type="button" class="btn btn-primary">Sign Up</button>
+        <%= link_to new_user_registration_path, :class => 'navbar-link' do %>
+        <button type="button" class="btn btn-primary">Sign Up</button>
       <% end %>
-      <%= link_to new_user_session_path, :class => 'navbar-link' do %>
-      <button type="button" class="btn btn-success">Log In</button>
-      <% end %>
+        <%= link_to new_user_session_path, :class => 'navbar-link' do %>
+        <button type="button" class="btn btn-success">Log In</button>
+        <% end %>
     <% end %>
-  </p>
-</div>
+</div><br>
+
   <%= yield %>
 
 </div><!-- close wrapper div -->

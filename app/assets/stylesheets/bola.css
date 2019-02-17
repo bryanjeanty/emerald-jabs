@@ -3,7 +3,7 @@
    margin: 0; }
  
 body {
-   background-color: #9dd86d;
+   background-color: #7fd637;
    animation: fadeIn 1.5s forwards; 
    font-family: Roboto;
  }
@@ -68,7 +68,8 @@ a:hover {
 .heroImg {
    background-image: url('/images/children-banner.png');
    background-size: cover;
-   height: 70vh;
+   height: 110vh;
+   border-radius: 1rem;
 }
 
 .hero-text-container {
@@ -107,7 +108,7 @@ a:hover {
    background-color: #9dd86d;
    /* border: 1px solid black; */
    padding: 1rem;
-   height: 26rem;
+   height: 28rem;
    width: 90%;
    overflow-y: scroll;
    object-fit: contain;
@@ -118,7 +119,7 @@ a:hover {
    background-color: #9dd86d;
    /* border: 1px solid black; */
    padding: 1rem;
-   height: 26rem;
+   height: 28rem;
    width: 90%;
    overflow-y: scroll;
    object-fit: contain;
@@ -140,7 +141,7 @@ a:hover {
 .card-body {
    border-radius: 1.5rem;
    background-color: rgba(20, 107, 2, 0.70);
-   margin: 1rem;
+   /* margin: 1rem; */
    /* justify-content: center; */
  }
  
