@@ -5,7 +5,7 @@
 body {
    background-color: #7fd637;
    animation: fadeIn 1.5s forwards; 
-   font-family: Roboto;
+   font-family: 'Roboto', sans-serif;
  }
  
  @keyframes fadeIn {
@@ -18,6 +18,7 @@ body {
 a {
    padding: .8rem;
    color: #066D0A !important;
+   text-decoration: none !important;
 }
 
 a:hover {
