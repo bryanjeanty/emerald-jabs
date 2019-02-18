@@ -13,13 +13,21 @@ class AssignmentsController < ApplicationController
   end
 
   def create
-   @assignment = Assignment.new(assignment_params)
-   if @assignment.valid?
-     @assignment.save
-     redirect_to assignments_path
-   else
-     redirect_to new_assignment_path
-   end
+
+    if params[:assignment][:image].nil? && params[:assignment][:file].nil?
+      @assignment = current_user.assignments.create!(params.require(:assignment).permit(:title, :due_date, :todo))
+    elsif params[:assignment][:image].nil?
+      @assignment = current_user.assignments.create!(params.require(:assignment).permit(:title, :due_date, :todo))
+      if params[:assignment][:file].content_type == "application/pdf"
+        @assignment.file.attach(params[:assignment][:file])
+      else
+        flash[:file_error] = "You Can Only Upload A PDF Document";
+      end
+    else params[:assignment][:file].nil?
+      @assignment = current_user.assignments.create!(params.require(:assignment).permit(:title, :due_date, :todo))
+      @assignment.image.attach(params[:assignment][:image])
+    end
+    redirect_to assignments_path
   end
 
   def edit
@@ -33,13 +41,8 @@ class AssignmentsController < ApplicationController
   end
 
   def destroy
-        @assignment = Assignment.find(params[:id])
-        @assignment.destroy
-        redirect_to root_path
-    end
-
-  private
-  def assignment_params
-    params.require(:assignment).permit(:title, :todo, :due_date, :image, :file)
+    @assignment = Assignment.find(params[:id])
+    @assignment.destroy
+    redirect_to root_path
   end
 end

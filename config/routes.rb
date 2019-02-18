@@ -22,7 +22,17 @@ Rails.application.routes.draw do
   get 'calculator/index'
   
   resources :assignments
-  resources :students
+
+  # User assignments routes
+  get '/assignments' => 'assignments#index', as: 'assignments'
+  get '/users/:user_id/assignments/new' => 'assignments#new', as: 'new_user_assignment'
+  post '/users/:user_id/assignments' => 'assignments#create', as: 'user_assignments'
+  get '/users/:user_id/assignments/:id' => 'assignments#show', as: 'user_assignment'
+  get '/users/:user_id/assignments/:id/edit' => 'assignments#edit', as: 'edit_user_assignment'
+  patch '/users/:user_id/assignments/:id' => 'assignments#update'
+  delete '/users/:user_id/assignments/:id' => 'assignments#destroy'
+
+  resources :admin
   resources :workspace
   
   

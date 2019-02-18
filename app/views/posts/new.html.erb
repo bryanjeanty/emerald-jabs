@@ -1,10 +1,22 @@
-<h1>Create New Forum Post</h1>
-<%= form_with(model: @post, local: true, url: user_posts_path(current_user), method: :post) do |f| %>
-    <%= f.label :title %> <br>
-    <%= f.text_field :title %> <br>
-    <%= f.label :content %> <br>
-    <%= f.text_area :content %> <br>
-    <%= f.label :upload_image_below %> <br>
-    <%= f.file_field :image %> <br> <br>
-    <%= f.submit %>
-<% end %>
+<div class="row">
+  <div class="card">
+    <div class="card-body">
+      <h2 class="card-title">Create Forum Post</h2>
+        <%= form_with(model: @post, local: true, url: user_posts_path(current_user), method: :post) do |f| %>
+        <%= f.label :title %> <br>
+        <%= f.text_field :title, :size=>"58", placeholder: "Title", :maxlength=>"150" %> <br><br>
+        <%= f.label :content %> <br>
+        <%= f.text_area :content, cols: "60", rows: "10" %> <br>
+        <div class="image-upload">
+          <label for="img_input">
+          <span class="far fa-images">
+          </span> Upload Image</label>
+          <%= f.file_field :image, id: "img_input" %><br>
+        </div><br>
+        <%= f.submit "Create Post", {class: "btn btn-dark"} %>
+        <% end %><br>
+
+        <%= link_to "Back", :back %>
+    </div>
+  </div>
+</div>
