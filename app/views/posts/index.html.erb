@@ -8,8 +8,17 @@
         <div class="list-group-item list-group-item-action post-link">
             <div class="d-flex w-100 justify-content-between">
                 <h5><%= link_to post.title, user_post_path(post.user, post) %></h5>
-                
-                        <div class="modal fade" id="exampleModalScrollable-<%= count %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                        <small>3 days ago</small>
+            </div>
+            <div class="d-flex w-100 justify-content-between">
+                <p class="ml-2 post-text"><%= post.content %></p>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable-<%= count %>">
+                            View Highlights
+                        </button>
+            </div>
+            <small class="ml-2"><%= post.user.email %></small>
+        </div>
+        <div class="modal fade" id="exampleModalScrollable-<%= count %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
                             <div class="highlight-box modal-dialog modal-dialog-scrollable modal-dialog-centered" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -28,16 +37,6 @@
                                 </div>
                             </div>
                         </div>
-                        <small>3 days ago</small>
-            </div>
-            <div class="d-flex w-100 justify-content-between">
-                <p class="ml-2 post-text"><%= post.content %></p>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable-<%= count %>">
-                            View Highlights
-                        </button>
-            </div>
-            <small class="ml-2"><%= post.user.email %></small>
-        </div>
         <% count += 1 %>  
     <% end %>
 </div>
