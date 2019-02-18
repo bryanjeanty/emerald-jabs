@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <meta name="google" content="notranslate" />
+  <meta name="google" content="notranslate"/>
   <link rel="favicon" href="./images/favicon.ico">
   <link href="https://fonts.googleapis.com/css?family=Roboto|Rum+Raisin" rel="stylesheet">
     <title>EmeraldApp</title>
@@ -18,8 +18,7 @@
 
 <body>
 <div class="wrapper">
-  <p class="alert-success"><%= notice %></p>
-  <p class="alert-danger"><%= alert %></p>
+  
 
   <div class="barnav">
   <p class="navbar-text">
@@ -31,13 +30,15 @@
       <div class="navlinks">
 
       <%= link_to forum_path, class: "navbar-link" do %>
-      <button type="button" class="btn btn-secondary">Public Forum</button>
+      <button type="button" class="btn btn-dark">Public Forum</button>
+      <% end %> 
+      <%= link_to calculator_index_path, target:"_blank", :class => 'navbar-link' do %>
+      <button type="button" class="btn btn-dark">Calculator</button>
       <% end %> 
       <%= link_to edit_user_registration_path, :class => 'navbar-link' do %>
-      <button type="button" class="btn btn-secondary">Edit Profile</button>
+      <button type="button" class="btn btn-dark">Edit Profile</button>
       <% end %>
       <%= link_to destroy_user_session_path, method: :delete, :class => 'navbar-link' do %>
-    <%= link_to 'Calculator', calculator_index_path, target:"_blank", :class => 'navbar-link' %> 
       <button type="button" class="btn btn-danger">Logout</button>
       <% end %>
 
@@ -54,6 +55,8 @@
     <% end %>
     </p>
 </div><br>
+  <p class="alert-success"><%= notice %></p>
+  <p class="alert-danger"><%= alert %></p><br>
   
   <%= yield %>
   
