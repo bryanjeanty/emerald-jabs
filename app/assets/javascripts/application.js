@@ -81,5 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 replaceAll(postText[i], "]]", "</mark>");
             }
         }
+
     });
 });
+

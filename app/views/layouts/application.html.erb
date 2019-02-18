@@ -29,7 +29,7 @@
       emerald</div>
       <% end %>
       <div class="navlinks">
-      
+
       <%= link_to forum_path, class: "navbar-link" do %>
       <button type="button" class="btn btn-secondary">Public Forum</button>
       <% end %> 
@@ -37,8 +37,10 @@
       <button type="button" class="btn btn-secondary">Edit Profile</button>
       <% end %>
       <%= link_to destroy_user_session_path, method: :delete, :class => 'navbar-link' do %>
+    <%= link_to 'Calculator', calculator_index_path, target:"_blank", :class => 'navbar-link' %> 
       <button type="button" class="btn btn-danger">Logout</button>
       <% end %>
+
       </div>
       <div class="navEmail">Logged in as <strong><%= current_user.email %></strong></div><br>
     
