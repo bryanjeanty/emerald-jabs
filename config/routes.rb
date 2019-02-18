@@ -20,8 +20,6 @@ Rails.application.routes.draw do
   delete '/posts/:post_id/comments/:id' => 'comments#destroy', as: 'delete_post_comment'
 
   get 'calculator/index'
-  
-  resources :assignments
 
   # User assignments routes
   get '/assignments' => 'assignments#index', as: 'assignments'

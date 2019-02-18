@@ -1,27 +1,60 @@
+<style>
+            .forum-header {
+                display: grid;
+                grid-template-columns: repeat(12, 1fr);
+            }
+            .forum-heading-title-1 {
+                grid-column: 1 / 7;
+            }
+            .forum-heading-title-2 {
+                grid-column: 7 / 9;
+            }
+            .forum-heading-title-3 {
+                grid-column: 9 / 11;
+            }
+            .forum-heading-title-4 {
+                grid-column: 11 / 13;
+            }
+            .forum-contents {
+                display: grid;
+                grid-template-columns: repeat(12, 1fr);
+            }
+            .forum-title-box {
+                grid-column: 1 / 7;
+            }
+            .forum-members-box {
+                grid-column: 7 / 9;
+            }
+            .forum-comments-box {
+                grid-column: 9 / 11;
+            }
+            .forum-posted-box {
+                grid-column: 11 / 13;
+            }
+</style>
 
 <h1>Public Forum</h1>
     <%= link_to new_user_post_path(current_user) do %>
-    <button type="button" class="btn btn-success">New Post </button>
+        <button type="button" class="btn btn-success">New Post </button>
     <% end %><br><br>
-<% count = 0 %>
-    
-
-<div class="list-group">
-    <% @posts.each do |post| %>
-        <div class="list-group-item list-group-item-action post-link">
-            <div class="d-flex w-100 justify-content-between">
-                <h5><%= link_to post.title, user_post_path(post.user, post) %></h5>
-                        <small>3 days ago</small>
-            </div>
-            <div class="d-flex w-100 justify-content-between">
-                <p class="ml-2 post-text"><%= post.content %></p>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable-<%= count %>">
-                            View Highlights
-                        </button>
-            </div>
-            <small class="ml-2"><%= post.user.email %></small>
+    <div class="card col-11" style="padding: 0; border-radius: 0;">
+        <div class="card-header text-white bg-success forum-header">
+            <span class="forum-heading-title-1">#math</span>
+            <span class="forum-heading-title-2">Members</span>
+            <span class="forum-heading-title-3">Comments</span>
+            <span class="forum-heading-title-4">Posted By</span>
         </div>
-        <div class="modal fade" id="exampleModalScrollable-<%= count %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+        <% count = 0 %>
+        <% @posts.each do |post| %>
+            <div class="card-body forum-contents" style="border-radius: 0; background-color: white">
+                <div class="forum-title-box">
+                    <h5 class="card-title"><%= link_to post.title, user_post_path(post.user, post) %></h5>
+                    <p class="card-text post-text"><%= post.content %></p>
+                    <%# <a href="#" class="btn btn-primary" style="color: #fff! important">Go somewhere</a> %>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable-<%= count %>">
+                        View Highlights
+                    </button>
+                    <div class="modal fade" id="exampleModalScrollable-<%= count %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
                             <div class="highlight-box modal-dialog modal-dialog-scrollable modal-dialog-centered" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -40,7 +73,19 @@
                                 </div>
                             </div>
                         </div>
-        <% count += 1 %>  
-    <% end %>
-</div>
+                </div>
+                <div class="forum-members-box">
+                    0
+                </div>
+                <div class="forum-comments-box">
+                    0
+                </div>
+                <div class="forum-posted-box">
+                    <small class="ml-2"><%= post.user.email %></small>
+                </div>
+            </div>
+            <hr>
+            <% count += 1 %>  
+        <% end %>
+    </div>
 
