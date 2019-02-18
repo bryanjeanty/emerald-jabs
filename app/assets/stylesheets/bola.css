@@ -133,7 +133,7 @@ a:hover {
    justify-content: center;
    line-height: 2rem;
 }
-.col-6 {
+.col-5 {
    /* height: 100%; */
    /* max-width: 45%; */
    margin: 0;
@@ -166,8 +166,6 @@ a:hover {
    color: #f8f8f2;
    overflow: visible;
 }
-
-
 
 /* sidebar */
 #wrapper {
