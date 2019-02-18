@@ -21,8 +21,6 @@ Rails.application.routes.draw do
 
   get 'calculator/index'
   
-  resources :assignments
-
   # User assignments routes
   get '/assignments' => 'assignments#index', as: 'assignments'
   get '/users/:user_id/assignments/new' => 'assignments#new', as: 'new_user_assignment'
