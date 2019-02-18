@@ -59,18 +59,16 @@ a:hover {
 }
 
 .navEmail {
-   float: left;
-   width: 400px;
+   /* float: left;
+   width: 400px; */
    font-size:1rem; 
 }
 
 .barnav {
    display: flex;
-   align-items: center;
    background-color: #212922;
-   height: 100px;
    margin: 0;
-   padding: 1px;
+   padding: 1rem;
 }
 
 .heroImg {
@@ -169,10 +167,6 @@ a:hover {
    overflow: visible;
 }
 
-.wrapper {
-   /* width: 1240px; */
-   margin: 0 auto;
-}
 
 
 /* sidebar */
@@ -186,6 +180,7 @@ a:hover {
 
 #wrapper.toggled {
    padding-left: 250px;
+   margin-top: 0;
 }
 
 #sidebar-wrapper {
@@ -195,8 +190,9 @@ a:hover {
    width: 0;
    height: 100%;
    margin-left: -250px;
+   margin-top: -18px;
    overflow-y: auto;
-   background: #000;
+   background: #111311;
    -webkit-transition: all 0.5s ease;
    -moz-transition: all 0.5s ease;
    -o-transition: all 0.5s ease;
@@ -243,7 +239,7 @@ a:hover {
 .sidebar-nav li a:hover {
    text-decoration: none;
    color: #fff;
-   background: rgba(255,255,255,0.2);
+   background: rgba(34, 78, 4, 0.5);
 }
 
 .sidebar-nav li a:active,
