@@ -1,4 +1,12 @@
 <style>
+            .forum-card {
+                border-radius: 0; 
+                padding: 0;
+            }
+            .forum-contents {
+                border-radius: 0; 
+                background-color: white;
+            }
             .forum-header {
                 display: grid;
                 grid-template-columns: repeat(12, 1fr);
@@ -37,7 +45,7 @@
     <%= link_to new_user_post_path(current_user) do %>
         <button type="button" class="btn btn-success">New Post </button>
     <% end %><br><br>
-    <div class="card col-11" style="padding: 0; border-radius: 0;">
+    <div class="card col-11 forum-card">
         <div class="card-header text-white bg-success forum-header">
             <span class="forum-heading-title-1">#math</span>
             <span class="forum-heading-title-2">Members</span>
@@ -46,11 +54,10 @@
         </div>
         <% count = 0 %>
         <% @posts.each do |post| %>
-            <div class="card-body forum-contents" style="border-radius: 0; background-color: white">
+            <div class="card-body forum-contents">
                 <div class="forum-title-box">
                     <h5 class="card-title"><%= link_to post.title, user_post_path(post.user, post) %></h5>
                     <p class="card-text post-text"><%= post.content %></p>
-                    <%# <a href="#" class="btn btn-primary" style="color: #fff! important">Go somewhere</a> %>
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable-<%= count %>">
                         View Highlights
                     </button>
