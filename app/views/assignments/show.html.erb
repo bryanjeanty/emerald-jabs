@@ -1,12 +1,11 @@
 <div class="row workspace pull-right">
-    <h2 class="card-title"></h2>
     <%= link_to edit_user_assignment_path do %>
     <button type="button" class="btn btn-primary">
     Edit
     </button>
     <% end %>
 
-    <%= link_to assignment_path(@assignment), method: :delete  do %>
+    <%= link_to user_assignment_path(current_user, @assignment), method: :delete  do %>
     <button type="button" class="btn btn-danger">
     Delete
     </button>
@@ -26,13 +25,17 @@
     <br><br>
 
     <%= link_to "Back", :back %>
-
+    <% if @assignment.file.attached? %>
+        <%= link_to "Download File", @assignment.file, download: '' %>
+    <% end %>
 </div>
 
 <div class="row workspace">
     <div class="col-6">
     <h3>PDF Viewer</h3>
-        <embed src="<%= File.path("/pdfSample.pdf") %>" type="application/pdf" width="600rem" height="600rem">
+    <% if @assignment.file.attached? %>
+        <embed src="<%= rails_blob_path(@assignment.file) %>" type="application/pdf" width="600rem" height="600rem">
+    <% end %>
     </div>
 
     <div class="col-6">

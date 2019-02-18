@@ -2,7 +2,7 @@
 <div class="assignments" style="height: 35rem; width: 100%">
 <h1>Assignments</h1>
   <% @assignment.each do |assignment| %>
-    <%= link_to assignment.title, assignment_path(assignment) %>
+    <%= link_to assignment.title, user_assignment_path(current_user, assignment) %>
     (<%= assignment.due_date%>)<br><br>
   <% end %>
 </div>

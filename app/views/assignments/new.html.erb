@@ -1,9 +1,10 @@
+<%= flash[:file_error] %>
 
 <div class="row">
   <div class="card">
     <div class="card-body">
       <h2 class="card-title">Create Assignment</h2>
-        <%= form_for(@assignment, html: {multipart:true}, url: user_assignments_path, method: :post) do |form| %>
+        <%= form_with(model: @assignment, html: {multipart:true}, url: user_assignments_path(current_user), method: :post) do |form| %>
         <label> Title</label><br>
         <%= form.text_field :title, :size=>"58", placeholder: "Title", :maxlength=>"150" %> <br>
         <label>Due date</label><br>
