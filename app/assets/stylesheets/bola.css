@@ -106,14 +106,15 @@ a:hover {
 }
 
 .assignments {
-   background-color: #9dd86d;
-   /* border: 1px solid black; */
+  background-color: #9dd86d;
+   /*border: 1px solid black;*/
    padding: 1rem;
    height: 28rem;
    width: 90%;
    overflow-y: scroll;
    object-fit: contain;
    border-radius: 1rem;
+   
 }
 
 .posts {
@@ -132,16 +133,19 @@ a:hover {
    justify-content: center;
    line-height: 2rem;
 }
-.col-6 {
+.col-5 {
    /* height: 100%; */
    /* max-width: 45%; */
-   margin: 0;
+   margin: 2rem;
+   
 
 }
 
 .card-body {
    border-radius: 1.5rem;
-   background-color: rgba(20, 107, 2, 0.70);
+   /*background-color: rgba(20, 107, 2, 0.70);*/
+   background-color: linear-gradient(to right, #C3EC52
+   #0BA29D);
    /* margin: 1rem; */
    /* justify-content: center; */
  }
@@ -171,4 +175,8 @@ a:hover {
 .wrapper {
    width: 1240px;
    margin: 0 auto;
+}
+
+.card {
+  border: none !important;
 }

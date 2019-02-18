@@ -3,28 +3,42 @@
 </div>
 
 <div class="row">
-    <div class="col-6 assignments">
-        <%= link_to assignments_path do %>
-        <h3 class="text-center">Assignments
-        <% end %>
+        <div class="col-5">
+            <%= link_to assignments_path do %>
+             <h3 class="text-center">Assignments
+            <% end %>
             <%= link_to new_user_assignment_path(current_user) do %>
             <button type="button" class="btn btn-success">New Assignment </button>
             <% end %>
-        </h3>
+            <button type="button" data-toggle="collapse" data-target="#multiCollapseExample1" class="btn btn-success">Quick View</button>
+            </h3>
+
+        </div>
+
+
+        <div class="col-5">
+             <%= link_to forum_path do %>
+            <h3 class="text-center">Posts 
+            <% end %>
+            <%= link_to new_user_post_path(current_user) do %>
+            <button type="button" class="btn btn-success">New Post </button>
+            <% end %>
+            <button type="button" data-toggle="collapse" data-target="#multiCollapseExample2" class="btn btn-success">Quick View</button>
+            </h3>
+        </div>
+</div>
+
+<div class="row">
+    <div class="col-5 assignments collapse multi-collapse" id="multiCollapseExample1">
         <% @assignments.each do |assignment| %>
         <%= link_to assignment.title, user_assignment_path(current_user, assignment) %>
         (<%= assignment.due_date%>)<br>
         <% end %>
         
     </div>
-    <div class="col-6 posts">
-    <%= link_to forum_path do %>
-        <h3 class="text-center">Posts 
-        <% end %>
-            <%= link_to new_user_post_path(current_user) do %>
-            <button type="button" class="btn btn-success">New Post </button>
-            <% end %>
-        </h3>
+
+
+    <div class="col-5 posts collapse multi-collapse" id="multiCollapseExample2">
         <% @posts.each do |post| %>
         <%= link_to post.title, user_post_path(current_user, post) %>
         <br>
