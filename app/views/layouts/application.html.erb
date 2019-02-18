@@ -24,7 +24,7 @@
   <p class="navbar-text">
     <% if user_signed_in? %>
       <%= link_to root_path, :class => 'navbar-link' do %> 
-      <div class="emerald"><%= image_tag ("emerald.png")%>
+      <div class="emerald"><%= image_tag ("emerald.png"), :title => 'Click here to show side bar'%>
       emerald</div>
       <% end %>
       <div class="navlinks">
