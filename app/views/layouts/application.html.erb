@@ -35,17 +35,32 @@
   </head>
 
 <body>
-<div class="wrapper">
 
 
 
-<div id="wrapper">
+  
+    <% if user_signed_in? %>
+    <div id="wrapper">
+  <div class="barnav">
+    <!-- /#sidebar-toggle -->
+      <div class="emerald">
+        <a href="#menu-toggle" class="btn btn-default menu-toggle mx-auto">
+        <div class="emerald"><%= image_tag ("emerald.png"), :title => 'Click here to show/hide side bar'%></a>
 
-        <!-- Sidebar -->
+        <%= link_to root_path, :class => 'navbar-link' do %> 
+        emerald</div>
+        <% end %> 
+      </div>
+      <div class="ml-auto" style="color: white;">Logged in as    
+      <strong><%= current_user.email %></strong>
+        <%= link_to destroy_user_session_path, method: :delete, :class => 'navbar-link' do %>
+        <button type="button" class="btn btn-danger">Logout</button>
+        <% end %>
+      </div><br>
+
+      <!-- Sidebar -->
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
-                <li class="sidebar-brand">
-                </li>
                 <li>
                     <%= link_to root_path do %> Dashboard <% end %>
                 </li>
@@ -67,44 +82,26 @@
             </ul>
         </div>
         <!-- /#sidebar-wrapper -->
-  
-
-  <div class="barnav">
-  <p class="navbar-text">
-    <% if user_signed_in? %>
-
-    <!-- /#sidebar-toggle -->
-      <div class="emerald">
-        <a href="#menu-toggle" class="btn btn-default menu-toggle mx-auto">
-        <div class="emerald"><%= image_tag ("emerald.png"), :title => 'Click here to show side bar'%></a>
-
-        <%= link_to root_path, :class => 'navbar-link' do %> 
-        emerald</div>
-        <% end %> 
-      </div>
-      <div class="navEmail ml-auto" style="color: white;">Logged in as    
-      <strong><%= current_user.email %></strong>
-        <%= link_to destroy_user_session_path, method: :delete, :class => 'navbar-link' do %>
-        <button type="button" class="btn btn-danger">Logout</button>
-        <% end %>
-      </div><br>
-    
-    <% else %>
-      <%= link_to root_path, :class => 'navbar-link' do %> 
-      <div class="emerald"><%= image_tag ("emerald.png") %>
-      emerald</div>
-      <% end %>
-    <div class="ml-auto">
-        <%= link_to new_user_registration_path, :class => 'navbar-link' do %>
-        <button type="button" class="btn btn-primary">Sign Up</button>
-      <% end %>
-        <%= link_to new_user_session_path, :class => 'navbar-link' do %>
-        <button type="button" class="btn btn-dark">Log In</button>
-        <% end %>
-    <% end %>
     </div>
-    </p>
 </div>
+    <% else %>
+    <div class="barnav">
+      <div class="emerald">
+        <%= link_to root_path, :class => 'navbar-link' do %> 
+        <%= image_tag ("emerald.png") %>
+        emerald
+      <% end %>
+      </div>
+      <div class="ml-auto">
+          <%= link_to new_user_registration_path, :class => 'navbar-link' do %>
+          <button type="button" class="btn btn-primary">Sign Up</button>
+        <% end %>
+          <%= link_to new_user_session_path, :class => 'navbar-link' do %>
+          <button type="button" class="btn btn-dark">Log In</button>
+          <% end %>
+      <% end %>
+      </div>
+    </div>
   
   <%= yield %>
 
@@ -112,6 +109,14 @@
   <p class="alert-danger"><%= alert %></p><br>
 
 
+  
+      <!-- Include the Quill library -->
+  <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous" defer></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous" defer></script>
+  
+  
   <!-- Menu Toggle Script -->
     <script>
     $(".menu-toggle").click(function(e) {
@@ -119,14 +124,9 @@
         $("#wrapper").toggleClass("toggled");
     });
     </script>
-      <!-- Include the Quill library -->
+    
+    <!-- Include the Quill library -->
   <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous" defer></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous" defer></script>
-  <!-- Include the Quill library -->
-  <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
-
   <!-- Initialize Quill editor -->
   <script>
   var quill = new Quill('#editor', {
