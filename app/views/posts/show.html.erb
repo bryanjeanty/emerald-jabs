@@ -32,7 +32,7 @@
         border-radius: 0;
         min-height: 23rem;
     }
-    .post-btn {
+    .post-btn, .edit-comment-btn {
         max-width: 10rem;
         margin-left: auto;
     }
@@ -43,6 +43,12 @@
     }
     .text-post-btn {
         display: flex;
+    }
+
+    /* Comments Below */
+
+    .comment-title {
+        text-align: center;
     }
 </style>
 <div class="post-container">
@@ -58,6 +64,7 @@
             <% end %>
                 <div class="card-body post-body">
                     <h5 class="card-title"><%= @post.title %></h5>
+                    <hr>
                     <p class="card-text post-text"><%= @post.content %></p>
                     <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
                             <div class="highlight-box modal-dialog modal-dialog-scrollable modal-dialog-centered" role="document">
@@ -95,21 +102,41 @@
 
 <div class="card-header bg-dark text-center" style="width: 95%; margin: 1rem 0; margin-left: auto; margin-right: auto;">
     <h5 class="text-white card-title mt-2">
-        Add Comment
+        Reply Below
     </h5>
 </div>
 
-<%= render "comments/form" %>
-<h4>Comment Section - <%= @post.comments.count %></h4>
+<h4 class="comment-title">Comment Section - <%= @post.comments.count %></h4>
     <% @post.comments.each do |comment| %>
         <div class="comment">
-            <%= comment.title %> <br>
-            <%= comment.content %> <br>
-            <% if comment.image.attached? %>
-                <%= image_tag(comment.image, width: '150') %> <br>
-            <% end %>
+            <div class="post-container">
+                <div class="card mb-3 post-card">
+                    <div class="row no-gutters">
+                        <% if comment.image.attached? %>
+                            <div class="col-md-4">
+                                <%= image_tag(comment.image, width: '150') %> <br>
+                            </div>
+                            <div class="col-md-8">
+                        <% else %>
+                            <div class="col-md-12">
+                        <% end %>
+                            <div class="card-body post-body">
+                                <h5 class="card-title"><%= comment.title %></h5>
+                                <hr>
+                                <p class="card-text post-text"><%= comment.content %></p>
+                                <div class="small-post-text">
+                                    <hr>
+                                    <div class="text-post-btn">
+                                        <p class="card-text"><small class="text-muted">Posted By: <%= @post.user.email %></small></p>
+                                        <button class="edit-comment-btn btn btn-primary">Edit Comment</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <button class="edit-comment-btn">Click To Edit Comment</button>
         <%= form_with model: comment, url: update_post_comment_path(@post, comment), method: :patch, class: "edit-comment-form" do |f| %>
             <%= f.label :title %> <br> 
             <%= f.text_field :title %> <br>
@@ -123,6 +150,6 @@
         <%= link_to "Delete Comment", delete_post_comment_path(@post, comment), method: :delete %>
         <br> <br> <br>
     <% end %>
-
+<%= render "comments/form" %>
 
 <%= link_to "Back", :back %>

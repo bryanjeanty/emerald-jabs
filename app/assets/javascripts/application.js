@@ -59,10 +59,12 @@ document.addEventListener('DOMContentLoaded', () => {
         for (let i = 0; i < postText.length; i++) {
             let postStr = postText[i].innerHTML;
             let highlightText = storeHighlight(postStr);
-            if (highlightText.length == 0) {
+            if (highlightText.length == 0 && highlightTextBox[i]) {
                 highlightTextBox[i].innerHTML = "Sorry No Highlights To View!";
-            } else {
+            } else if (highlightTextBox.length > 0 && highlightTextBox[i]) {
                 highlightTextBox[i].innerHTML = `${ highlightText }`;
+            } else {
+                break;
             }
         }
 
