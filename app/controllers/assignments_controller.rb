@@ -18,11 +18,11 @@ class AssignmentsController < ApplicationController
       @assignment = current_user.assignments.create!(params.require(:assignment).permit(:title, :due_date, :todo))
     elsif params[:assignment][:image].nil?
       @assignment = current_user.assignments.create!(params.require(:assignment).permit(:title, :due_date, :todo))
-      if params[:assignment][:file].content_type == "application/pdf"
+      # if params[:assignment][:file].content_type == "application/pdf"
         @assignment.file.attach(params[:assignment][:file])
-      else
-        flash[:file_error] = "You Can Only Upload A PDF Document";
-      end
+      # else
+        # flash[:file_error] = "You Can Only Upload A PDF Document";
+      # end
     else params[:assignment][:file].nil?
       @assignment = current_user.assignments.create!(params.require(:assignment).permit(:title, :due_date, :todo))
       @assignment.image.attach(params[:assignment][:image])
