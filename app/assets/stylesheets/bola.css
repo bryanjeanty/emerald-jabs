@@ -174,8 +174,10 @@ a:hover {
 
 .card {
   border: none !important;
-  
+  margin: 3rem;
+  float:right;
 }
+
 
 
 /* sidebar */
