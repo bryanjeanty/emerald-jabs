@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <meta name="google" content="notranslate"/>
-  <link rel="favicon" href="./images/favicon.ico">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat|Rum+Raisin" rel="stylesheet">
+    <meta name="google" content="notranslate"/>
     <title><%= yield(:title) %> - EmeraldApp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     
+    <link rel="favicon" href="./images/favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Rum+Raisin" rel="stylesheet">
     <link rel="stylesheet" href="bootstrap.min.css">
-    <!-- quill stylesheet -->
     <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
@@ -33,65 +32,65 @@
       }
     </style>
   </head>
-
 <body>
-<% content_for :title, "EmeraldApp" %>
-  
-    <% if user_signed_in? %>
-      <div id="wrapper" class="toggled">
-        <div class="barnav">
-        <%# /#sidebar-toggle  %>
-        
-          <div class="emerald">
-            <a class="btn btn-default sidenav-toggle menu-toggle mx-auto">
-              <div class="emerald"><%= image_tag ("emerald.png"), :title => 'Click here to show/hide side bar' %>
-              </div>
-            </a>
-            <%= link_to root_path, :class => 'navbar-link' do %> 
-              emerald
-            <% end %> 
-          </div>
 
-
-          <div class="ml-auto" style="color: white;">Logged in as    
-            <strong><%= current_user.email %></strong>
-            <%= link_to destroy_user_session_path, method: :delete, :class => 'navbar-link' do %>
-              <button type="button" class="btn btn-danger">Logout</button>
-            <% end %>
-          </div>
-
-          <%# Sidebar  %>
-          <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-              <li>
-                <%= link_to root_path do %> Dashboard <% end %>
-              </li>
-              <li>
-                <%= link_to forum_path do %>Public Forum<% end %>
-              </li>
-              <li>
-                <%= link_to calculator_index_path, target:"_blank" do %>Calculator<% end %>
-              </li>
-              <li>
-                <%= link_to edit_user_registration_path do %>Edit Profile<% end %>
-              </li>
-            </ul>
-          </div>
-          <%# sidebar-wrapper  %>
+  <% if user_signed_in? %>
+    <%# /#sidebar-toggle  %>
+    <div id="wrapper" class="toggled">
+      <div class="barnav">
+      
+      
+        <div class="emerald">
+          <a class="btn btn-default sidenav-toggle menu-toggle mx-auto shine">
+            <div class="emerald">
+              <%= image_tag ("emerald.png"), :title => 'Click here to show/hide side bar' %>
+            </div>
+          </a>
+          <%= link_to root_path, :class => 'navbar-link' do %> 
+            emerald
+          <% end %> 
         </div>
 
-      <% else %>      
 
-    <%# #sidebar-toggle %>
-     <div class="barnav" style="color: #066D0A; font-size: 2rem;">
-           <div class="emerald"> <%= link_to root_path, :class => 'navbar-link' do %>
-              <%= image_tag ("emerald.png") %>
-              emerald
-            <% end %> 
-          </div>
+        <div class="ml-auto" style="color: white;">Logged in as    
+          <strong><%= current_user.email %></strong>
+          <%= link_to destroy_user_session_path, method: :delete, :class => 'navbar-link' do %>
+          <button type="button" class="btn btn-danger">Logout</button>
+          <% end %>
+        </div>
 
-      
-        <div class="ml-auto float-right">
+        <%# Sidebar  %>
+        <div id="sidebar-wrapper">
+          <ul class="sidebar-nav">
+            <li>
+              <%= link_to root_path do %> Dashboard <% end %>
+            </li>
+            <li>
+              <%= link_to forum_path do %>Public Forum<% end %>
+            </li>
+            <li>
+              <%= link_to calculator_index_path, target:"_blank" do %>Calculator<% end %>
+            </li>
+            <li>
+              <%= link_to edit_user_registration_path do %>Edit Profile<% end %>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    <% else %>      
+
+  <%# #sidebar-toggle %>
+      <div class="barnav" style="color: #066D0A; font-size: 2rem;">
+        <div class="emerald"> 
+          <%= link_to root_path, :class => 'navbar-link' do %>
+          <%= image_tag ("emerald.png") %>
+          <a class="shine">emerald</a>
+          <% end %> 
+        </div>
+
+    
+        <div class="ml-auto ">
           <%= link_to new_user_registration_path, :class => 'navbar-link' do %>
             <button type="button" class="btn btn-primary">Sign Up</button>
           <% end %>
@@ -99,16 +98,15 @@
             <button type="button" class="btn btn-dark">Log In</button>
           <% end %>
         </div>
-    
-      <% end %>
+  
+    <% end %>
 
-    </div>
+  </div>
   
   <%= yield %>
 
   <p class="alert-success"><%= notice %></p>
   <p class="alert-danger"><%= alert %></p><br>
-
 
   
       <!-- Include the Quill library -->
@@ -120,11 +118,6 @@
   
     <!-- Include the Quill library -->
   <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
-  <!-- Initialize Quill editor -->
-  <script>
-  // var quill = new Quill('#editor', {
-  //     theme: 'snow'
-  // });
-  </script>
+
 </body>
 </html>
