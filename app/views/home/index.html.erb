@@ -34,30 +34,27 @@
     <table class="table table-hover text-center">
         <thead>
         <tr>
-            <th scope="col">Assignment</th>
             <th scope="col">Due date</th>
-            
+            <th scope="col">Assignment</th>
         </tr>
-        </thead><br>
+        </thead>
     <tbody>
     
-     <tr>
         <% @assignments.each do |assignment| %>
-         <td>
-          <%= assignment.due_date%><br>
-         </td>
-     </tr>
+         <tr>
+            <td>
+            <%= assignment.due_date%>
+            </td>
+            <td>
+            <%= link_to assignment.title, user_assignment_path(current_user, assignment) %>
+          </td>
+        </tr> 
+     <% end %>
+       
 
-     <tr>
-         <td>
-          <%= link_to assignment.title, user_assignment_path(current_user, assignment) %>
-          <br>
-        </td>
-        <%end%>
-     </tr>
-        
     </tbody>
-</table>  
+    </table> 
+
     </div>
 
 

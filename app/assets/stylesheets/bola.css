@@ -118,8 +118,6 @@ a:hover {
    overflow-y: scroll;
    object-fit: contain;
    border-radius: 1rem;
-   
-
 }
 
 .posts {
@@ -137,12 +135,7 @@ a:hover {
    line-height: 2rem;
 }
 .col-5 {
-   /* height: 100%; */
-   /* max-width: 45%; */
-
-
    margin: 2rem;
-   
 }
 
 .card-body {
@@ -177,7 +170,6 @@ a:hover {
    /* width: 1240px; */
    margin: 0 auto;
 }
-
 
 .card {
   border: none !important;
