@@ -70,3 +70,4 @@ gem 'carrierwave', '~> 1.0'
 gem 'prawn', '~> 2.2', '>= 2.2.2'
 gem 'pdf-reader', '~> 0.9.0'
 
+gem 'bourbon'
