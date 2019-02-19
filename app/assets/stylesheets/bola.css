@@ -7,6 +7,11 @@ body {
    animation: fadeIn 1.5s forwards; 
    font-family: 'Montserrat', sans-serif;
    background: linear-gradient(to bottom, rgb(11, 22, 5) 0%,rgba(212,189,255,0) 100%);
+   
+}
+
+.emerald-prj-container{
+  margin-top: 5rem;
 }
  
  @keyframes fadeIn {
@@ -75,6 +80,7 @@ a:hover {
    padding: 1rem;
    /* font-family: 'Rum Raisin', sans-serif; */
    height: 5rem;
+   
 }
 
 .heroImg {
@@ -146,7 +152,7 @@ a:hover {
 }
 
 .card-body {
-   background-color: rgba(20, 107, 2, 0.70);
+   background-color: rgba(20, 107, 2, 0.4);
    /* margin: 1rem; */
    /* justify-content: center; */
   
@@ -187,9 +193,13 @@ a:hover {
   border: none !important;
   margin: 5rem;
   float:right;
+  background-color: transparent !important;
   
-  
-  
+}
+
+div label {
+  font-weight:bold;
+  color: #000;
 }
 
 thead {
