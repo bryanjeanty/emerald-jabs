@@ -5,7 +5,17 @@ class AssignmentsController < ApplicationController
   end
 
   def show
-    @assignment = Assignment.find(params[:id])
+    @user = User.find(params[:user_id])
+    @assignment = @user.assignments.find(params[:id])
+    
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = Prawn::Document.new
+        pdf.text params[:contents]
+        send_data(pdf.render, filename: "#{ @assignment.title }-workspace-session.pdf", type: "application/pdf")
+      end
+    end
   end
 
   def new
@@ -13,19 +23,18 @@ class AssignmentsController < ApplicationController
   end
 
   def create
-
     if params[:assignment][:image].nil? && params[:assignment][:file].nil?
       @assignment = current_user.assignments.create!(params.require(:assignment).permit(:title, :due_date, :todo))
     elsif params[:assignment][:image].nil?
       @assignment = current_user.assignments.create!(params.require(:assignment).permit(:title, :due_date, :todo))
-      # if params[:assignment][:file].content_type == "application/pdf"
-        @assignment.file.attach(params[:assignment][:file])
-      # else
-        # flash[:file_error] = "You Can Only Upload A PDF Document";
-      # end
-    else params[:assignment][:file].nil?
+      @assignment.file.attach(params[:assignment][:file])
+    elsif params[:assignment][:file].nil?
       @assignment = current_user.assignments.create!(params.require(:assignment).permit(:title, :due_date, :todo))
       @assignment.image.attach(params[:assignment][:image])
+    else
+      @assignment = current_user.assignments.create!(params.require(:assignment).permit(:title, :due_date, :todo))
+      @assignment.image.attach(params[:assignment][:image])
+      @assignment.file.attach(params[:assignment][:file])
     end
     redirect_to assignments_path
   end
@@ -36,7 +45,7 @@ class AssignmentsController < ApplicationController
 
   def update
     @assignment = Assignment.find(params[:id])
-    @assignment.update(assignment_params)
+    @assignment.update(params.require(:assignment).permit(:title, :due_date, :todo))
     redirect_to assignments_path
   end
 
