@@ -3,9 +3,10 @@
    margin: 0; }
  
 body {
-   background-color: #47682C;
+   /* background-color: #47682C; */
    animation: fadeIn 1.5s forwards; 
    font-family: 'Montserrat', sans-serif;
+   background: linear-gradient(to bottom, rgb(11, 22, 5) 0%,rgba(212,189,255,0) 100%);
 }
  
  @keyframes fadeIn {
@@ -173,6 +174,10 @@ a:hover {
 .wrapper {
    /* width: 1240px; */
    margin: 0 auto;
+}
+
+.dashboard {
+   min-height: 120vh;
 }
 
 .card {
