@@ -117,6 +117,9 @@ a:hover {
    width: 90%;
    overflow-y: scroll;
    object-fit: contain;
+   border-radius: 1rem;
+   
+
 }
 
 .posts {
@@ -136,7 +139,10 @@ a:hover {
 .col-5 {
    /* height: 100%; */
    /* max-width: 45%; */
-   margin: 0;
+
+
+   margin: 2rem;
+   
 }
 
 .card-body {
@@ -166,6 +172,17 @@ a:hover {
    color: #f8f8f2;
    overflow: visible;
 }
+
+.wrapper {
+   /* width: 1240px; */
+   margin: 0 auto;
+}
+
+
+.card {
+  border: none !important;
+}
+
 
 /* sidebar */
 #wrapper {
@@ -286,4 +303,9 @@ a:hover {
        position: relative;
        margin-right: 0;
    }
+}
+
+thead {
+  background-color: #4CAF50;
+  color: white;
 }

@@ -12,23 +12,61 @@
     <% end %>
     <br>
 
-    <% if @assignment.image.attached? %>
-    <%= image_tag(@assignment.image, width: '200') %>
-    <% end %> <br>
-
-    <h1 class="card-title"><%= @assignment.title %></h1>
-    <br>
-
-    <%= @assignment.due_date %>
-    <br>
-    <%= @assignment.todo %>
-    <br><br>
-
     <%= link_to "Back", :back %>
-    <% if @assignment.file.attached? %>
+
+
+<div class="contaier-fluid center">
+  <table style="float:center" class="table table-hover table-bordered text-center">
+    <thead>
+      <tr>
+        <th scope="col">Title</th>
+        <th scope="col">Description</th>
+        <th scope="col">Due Date</th>
+        <th scope="col">Image</th>
+        <th scope="col">File</th>
+     </tr>
+    </thead>
+
+    <tbody>
+     <tr>
+       <td>
+         <h1 class="card-title"><%= @assignment.title %></h1>
+        <br>
+       </td>
+  
+
+  
+      <td>
+       <%= @assignment.todo %>
+      <br><br>
+      </td>
+  
+
+  
+      <td>
+        <%= @assignment.due_date %>
+         <br>
+      </td>
+  
+
+  
+      <td>
+        <% if @assignment.image.attached? %>
+        <%= image_tag(@assignment.image, width: '200') %>
+        <% end %> <br>
+      </td>
+
+      <td>
+        <% if @assignment.file.attached? %>
         <%= link_to "Download File", @assignment.file, download: '' %>
-    <% end %>
-</div>
+        <% end %>
+      </td>
+  
+    </tr>
+    </tbody>
+  </table>
+  </div>    
+
 
 <div class="row workspace">
     <div class="col-6">
