@@ -83,13 +83,9 @@
       <% else %>      
 
     <%# #sidebar-toggle %>
-     <div class="barnav">
-           <div class="emerald">
-            <a class="btn btn-default  mx-auto">
-              <div class="emerald"><%= image_tag ("emerald.png"), :title => 'Click here to show/hide side bar' %>
-              </div>
-            </a>
-            <%= link_to root_path, :class => 'navbar-link' do %> 
+     <div class="barnav" style="color: #066D0A; font-size: 2rem;">
+           <div class="emerald"> <%= link_to root_path, :class => 'navbar-link' do %>
+              <%= image_tag ("emerald.png") %>
               emerald
             <% end %> 
           </div>
@@ -104,7 +100,7 @@
           <% end %>
         </div>
     
-    <% end %>
+      <% end %>
 
     </div>
   
