@@ -84,6 +84,12 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
+        let menu_toggle = document.querySelector('.sidenav-toggle');
+        menu_toggle.addEventListener('click', (event) => {
+          event.preventDefault();
+          $("#wrapper").toggleClass("toggled");
+        });
+
     });
 });
 
