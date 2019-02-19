@@ -3,8 +3,8 @@
   <head>
   <meta name="google" content="notranslate"/>
   <link rel="favicon" href="./images/favicon.ico">
-  <link href="https://fonts.googleapis.com/css?family=Roboto|Rum+Raisin" rel="stylesheet">
-    <title>EmeraldApp</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat|Rum+Raisin" rel="stylesheet">
+    <title><%= yield(:title) %> - EmeraldApp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -35,7 +35,7 @@
   </head>
 
 <body>
-
+<% content_for :title, "EmeraldApp" %>
   
     <% if user_signed_in? %>
       <div id="wrapper" class="toggled">
@@ -81,8 +81,6 @@
         </div>
 
       <% else %>      
-
-    <%# #sidebar-toggle %>
       
         <div class="ml-auto">
           <%= link_to new_user_registration_path, :class => 'navbar-link' do %>
