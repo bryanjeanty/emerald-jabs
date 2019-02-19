@@ -38,82 +38,68 @@
 
   
     <% if user_signed_in? %>
-    <div id="wrapper">
-  <div class="barnav">
-    <!-- /#sidebar-toggle -->
-      <div class="emerald">
-        <a href="#menu-toggle" class="btn btn-default menu-toggle mx-auto">
-        <div class="emerald"><%= image_tag ("emerald.png"), :title => 'Click here to show/hide side bar'%></a>
+      <div id="wrapper">
+        <div class="barnav">
+        <%# /#sidebar-toggle  %>
+        
+          <div class="emerald">
+            <a href="#" class="btn btn-default menu-toggle mx-auto">
+              <div class="emerald"><%= image_tag ("emerald.png"), :title => 'Click here to show/hide side bar'%>
+              </div>
+            </a>
+            <%= link_to root_path, :class => 'navbar-link' do %> 
+              emerald
+            <% end %> 
+          </div>
 
-        <%= link_to root_path, :class => 'navbar-link' do %> 
-        emerald</div>
-        <% end %> 
-      </div>
-      <div class="ml-auto" style="color: white;">Logged in as<strong><%= current_user.email %></strong>
-      </div>
 
-      
+          <div class="ml-auto" style="color: white;">Logged in as    
+            <strong><%= current_user.email %></strong>
+            <%= link_to destroy_user_session_path, method: :delete, :class => 'navbar-link' do %>
+              <button type="button" class="btn btn-danger">Logout</button>
+            <% end %>
+          </div>
 
-      <!-- Sidebar -->
-        <div id="sidebar-wrapper">
+          <%# Sidebar  %>
+          <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
-                <li>
-                    <%= link_to root_path do %> Dashboard <% end %>
-                </li>
-                <li>
-                    <%= link_to assignments_path do %>Assignments<% end %>
-                </li>
-                <li>
-                    <%= link_to forum_path do %>Posts<% end %>
-                </li>
-                <li>
-                    <%= link_to forum_path do %>Public Forum<% end %>
-                </li>
-                <li>
-                    <%= link_to calculator_index_path, target:"_blank" do %>Calculator<% end %>
-                </li>
-                <li>
-                    <%= link_to edit_user_registration_path do %>Edit Profile<% end %>
-                </li>
+              <li>
+                <%= link_to root_path do %> Dashboard <% end %>
+              </li>
+              <li>
+                <%= link_to assignments_path do %>Assignments<% end %>
+              </li>
+              <li>
+                <%= link_to forum_path do %>Posts<% end %>
+              </li>
+              <li>
+                <%= link_to forum_path do %>Public Forum<% end %>
+              </li>
+              <li>
+                <%= link_to calculator_index_path, target:"_blank" do %>Calculator<% end %>
+              </li>
+              <li>
+                <%= link_to edit_user_registration_path do %>Edit Profile<% end %>
+              </li>
             </ul>
+          </div>
+          <%# sidebar-wrapper  %>
         </div>
-        <!-- /#sidebar-wrapper -->
-  <%end%>
 
-  <div class="barnav">
-  <p class="navbar-text">
-    <% if user_signed_in? %>
+      <% else %>      
 
-      <%= link_to forum_path, class: "navbar-link" do %>
-      <button type="button" class="btn btn-secondary">Public Forum</button>
-      <% end %> 
-      <%= link_to edit_user_registration_path, :class => 'navbar-link' do %>
-      <button type="button" class="btn btn-secondary">Edit Profile</button>
-      <% end %>
-     
-      <%= link_to destroy_user_session_path, method: :delete, :class => 'navbar-link' do %>
-      <button type="button" class="btn btn-danger">Logout</button>
-      <% end %>
-<% else %>
-    <!-- /#sidebar-toggle -->
-      <div class="emerald">
-        <a href="#menu-toggle" class="btn btn-default menu-toggle mx-auto">
-        <div class="emerald"><%= image_tag ("emerald.png"), :title => 'Click here to show side bar'%></a>
-        <%= link_to root_path, :class => 'navbar-link' do %> 
-        <%= image_tag ("emerald.png") %>
-        emerald
-      <% end %>
-      </div>
-      <div class="ml-auto">
+    <%# #sidebar-toggle %>
+      
+        <div class="ml-auto">
           <%= link_to new_user_registration_path, :class => 'navbar-link' do %>
-          <button type="button" class="btn btn-primary">Sign Up</button>
-        <% end %>
-          <%= link_to new_user_session_path, :class => 'navbar-link' do %>
-          <button type="button" class="btn btn-dark">Log In</button>
+            <button type="button" class="btn btn-primary">Sign Up</button>
           <% end %>
-      <% end %>
-      </div>
-    </div>
+          <%= link_to new_user_session_path, :class => 'navbar-link' do %>
+            <button type="button" class="btn btn-dark">Log In</button>
+          <% end %>
+        </div>
+    
+    <% end %>
   
   <%= yield %>
 

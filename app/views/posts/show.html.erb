@@ -114,7 +114,7 @@
                     <div class="row no-gutters">
                         <% if comment.image.attached? %>
                             <div class="col-md-4">
-                                <%= image_tag(comment.image, width: '150') %> <br>
+                                <%= image_tag(comment.image, class: "card-img post-img") %> <br>
                             </div>
                             <div class="col-md-8">
                         <% else %>
