@@ -94,7 +94,6 @@
         <div class="col-6 assgn-col editor-col">
             <h3>Text Editor</h3>
             <!-- Create the editor container -->
-            <input name="about" type="hidden">
             <div id="editor" style="border: 1px solid black; height: 85vh">
                 <h2>One Ring to Rule Them All</h2>
                 <p><a href="http://en.wikipedia.org/wiki/One_Ring">http://en.wikipedia.org/wiki/One_Ring</a></p>
@@ -110,6 +109,7 @@
                 <p>In the Land of Mordor where the Shadows lie.</p>
             </div>
             <div>
+            <input name="about" type="hidden">
                 <a class="btn btn-success mt-2 mb-2 editor-save-btn" href="javascript: post()" role="button">Save</a>
             </div>
         </div>
@@ -125,11 +125,11 @@
             }
         </style>
         <div class="editor-container">
-            <div class="editor-wrapper text-center">
+            <div class="editor-wrapper">
                 <h3>Text Editor</h3>
                 <!-- Create the editor container -->
 
-                    <input name="about" type="hidden">
+                    <%# <input name="about" type="hidden"> %>
                 
                 <div id="editor">
                     <h2>One Ring to Rule Them All</h2>
@@ -146,7 +146,11 @@
                     <p>In the Land of Mordor where the Shadows lie.</p>
                 </div>
                 <div>
-                    <button class="btn btn-success mt-2 mb-2 text-white log-as-html-btn" role="button">Log As HTML</button>
+                    <%# <button class="btn btn-success mt-2 mb-2 text-white log-as-html-btn" role="button">Log As HTML</button> %>
+                    <%= form_with(model: @assignment, url: user_assignment_path(@assignment.user, @assignment, format: 'pdf'), class: "editor-pdf-form") do |f| %>
+                        <%= f.hidden_field :editor_contents, class: "editor-contents" %>
+                        <%= f.submit "Download", class: "btn btn-success mt-2 mb-2 text-white download-as-pdf-btn" %>
+                    <% end %>
                 </div>
             </div>
         </div>
