@@ -91,7 +91,6 @@
             <h3>PDF Viewer</h3>
             <embed src="<%= rails_blob_path(@assignment.file) %>" type="application/pdf" width="600rem" height="600rem">
         </div>
-
         <div class="col-6 assgn-col editor-col">
             <h3>Text Editor</h3>
             <!-- Create the editor container -->
@@ -110,8 +109,11 @@
                 <p>In the Land of Mordor where the Shadows lie.</p>
             </div>
             <div>
-            <input name="about" type="hidden">
-                <a class="btn btn-success mt-2 mb-2 editor-save-btn" href="javascript: post()" role="button">Save</a>
+                <%= link_to user_assignment_path(@assignment.user, @assignment, format: 'pdf', contents: "hello world"), class: "editor-contents" do %>
+                        <button class="btn btn-success mt-2 mb-2 text-white download-as-pdf-btn" role="button">
+                            Download
+                        </button>
+                    <% end %>
             </div>
         </div>
     <% else %>
@@ -145,7 +147,6 @@
                     <p>In the Land of Mordor where the Shadows lie.</p>
                 </div>
                 <div>
-                    <%= link_to "Add to cart", {:controller => "assignments", :action => "index", :car => @assignment.id }, class: "random-add"%>
                     <%= link_to user_assignment_path(@assignment.user, @assignment, format: 'pdf', contents: "hello world"), class: "editor-contents" do %>
                         <button class="btn btn-success mt-2 mb-2 text-white download-as-pdf-btn" role="button">
                             Download

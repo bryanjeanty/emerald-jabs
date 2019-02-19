@@ -1,11 +1,27 @@
-<%= link_to edit_user_post_path(@post.user, @post) do %> 
-<button type="button" class="btn btn-primary"> Edit </button><% end %>
+<div class="post-header-btn-container text-center">
+    <%= link_to :back do %>
+        <button type="button" class="btn btn-success text-white mt-4 mb-3 back-btn">
+            Back
+        </button>
+    <% end %>
 
-<%= link_to user_post_path(@post.user, @post), method: :delete do %>
-<button type="button" class="btn btn-danger">Delete </button>
-<% end %>
+    <%= link_to edit_user_post_path(@post.user, @post) do %>
+        <button type="button" class="btn btn-primary mt-4 mb-3">
+            Edit
+        </button>
+    <% end %>
+
+    <%= link_to user_post_path(@post.user, @post), method: :delete  do %>
+        <button type="button" class="btn btn-danger mt-4 mb-3 delete-btn">
+            Delete
+        </button>
+    <% end %>
+</div>
 
 <style>
+    .post-header-btn-container > a {
+        margin: 0.25rem 8rem;
+    }
     .post-container {
         display: flex;
         padding-bottom: 2rem;
@@ -20,6 +36,8 @@
         width: 90%;
         min-height: 23rem;
         display: flex;
+        border: 1px solid lightgray;
+        box-shadow: 3px 3px 8px #888888;
     }
     .post-body {
         background-color: white;
@@ -49,6 +67,14 @@
 
     .comment-title {
         text-align: center;
+    }
+    .comment-card {
+        width: 65%;
+    }
+    .new-comment-form {
+        width: 65%; 
+        margin-left: auto; 
+        margin-right: auto;
     }
 </style>
 <div class="post-container">
@@ -110,7 +136,7 @@
     <% @post.comments.each do |comment| %>
         <div class="comment">
             <div class="post-container">
-                <div class="card mb-3 post-card">
+                <div class="card mb-3 post-card comment-card">
                     <div class="row no-gutters">
                         <% if comment.image.attached? %>
                             <div class="col-md-4">
@@ -129,6 +155,11 @@
                                     <div class="text-post-btn">
                                         <p class="card-text"><small class="text-muted">Posted By: <%= @post.user.email %></small></p>
                                         <button class="edit-comment-btn btn btn-primary">Edit Comment</button>
+                                        <%= link_to delete_post_comment_path(@post, comment), method: :delete do %>
+                                            <button class="btn btn-primary">
+                                                Delete Comment
+                                            </button>
+                                        <% end %>
                                     </div>
                                 </div>
                             </div>
@@ -148,7 +179,6 @@
             <%= f.submit "Update Comment" %>
         <% end %>
         <%= link_to "Delete Comment", delete_post_comment_path(@post, comment), method: :delete %>
-        <br> <br> <br>
     <% end %>
 <%= render "comments/form" %>
 
