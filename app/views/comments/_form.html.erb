@@ -1,10 +1,21 @@
 <%= form_with model: @comment, url: post_comments_path(@post), method: :post do |f| %>
-    <%= f.label :title %> <br> 
-    <%= f.text_field :title %> <br>
-    <%= f.label :content %> <br>
-    <%= f.text_area :content %> <br>
-    <%= f.label :upload_image_below %> <br>
-    <%= f.file_field :image %> <br>
-    <%= f.hidden_field :user_id, :value => current_user.id %>
-    <%= f.submit "Create Comment" %>
+    <div class="form-group" style="width: 90%; margin-left: auto; margin-right: auto;">
+        <div class="form-group">
+            <%= f.label :title %> 
+            <%= f.text_field :title, class: "form-control" %> 
+        </div>
+        <div class="form-group">
+            <%= f.label :content %> 
+            <%= f.text_area :content, class: "form-control", rows: "3" %>
+            <small id="emailHelp" class="form-text text-muted">Say Something Nice 😉</small>
+        </div>
+        <div class="input-group mb-3">
+            <div class="custom-file">
+                <%= f.file_field :image, class: "custom-file-input" %>
+                <%= f.label :choose_image, class: "custom-file-label" %> 
+            </div> 
+        </div>
+        <%= f.hidden_field :user_id, :value => current_user.id %>
+        <%= f.submit "Create Comment", class: "btn btn-primary comment-submit-btn" %>
+    </div>
 <% end %>
