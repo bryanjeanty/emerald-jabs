@@ -75,7 +75,7 @@
                 <%= link_to post.title, user_post_path(current_user, post) %>
             </td>
             <td>
-                <%= post.updated_at %>
+                <%= post.updated_at.to_formatted_s(:long).to_s[0..17] %>
             </td>
 
         </tr>
