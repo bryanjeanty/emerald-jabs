@@ -182,12 +182,15 @@ a:hover {
 
 .card {
   border: none !important;
+  margin: 3rem;
+  float:right;
 }
 
 thead {
    background-color: #4CAF50;
    color: white;
  }
+
 
 
 /* sidebar */
