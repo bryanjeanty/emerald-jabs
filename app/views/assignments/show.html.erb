@@ -84,7 +84,7 @@
         }
     </style>
 
-<form class="row editor-form">
+<div class="row editor-form">
     <% if @assignment.file.attached? %>
         <div class="col-6 row assgn-col pdf-col">
             <h3>PDF Viewer</h3>
@@ -147,14 +147,16 @@
                 </div>
                 <div>
                     <%# <button class="btn btn-success mt-2 mb-2 text-white log-as-html-btn" role="button">Log As HTML</button> %>
-                    <%= form_with(model: @assignment, url: user_assignment_path(@assignment.user, @assignment, format: 'pdf'), class: "editor-pdf-form") do |f| %>
-                        <%= f.hidden_field :editor_contents, class: "editor-contents" %>
-                        <%= f.submit "Download", class: "btn btn-success mt-2 mb-2 text-white download-as-pdf-btn" %>
+                    <%= link_to "Add to cart", {:controller => "assignments", :action => "index", :car => @assignment.id }, class: "random-add"%>
+                    <%= link_to user_assignment_path(@assignment.user, @assignment, format: 'pdf', contents: "hello world", class: "editor-contents" ) do %>
+                        <button class="btn btn-success mt-2 mb-2 text-white download-as-pdf-btn" role="button">
+                            Download
+                        </button>
                     <% end %>
                 </div>
             </div>
         </div>
     <% end %>
-</form>
+</div>
 
 </div>

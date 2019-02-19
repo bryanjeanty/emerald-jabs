@@ -5,14 +5,14 @@ class AssignmentsController < ApplicationController
   end
 
   def show
-    @user = User.find(param[:user_id])
+    @user = User.find(params[:user_id])
     @assignment = @user.assignments.find(params[:id])
     
     respond_to do |format|
       format.html
       format.pdf do
         pdf = Prawn::Document.new
-        pdf.text(params[:assignment][:editor_contents])
+        pdf.text params[:contents]
         send_data(pdf.render, filename: "#{ @assignment.title }-workspace-session.pdf", type: "application/pdf")
       end
     end
@@ -45,7 +45,7 @@ class AssignmentsController < ApplicationController
 
   def update
     @assignment = Assignment.find(params[:id])
-    @assignment.update(assignment_params)
+    @assignment.update(params.require(:assignment).permit(:title, :due_date, :todo))
     redirect_to assignments_path
   end
 

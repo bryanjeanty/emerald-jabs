@@ -1,44 +1,49 @@
 document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener("turbolinks:load", () => {
-    let logAsHTMLBtn = document.querySelector('.log-as-html-btn');
+    // let logAsHTMLBtn = document.querySelector('.log-as-html-btn');
 
     let quill = new Quill('#editor', {
       theme: 'snow'
     });
 
-    function logHTMLContent() {
-      let JSONContents = JSON.stringify(quill.getContents());
-      let JSObject = JSON.parse(JSONContents);
-      let HTMLContents = quill.root.innerHTML;
-      let plainText = HTMLContents.replace(/<\/?[^>]+>/ig, " ");
-      console.log(JSONContents);
-      console.log("");
-      console.log(JSObject);
-      console.log("");
-      console.log(HTMLContents);
-      console.log("");
-      console.log(plainText);
-    }
+    // function logHTMLContent() {
+    //   let JSONContents = JSON.stringify(quill.getContents());
+    //   let JSObject = JSON.parse(JSONContents);
+    //   let HTMLContents = quill.root.innerHTML;
+    //   let plainText = HTMLContents.replace(/<\/?[^>]+>/ig, " ");
+    //   console.log(JSONContents);
+    //   console.log("");
+    //   console.log(JSObject);
+    //   console.log("");
+    //   console.log(HTMLContents);
+    //   console.log("");
+    //   console.log(plainText);
+    // }
 
-    logAsHTMLBtn.addEventListener('click', (event) => {
-      event.preventDefault();
-      logHTMLContent();
-    });
+    // logAsHTMLBtn.addEventListener('click', (event) => {
+    //   event.preventDefault();
+    //   logHTMLContent();
+    // });
 
     let downloadAsPDFBtn = document.querySelector('.download-as-pdf-btn');
-    let editorContentsInput = document.querySelector('input[name=assignment[editor_contents]]');
-    let editorPDFForm = document.querySelector('.editor-pdf-form');
+    let editorContentsLink = document.querySelector('.editor-contents');
+    let randomAdd = document.querySelector('.random-add');
+    // let editorPDFForm = document.querySelector('.editor-pdf-form');
 
     function getContents() {
       let HTMLContents = quill.root.innerHTML;
       let plainText = HTMLContents.replace(/<\/?[^>]+>/ig, " ");
-      editorContentsInput.value = plainText;
+      // let editorContentsHref = editorContentsLink.getAttribute("href");
+      // editorContentsHref += plainText;
+      // console.log(editorContentsLink.getAttribute("href"));
+      console.log(plainText);
     }
 
-    downloadAsPDFBtn.addEventListener('click', (event) => {
+    randomAdd.addEventListener('click', (event) => {
       event.preventDefault();
-      getContents();
-      editorPDFForm.submit();
+      // getContents();
+      // editorPDFForm.submit();
+      // console.log(editorContentsInput);
     });
   });
 });
