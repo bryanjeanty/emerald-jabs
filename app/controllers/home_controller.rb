@@ -2,7 +2,7 @@ class HomeController < ApplicationController
 
 
   def index
-    @assignments = Assignment.all
+    @assignments = current_user.assignments.all
     @posts = current_user.posts.with_attached_image
   end
 
