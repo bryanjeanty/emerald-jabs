@@ -3,13 +3,13 @@
     <p class="hero-text">A new way of Learning</p>
     <p class="hero-text-butt">Making learning cool again</p>
   </div>
- <div class="heroImg">
-   <div class="card">
-    <div class="card-body" style="padding: 50px;">
-      <h2 class="card-title"><strong>Sign Up</strong></h2>
+  <div class="heroImg">
+    <div class="card">
+      <div class="card-body" style="padding: 50px;">
+        <h2 class="card-title"><strong>Sign Up</strong></h2>
 
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>  
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>  
 
         <div class="field">
           <%= f.label :first_name %><br />
@@ -44,9 +44,7 @@
           <%= f.submit "Sign up", {class: "btn btn-primary"} %>
           <% end %>
         </div>
-
       </div>
     </div>
-    
   </div>
 </div>
