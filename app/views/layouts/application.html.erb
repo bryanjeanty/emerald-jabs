@@ -43,8 +43,8 @@
         <%# /#sidebar-toggle  %>
         
           <div class="emerald">
-            <a href="#" class="btn btn-default menu-toggle mx-auto">
-              <div class="emerald"><%= image_tag ("emerald.png"), :title => 'Click here to show/hide side bar'%>
+            <a class="btn btn-default sidenav-toggle menu-toggle mx-auto">
+              <div class="emerald"><%= image_tag ("emerald.png"), :title => 'Click here to show/hide side bar' %>
               </div>
             </a>
             <%= link_to root_path, :class => 'navbar-link' do %> 
@@ -117,10 +117,20 @@
   
   <!-- Menu Toggle Script -->
     <script>
-    $(".menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
+    // document.addEventListener('DOMContentLoaded', () => {
+      // document.addEventListener("turbolinks:load", () => {
+        let menu_toggle = document.querySelector('.sidenav-toggle');
+        menu_toggle.addEventListener('click', (event) => {
+          event.preventDefault();
+          $("#wrapper").toggleClass("toggled");
+        });
+      // }
+    // }
+
+    // $(".menu-toggle").click(function(e) {
+    //     e.preventDefault();
+    //     $("#wrapper").toggleClass("toggled");
+    // });
     </script>
     
     <!-- Include the Quill library -->
