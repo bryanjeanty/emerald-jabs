@@ -47,11 +47,11 @@
               <div class="emerald"><%= image_tag ("emerald.png"), :title => 'Click here to show/hide side bar'%>
               </div>
             </a>
-
             <%= link_to root_path, :class => 'navbar-link' do %> 
               emerald
             <% end %> 
           </div>
+
 
           <div class="ml-auto" style="color: white;">Logged in as    
             <strong><%= current_user.email %></strong>
@@ -85,6 +85,7 @@
           </div>
           <%# sidebar-wrapper  %>
         </div>
+
       <% else %>      
 
     <%# #sidebar-toggle %>
