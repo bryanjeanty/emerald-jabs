@@ -128,8 +128,6 @@
             <div class="editor-wrapper">
                 <h3>Text Editor</h3>
                 <!-- Create the editor container -->
-
-                    <%# <input name="about" type="hidden"> %>
                 
                 <div id="editor">
                     <h2>One Ring to Rule Them All</h2>
@@ -146,9 +144,8 @@
                     <p>In the Land of Mordor where the Shadows lie.</p>
                 </div>
                 <div>
-                    <%# <button class="btn btn-success mt-2 mb-2 text-white log-as-html-btn" role="button">Log As HTML</button> %>
                     <%= link_to "Add to cart", {:controller => "assignments", :action => "index", :car => @assignment.id }, class: "random-add"%>
-                    <%= link_to user_assignment_path(@assignment.user, @assignment, format: 'pdf', contents: "hello world", class: "editor-contents" ) do %>
+                    <%= link_to user_assignment_path(@assignment.user, @assignment, format: 'pdf', contents: "hello world"), class: "editor-contents" do %>
                         <button class="btn btn-success mt-2 mb-2 text-white download-as-pdf-btn" role="button">
                             Download
                         </button>
