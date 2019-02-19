@@ -1,22 +1,33 @@
-<div class="row workspace">
-    <%= link_to edit_user_assignment_path do %>
-    <button type="button" class="btn btn-primary">
-    Edit
-    </button>
-    <% end %>
+<div class="text-center">
 
-    <%= link_to user_assignment_path(current_user, @assignment), method: :delete  do %>
-    <button type="button" class="btn btn-danger">
-    Delete
-    </button>
-    <% end %>
-    <br>
+    <style>
+        .header-btn-container > a {
+            margin: 0.25rem 8rem;
+        }
+    </style>
+    <div class="header-btn-container">
+        <%= link_to :back do %>
+            <button type="button" class="btn btn-success text-white mt-3 mb-3 back-btn">
+                Back
+            </button>
+        <% end %>
 
-    <%= link_to "Back", :back %>
+        <%= link_to edit_user_assignment_path do %>
+        <button type="button" class="btn btn-primary mt-3 mb-3">
+        Edit
+        </button>
+        <% end %>
 
+        <%= link_to user_assignment_path(current_user, @assignment), method: :delete  do %>
+        <button type="button" class="btn btn-danger mt-3 mb-3 delete-btn">
+        Delete
+        </button>
+        <% end %>
+    </div>
 
 <div class="container-fluid center">
-  <table style="float:center" class="table table-hover table-bordered text-center">
+
+  <table class="table table-bordered text-center assignment-table">
     <thead>
       <tr>
         <th scope="col">Title</th>
@@ -52,51 +63,98 @@
   
       <td>
         <% if @assignment.image.attached? %>
-        <%= image_tag(@assignment.image, width: '200') %>
+            <%= image_tag(@assignment.image, width: '200') %>
         <% end %> <br>
       </td>
 
       <td>
         <% if @assignment.file.attached? %>
-        <%= link_to "Download File", @assignment.file, download: '' %>
+            <%= link_to "Download File", @assignment.file, download: '' %>
         <% end %>
       </td>
   
     </tr>
     </tbody>
   </table>
-  </div>    
+</div>    
 
+    <style>
+        .assgn-col {
+            text-align: center;
+            max-height: 100vh;
+        }
+    </style>
 
-<div class="row workspace">
-    <div class="col-6">
-    <h3>PDF Viewer</h3>
+<div class="row editor-form">
     <% if @assignment.file.attached? %>
-        <embed src="<%= rails_blob_path(@assignment.file) %>" type="application/pdf" width="600rem" height="600rem">
-    <% end %>
-    </div>
-
-    <div class="col-6">
-    <h3>Text Editor</h3>
-        <!-- Create the editor container -->
-        <input name="about" type="hidden">
-        <div id="editor">
-            <h2>One Ring to Rule Them All</h2>
-            <p><a href="http://en.wikipedia.org/wiki/One_Ring">http://en.wikipedia.org/wiki/One_Ring</a></p>
-            <p><br/></p>
-            <p>Three Rings for the <em>Elven-kings</em> under the sky,</p>
-            <p>Seven for the <u>Dwarf-lords</u><span> in halls of stone,</p>
-            <p>Nine for <u>Mortal Men</u>, doomed to die,</p>
-            <p>One for the <u>Dark Lord</u> on his dark throne.</p>
-            <p><br/></p>
-            <p>In the Land of Mordor where the Shadows lie.</span></p>
-            <p>One Ring to <strong>rule</strong> them all, One Ring to <strong>find</strong> them,</p>
-            <p>One Ring to <strong>bring</strong> them all and in the darkness <strong>bind</strong> them.</p>
-            <p>In the Land of Mordor where the Shadows lie.</p>
+        <div class="col-6 row assgn-col pdf-col">
+            <h3>PDF Viewer</h3>
+            <embed src="<%= rails_blob_path(@assignment.file) %>" type="application/pdf" width="600rem" height="600rem">
         </div>
-            <div>
-            <a class="btn btn-success" href="javascript: post()" role="button">Save</a>
+
+        <div class="col-6 assgn-col editor-col">
+            <h3>Text Editor</h3>
+            <!-- Create the editor container -->
+            <div id="editor" style="border: 1px solid black; height: 85vh">
+                <h2>One Ring to Rule Them All</h2>
+                <p><a href="http://en.wikipedia.org/wiki/One_Ring">http://en.wikipedia.org/wiki/One_Ring</a></p>
+                <p><br/></p>
+                <p>Three Rings for the <em>Elven-kings</em> under the sky,</p>
+                <p>Seven for the <u>Dwarf-lords</u><span> in halls of stone,</p>
+                <p>Nine for <u>Mortal Men</u>, doomed to die,</p>
+                <p>One for the <u>Dark Lord</u> on his dark throne.</p>
+                <p><br/></p>
+                <p>In the Land of Mordor where the Shadows lie.</span></p>
+                <p>One Ring to <strong>rule</strong> them all, One Ring to <strong>find</strong> them,</p>
+                <p>One Ring to <strong>bring</strong> them all and in the darkness <strong>bind</strong> them.</p>
+                <p>In the Land of Mordor where the Shadows lie.</p>
             </div>
-    </div>
+            <div>
+            <input name="about" type="hidden">
+                <a class="btn btn-success mt-2 mb-2 editor-save-btn" href="javascript: post()" role="button">Save</a>
+            </div>
+        </div>
+    <% else %>
+        <style>
+            .editor-container {
+                width: 100%;
+                display: grid;
+                grid-template-columns: repeat(14, 1fr);
+            }
+            .editor-wrapper {
+                grid-column: 2 / 14;
+            }
+        </style>
+        <div class="editor-container">
+            <div class="editor-wrapper">
+                <h3>Text Editor</h3>
+                <!-- Create the editor container -->
+                
+                <div id="editor">
+                    <h2>One Ring to Rule Them All</h2>
+                    <p><a href="http://en.wikipedia.org/wiki/One_Ring">http://en.wikipedia.org/wiki/One_Ring</a></p>
+                    <p><br/></p>
+                    <p>Three Rings for the <em>Elven-kings</em> under the sky,</p>
+                    <p>Seven for the <u>Dwarf-lords</u><span> in halls of stone,</p>
+                    <p>Nine for <u>Mortal Men</u>, doomed to die,</p>
+                    <p>One for the <u>Dark Lord</u> on his dark throne.</p>
+                    <p><br/></p>
+                    <p>In the Land of Mordor where the Shadows lie.</span></p>
+                    <p>One Ring to <strong>rule</strong> them all, One Ring to <strong>find</strong> them,</p>
+                    <p>One Ring to <strong>bring</strong> them all and in the darkness <strong>bind</strong> them.</p>
+                    <p>In the Land of Mordor where the Shadows lie.</p>
+                </div>
+                <div>
+                    <%= link_to "Add to cart", {:controller => "assignments", :action => "index", :car => @assignment.id }, class: "random-add"%>
+                    <%= link_to user_assignment_path(@assignment.user, @assignment, format: 'pdf', contents: "hello world"), class: "editor-contents" do %>
+                        <button class="btn btn-success mt-2 mb-2 text-white download-as-pdf-btn" role="button">
+                            Download
+                        </button>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    <% end %>
 </div>
 
+</div>

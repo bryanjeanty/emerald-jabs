@@ -1,13 +1,22 @@
+document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener("turbolinks:load", () => {
+    let quill = new Quill('#editor', {
+      theme: 'snow'
+    });
 
-var form = document.querySelector('form');
-form.onsubmit = function() {
-  // Populate hidden form on submit
-  var about = document.querySelector('input[name=about]');
-  about.value = JSON.stringify(quill.getContents());
-  
-  console.log("Submitted", $(form).serialize(), $(form).serializeArray());
-  
-  // No back end to actually submit to!
-  // alert('Open the console to see the submit data!')
-  return false;
-};
+    let editorContentsLink = document.querySelector('.editor-contents');
+
+    function getContents() {
+      let HTMLContents = quill.root.innerHTML;
+      let plainText = HTMLContents.replace(/<\/?[^>]+>/ig, " ");
+      let editorContentsHref = editorContentsLink.getAttribute("href");
+      editorContentsHref += plainText;
+      window.location = editorContentsHref;
+    }
+
+    editorContentsLink.addEventListener('click', (event) => {
+      event.preventDefault();
+      getContents();
+    });
+  });
+});
