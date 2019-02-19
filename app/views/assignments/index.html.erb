@@ -1,8 +1,12 @@
 
 <div class="assignments" style="height: 35rem; width: 100%">
+
 <h1>Assignment</h1>
 <%= link_to new_user_post_path(current_user) do %>
             <button type="button" class="btn btn-success">New Post </button>
+
+
+
             <% end %><br><br>
   <% @assignment.each do |assignment| %>
     <%= link_to assignment.title, user_assignment_path(current_user, assignment) %>

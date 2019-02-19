@@ -5,12 +5,100 @@
 <button type="button" class="btn btn-danger">Delete </button>
 <% end %>
 
-<h1><%= @post.title %></h1>
-<%= @post.content %> <br>
-<% if @post.image.attached? %>
-    <%= image_tag(@post.image, width: '200') %> <br>
-<% end %>
-<h5>Add Comment</h5>
+<style>
+    .post-container {
+        display: flex;
+        padding-bottom: 2rem;
+    }
+    .post-card {
+        margin: 0;
+        padding: 0; 
+        border-radius: 0;
+        margin-top: 2rem;
+        margin-left: auto;
+        margin-right: auto;
+        width: 90%;
+        min-height: 23rem;
+        display: flex;
+    }
+    .post-body {
+        background-color: white;
+        min-height: 23rem;
+        display: flex;
+        flex-direction: column;
+    }
+    .post-img {
+        object-fit: cover;
+        border-radius: 0;
+        min-height: 23rem;
+    }
+    .post-btn {
+        max-width: 10rem;
+        margin-left: auto;
+    }
+    .small-post-text {
+        margin-top: auto;
+        margin-right: auto;
+        width: 100%;
+    }
+    .text-post-btn {
+        display: flex;
+    }
+</style>
+<div class="post-container">
+    <div class="card mb-3 post-card">
+        <div class="row no-gutters">
+            <% if @post.image.attached? %>
+                <div class="col-md-4">
+                    <%= image_tag(@post.image, class: "card-img post-img") %> <br>
+                </div>
+                <div class="col-md-8">
+            <% else %>
+                <div class="col-md-12">
+            <% end %>
+                <div class="card-body post-body">
+                    <h5 class="card-title"><%= @post.title %></h5>
+                    <p class="card-text post-text"><%= @post.content %></p>
+                    <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                            <div class="highlight-box modal-dialog modal-dialog-scrollable modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalScrollableTitle">Modal title</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body highlight-text-box">
+                                        
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <div class="small-post-text">
+                        <hr>
+                        <div class="text-post-btn">
+                            <p class="card-text"><small class="text-muted">Posted By: <%= @post.user.email %></small></p>
+                            <button type="button" class="btn btn-primary post-btn" data-toggle="modal" data-target="#exampleModalScrollable">
+                            View Highlights
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card-header bg-dark text-center" style="width: 95%; margin: 1rem 0; margin-left: auto; margin-right: auto;">
+    <h5 class="text-white card-title mt-2">
+        Add Comment
+    </h5>
+</div>
+
 <%= render "comments/form" %>
 <h4>Comment Section - <%= @post.comments.count %></h4>
     <% @post.comments.each do |comment| %>
