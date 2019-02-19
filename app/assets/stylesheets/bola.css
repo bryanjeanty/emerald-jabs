@@ -78,7 +78,7 @@ a:hover {
 }
 
 .heroImg {
-   background-image: url('/images/children-banner.png');
+   background-image: url('https://images.unsplash.com/photo-1489486501123-5c1af10d0be6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60');
    background-size: cover;
    height: 110vh;
 }
@@ -95,6 +95,7 @@ a:hover {
    font-family:'Rum Raisin', sans-serif;
    line-height: 7.5rem;
    color: #066D0A;
+   margin-top: 2rem;
 }
 
 .hero-text-butt {
@@ -148,6 +149,7 @@ a:hover {
    background-color: rgba(20, 107, 2, 0.70);
    /* margin: 1rem; */
    /* justify-content: center; */
+  
  }
  
 .workspace {
@@ -183,8 +185,11 @@ a:hover {
 
 .card {
   border: none !important;
-  margin: 3rem;
+  margin: 5rem;
   float:right;
+  
+  
+  
 }
 
 thead {

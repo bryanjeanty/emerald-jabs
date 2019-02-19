@@ -37,7 +37,7 @@
   <% if user_signed_in? %>
     <%# /#sidebar-toggle  %>
     <div id="wrapper" class="toggled">
-      <div class="barnav">
+      <div class="barnav fixed-top">
       
       
         <div class="emerald">
@@ -81,8 +81,8 @@
     <% else %>      
 
   <%# #sidebar-toggle %>
-      <div class="barnav" style="color: #066D0A; font-size: 2rem;">
-        <div class="emerald">
+      <div class="barnav fixed-top" style="color: #066D0A; font-size: 2rem;">
+        <div class="emerald"> 
           <%= link_to root_path, :class => 'navbar-link' do %>
           <%= image_tag ("emerald.png") %>
           <a class="shine">emerald</a>
