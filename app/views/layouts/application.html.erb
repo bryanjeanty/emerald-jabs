@@ -49,12 +49,10 @@
         emerald</div>
         <% end %> 
       </div>
-      <div class="ml-auto" style="color: white;">Logged in as    
-      <strong><%= current_user.email %></strong>
-        <%= link_to destroy_user_session_path, method: :delete, :class => 'navbar-link' do %>
-        <button type="button" class="btn btn-danger">Logout</button>
-        <% end %>
-      </div><br>
+      <div class="ml-auto" style="color: white;">Logged in as<strong><%= current_user.email %></strong>
+      </div>
+
+      
 
       <!-- Sidebar -->
         <div id="sidebar-wrapper">
@@ -80,7 +78,7 @@
             </ul>
         </div>
         <!-- /#sidebar-wrapper -->
-  
+  <%end%>
 
   <div class="barnav">
   <p class="navbar-text">
@@ -92,11 +90,11 @@
       <%= link_to edit_user_registration_path, :class => 'navbar-link' do %>
       <button type="button" class="btn btn-secondary">Edit Profile</button>
       <% end %>
-      <%= link_to 'Calculator', calculator_index_path, target:"_blank", :class => 'navbar-link' %> 
+     
       <%= link_to destroy_user_session_path, method: :delete, :class => 'navbar-link' do %>
       <button type="button" class="btn btn-danger">Logout</button>
       <% end %>
-
+<% else %>
     <!-- /#sidebar-toggle -->
       <div class="emerald">
         <a href="#menu-toggle" class="btn btn-default menu-toggle mx-auto">
