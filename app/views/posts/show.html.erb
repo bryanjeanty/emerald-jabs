@@ -197,14 +197,25 @@
             </div>
         </div>
         <%= form_with model: comment, url: update_post_comment_path(@post, comment), method: :patch, class: "edit-comment-form" do |f| %>
-            <%= f.label :title %> <br> 
-            <%= f.text_field :title %> <br>
-            <%= f.label :content %> <br>
-            <%= f.text_area :content %> <br>
-            <%= f.label :upload_image_below %> <br>
-            <%= f.file_field :image %> <br>
-            <%= f.hidden_field :user_id, :value => current_user.id %>
-            <%= f.submit "Update Comment" %>
+            <div class="form-group new-comment-form">
+                <div class="form-group">
+                    <%= f.label :title %> 
+                    <%= f.text_field :title, class: "form-control" %> 
+                </div>
+                <div class="form-group">
+                    <%= f.label :content %> 
+                    <%= f.text_area :content, class: "form-control", rows: "3" %>
+                    <small id="emailHelp" class="form-text text-muted">Say Something Nice 😉</small>
+                </div>
+                <div class="input-group mb-3">
+                    <div class="custom-file">
+                        <%= f.file_field :image, class: "form-control-file comment-upload-btn" %>
+                        <%= f.label :choose_image, class: "custom-file-label comment-upload-label" %> 
+                    </div> 
+                </div>
+                <%= f.hidden_field :user_id, :value => current_user.id %>
+                <%= f.submit "Update Comment", class: "btn btn-primary comment-submit-btn" %>
+            </div>
         <% end %>
     <% end %>
 <%= render "comments/form" %>
