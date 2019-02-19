@@ -18,7 +18,7 @@ body {
 
 a {
    padding: .8rem;
-   color: #066D0A !important;
+   color: rgb(25, 138, 29) !important;
    text-decoration: none !important;
 }
 
@@ -39,6 +39,7 @@ a:hover {
 .emerald {
    font-family: 'Rum Raisin', sans-serif;
 }
+
 .emerald a {
    text-decoration: none!important;
    font-size: 2rem;

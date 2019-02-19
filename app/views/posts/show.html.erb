@@ -163,32 +163,31 @@
                 <div class="card mb-3 post-card comment-card">
                     <div class="row no-gutters">
                         <% if comment.image.attached? %>
-                            <div class="col-md-4">
-                                <%= image_tag(comment.image, class: "card-img post-img") %> <br>
-                            </div>
-                            <div class="col-md-8">
+                        <div class="col-md-4">
+                            <%= image_tag(comment.image, class: "card-img post-img") %> <br>
+                        </div>
+                        <div class="col-md-8">
                         <% else %>
-                            <div class="col-md-12">
+                        <div class="col-md-12">
                         <% end %>
-                            <div class="card-body post-body">
-                                <h5 class="card-title"><%= comment.title %></h5>
+                        <div class="card-body post-body">
+                            <h5 class="card-title"><%= comment.title %></h5>
+                            <hr>
+                            <p class="card-text post-text"><%= comment.content %></p>
+                            <div class="small-post-text">
                                 <hr>
-                                <p class="card-text post-text"><%= comment.content %></p>
-                                <div class="small-post-text">
-                                    <hr>
-                                    <div class="text-comment-btn">
-                                        <p class="card-text post-user-email"><small class="text-muted">Posted By: <%= @post.user.email %></small></p>
-                                        <div class="edit-btn-container">
-                                            <button class="edit-comment-btn btn btn-primary">
-                                                Edit
-                                            </button>
-                                        </div>
-                                        <%= link_to delete_post_comment_path(@post, comment), method: :delete, class: "delete-btn-link" do %>
-                                            <button class="btn btn-danger">
-                                                Delete
-                                            </button>
-                                        <% end %>
+                                <div class="text-comment-btn">
+                                    <p class="card-text post-user-email"><small class="text-muted">Posted By: <%= @post.user.email %></small></p>
+                                    <div class="edit-btn-container">
+                                        <button class="edit-comment-btn btn btn-primary">
+                                            Edit
+                                        </button>
                                     </div>
+                                    <%= link_to delete_post_comment_path(@post, comment), method: :delete, class: "delete-btn-link" do %>
+                                        <button class="btn btn-danger">
+                                            Delete
+                                        </button>
+                                    <% end %>
                                 </div>
                             </div>
                         </div>
@@ -197,14 +196,25 @@
             </div>
         </div>
         <%= form_with model: comment, url: update_post_comment_path(@post, comment), method: :patch, class: "edit-comment-form" do |f| %>
-            <%= f.label :title %> <br> 
-            <%= f.text_field :title %> <br>
-            <%= f.label :content %> <br>
-            <%= f.text_area :content %> <br>
-            <%= f.label :upload_image_below %> <br>
-            <%= f.file_field :image %> <br>
-            <%= f.hidden_field :user_id, :value => current_user.id %>
-            <%= f.submit "Update Comment" %>
+            <div class="form-group new-comment-form">
+                <div class="form-group">
+                    <%= f.label :title %> 
+                    <%= f.text_field :title, class: "form-control" %> 
+                </div>
+                <div class="form-group">
+                    <%= f.label :content %> 
+                    <%= f.text_area :content, class: "form-control", rows: "3" %>
+                    <small id="emailHelp" class="form-text text-muted">Say Something Nice 😉</small>
+                </div>
+                <div class="input-group mb-3">
+                    <div class="custom-file">
+                        <%= f.file_field :image, class: "form-control-file comment-upload-btn" %>
+                        <%= f.label :choose_image, class: "custom-file-label comment-upload-label" %> 
+                    </div> 
+                </div>
+                <%= f.hidden_field :user_id, :value => current_user.id %>
+                <%= f.submit "Update Comment", class: "btn btn-primary comment-submit-btn" %>
+            </div>
         <% end %>
     <% end %>
 <%= render "comments/form" %>
