@@ -174,8 +174,12 @@ a:hover {
 
 .card {
   border: none !important;
-  
 }
+
+thead {
+   background-color: #4CAF50;
+   color: white;
+ }
 
 
 /* sidebar */
@@ -224,7 +228,6 @@ a:hover {
 }
 
 /* Sidebar Styles */
-
 .sidebar-nav {
    position: absolute;
    top: 0;
@@ -299,16 +302,11 @@ a:hover {
    }
 }
 
-thead {
-  background-color: #4CAF50;
-  color: white;
-}
 
-
-
+/* Topbar Shine Animation */
 
 .barnav {
-   width:100%; /*Make sure the animation is over the whole element*/
+   /* width:100%;  */
 
    -webkit-animation-name: ShineAnimation;
    -webkit-animation-duration: 8s;
