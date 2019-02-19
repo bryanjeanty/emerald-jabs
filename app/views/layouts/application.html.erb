@@ -82,14 +82,13 @@
 
   <%# #sidebar-toggle %>
       <div class="barnav" style="color: #066D0A; font-size: 2rem;">
-        <div class="emerald"> 
+        <div class="emerald">
           <%= link_to root_path, :class => 'navbar-link' do %>
           <%= image_tag ("emerald.png") %>
           <a class="shine">emerald</a>
           <% end %> 
         </div>
 
-    
         <div class="ml-auto ">
           <%= link_to new_user_registration_path, :class => 'navbar-link' do %>
             <button type="button" class="btn btn-primary">Sign Up</button>
@@ -105,8 +104,6 @@
   
   <%= yield %>
 
-  <p class="alert-success"><%= notice %></p>
-  <p class="alert-danger"><%= alert %></p><br>
 
   
       <!-- Include the Quill library -->

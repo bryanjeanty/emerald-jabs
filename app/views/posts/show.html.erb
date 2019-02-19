@@ -163,32 +163,31 @@
                 <div class="card mb-3 post-card comment-card">
                     <div class="row no-gutters">
                         <% if comment.image.attached? %>
-                            <div class="col-md-4">
-                                <%= image_tag(comment.image, class: "card-img post-img") %> <br>
-                            </div>
-                            <div class="col-md-8">
+                        <div class="col-md-4">
+                            <%= image_tag(comment.image, class: "card-img post-img") %> <br>
+                        </div>
+                        <div class="col-md-8">
                         <% else %>
-                            <div class="col-md-12">
+                        <div class="col-md-12">
                         <% end %>
-                            <div class="card-body post-body">
-                                <h5 class="card-title"><%= comment.title %></h5>
+                        <div class="card-body post-body">
+                            <h5 class="card-title"><%= comment.title %></h5>
+                            <hr>
+                            <p class="card-text post-text"><%= comment.content %></p>
+                            <div class="small-post-text">
                                 <hr>
-                                <p class="card-text post-text"><%= comment.content %></p>
-                                <div class="small-post-text">
-                                    <hr>
-                                    <div class="text-comment-btn">
-                                        <p class="card-text post-user-email"><small class="text-muted">Posted By: <%= @post.user.email %></small></p>
-                                        <div class="edit-btn-container">
-                                            <button class="edit-comment-btn btn btn-primary">
-                                                Edit
-                                            </button>
-                                        </div>
-                                        <%= link_to delete_post_comment_path(@post, comment), method: :delete, class: "delete-btn-link" do %>
-                                            <button class="btn btn-danger">
-                                                Delete
-                                            </button>
-                                        <% end %>
+                                <div class="text-comment-btn">
+                                    <p class="card-text post-user-email"><small class="text-muted">Posted By: <%= @post.user.email %></small></p>
+                                    <div class="edit-btn-container">
+                                        <button class="edit-comment-btn btn btn-primary">
+                                            Edit
+                                        </button>
                                     </div>
+                                    <%= link_to delete_post_comment_path(@post, comment), method: :delete, class: "delete-btn-link" do %>
+                                        <button class="btn btn-danger">
+                                            Delete
+                                        </button>
+                                    <% end %>
                                 </div>
                             </div>
                         </div>
