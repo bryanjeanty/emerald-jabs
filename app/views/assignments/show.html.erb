@@ -84,7 +84,7 @@
         }
     </style>
 
-<div class="row">
+<form class="row editor-form">
     <% if @assignment.file.attached? %>
         <div class="col-6 row assgn-col pdf-col">
             <h3>PDF Viewer</h3>
@@ -110,7 +110,7 @@
                 <p>In the Land of Mordor where the Shadows lie.</p>
             </div>
             <div>
-                <a class="btn btn-success mt-2 mb-2" href="javascript: post()" role="button">Save</a>
+                <a class="btn btn-success mt-2 mb-2 editor-save-btn" href="javascript: post()" role="button">Save</a>
             </div>
         </div>
     <% else %>
@@ -128,7 +128,9 @@
             <div class="editor-wrapper text-center">
                 <h3>Text Editor</h3>
                 <!-- Create the editor container -->
-                <input name="about" type="hidden">
+
+                    <input name="about" type="hidden">
+                
                 <div id="editor">
                     <h2>One Ring to Rule Them All</h2>
                     <p><a href="http://en.wikipedia.org/wiki/One_Ring">http://en.wikipedia.org/wiki/One_Ring</a></p>
@@ -144,11 +146,11 @@
                     <p>In the Land of Mordor where the Shadows lie.</p>
                 </div>
                 <div>
-                    <a class="btn btn-success mt-2 mb-2 text-white" href="javascript: post()" role="button">Save</a>
+                    <button class="btn btn-success mt-2 mb-2 text-white log-as-html-btn" role="button">Log As HTML</button>
                 </div>
             </div>
         </div>
     <% end %>
-</div>
+</form>
 
 </div>
