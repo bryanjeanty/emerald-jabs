@@ -54,13 +54,13 @@
   
       <td>
         <% if @assignment.image.attached? %>
-        <%= image_tag(@assignment.image, width: '200') %>
+            <%= image_tag(@assignment.image, width: '200') %>
         <% end %> <br>
       </td>
 
       <td>
         <% if @assignment.file.attached? %>
-        <%= link_to "Download File", @assignment.file, download: '' %>
+            <%= link_to "Download File", @assignment.file, download: '' %>
         <% end %>
       </td>
   
@@ -71,34 +71,57 @@
 
 
 <div class="row workspace">
-    <div class="col-6">
-    <h3>PDF Viewer</h3>
     <% if @assignment.file.attached? %>
-        <embed src="<%= rails_blob_path(@assignment.file) %>" type="application/pdf" width="600rem" height="600rem">
-    <% end %>
-    </div>
-
-    <div class="col-6">
-    <h3>Text Editor</h3>
-        <!-- Create the editor container -->
-        <input name="about" type="hidden">
-        <div id="editor">
-            <h2>One Ring to Rule Them All</h2>
-            <p><a href="http://en.wikipedia.org/wiki/One_Ring">http://en.wikipedia.org/wiki/One_Ring</a></p>
-            <p><br/></p>
-            <p>Three Rings for the <em>Elven-kings</em> under the sky,</p>
-            <p>Seven for the <u>Dwarf-lords</u><span> in halls of stone,</p>
-            <p>Nine for <u>Mortal Men</u>, doomed to die,</p>
-            <p>One for the <u>Dark Lord</u> on his dark throne.</p>
-            <p><br/></p>
-            <p>In the Land of Mordor where the Shadows lie.</span></p>
-            <p>One Ring to <strong>rule</strong> them all, One Ring to <strong>find</strong> them,</p>
-            <p>One Ring to <strong>bring</strong> them all and in the darkness <strong>bind</strong> them.</p>
-            <p>In the Land of Mordor where the Shadows lie.</p>
+        <div class="col-6">
+            <h3>PDF Viewer</h3>
+            <embed src="<%= rails_blob_path(@assignment.file) %>" type="application/pdf" width="600rem" height="600rem">
         </div>
-            <div>
-            <a class="btn btn-success" href="javascript: post()" role="button">Save</a>
+
+        <div class="col-6">
+            <h3>Text Editor</h3>
+            <!-- Create the editor container -->
+            <input name="about" type="hidden">
+            <div id="editor">
+                <h2>One Ring to Rule Them All</h2>
+                <p><a href="http://en.wikipedia.org/wiki/One_Ring">http://en.wikipedia.org/wiki/One_Ring</a></p>
+                <p><br/></p>
+                <p>Three Rings for the <em>Elven-kings</em> under the sky,</p>
+                <p>Seven for the <u>Dwarf-lords</u><span> in halls of stone,</p>
+                <p>Nine for <u>Mortal Men</u>, doomed to die,</p>
+                <p>One for the <u>Dark Lord</u> on his dark throne.</p>
+                <p><br/></p>
+                <p>In the Land of Mordor where the Shadows lie.</span></p>
+                <p>One Ring to <strong>rule</strong> them all, One Ring to <strong>find</strong> them,</p>
+                <p>One Ring to <strong>bring</strong> them all and in the darkness <strong>bind</strong> them.</p>
+                <p>In the Land of Mordor where the Shadows lie.</p>
             </div>
-    </div>
+            <div>
+                <a class="btn btn-success" href="javascript: post()" role="button">Save</a>
+            </div>
+        </div>
+    <% else %>
+        <div class="col-12">
+            <h3>Text Editor</h3>
+            <!-- Create the editor container -->
+            <input name="about" type="hidden">
+            <div id="editor">
+                <h2>One Ring to Rule Them All</h2>
+                <p><a href="http://en.wikipedia.org/wiki/One_Ring">http://en.wikipedia.org/wiki/One_Ring</a></p>
+                <p><br/></p>
+                <p>Three Rings for the <em>Elven-kings</em> under the sky,</p>
+                <p>Seven for the <u>Dwarf-lords</u><span> in halls of stone,</p>
+                <p>Nine for <u>Mortal Men</u>, doomed to die,</p>
+                <p>One for the <u>Dark Lord</u> on his dark throne.</p>
+                <p><br/></p>
+                <p>In the Land of Mordor where the Shadows lie.</span></p>
+                <p>One Ring to <strong>rule</strong> them all, One Ring to <strong>find</strong> them,</p>
+                <p>One Ring to <strong>bring</strong> them all and in the darkness <strong>bind</strong> them.</p>
+                <p>In the Land of Mordor where the Shadows lie.</p>
+            </div>
+            <div>
+                <a class="btn btn-success" href="javascript: post()" role="button">Save</a>
+            </div>
+        </div>
+    <% end %>
 </div>
 
