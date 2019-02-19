@@ -1,3 +1,5 @@
+<% content_for :title, "Edit Post" %>
+
 <h1>Edit <%= @post.title %></h1>
 <%= form_with model: @post, url: user_post_path(@user, @post), method: :patch do |f| %>
     <%= f.label :title %> <br>

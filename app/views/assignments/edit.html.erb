@@ -1,3 +1,4 @@
+<% content_for :title, "Edit Assignment" %>
 <%= form_with(model: @assignment, url: assignments_path) do |form| %>
     <label> Title</label><br>
     <%= form.text_field :title %> <br>

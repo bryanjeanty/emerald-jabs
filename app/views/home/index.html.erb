@@ -1,87 +1,67 @@
+<% content_for :title, "Dashboard" %>
 
 <div class="row">
-<h1>Dashboard</h1>
+    <h1>Dashboard</h1>
 </div>
 
 <div class="row">
-        <div class="col-5">
-            <%= link_to assignments_path do %>
-             <h3 class="text-center">Assignments
-            <% end %> <br> <br>
-            <%= link_to new_user_assignment_path(current_user) do %>
-            <button type="button" class="btn btn-success">New Assignment </button>
-            <% end %>
-            <button type="button" data-toggle="collapse" data-target="#multiCollapseExample1" aria-expanded="false" aria-controls="multiCollapseExample1" class="btn btn-success">Quick View</button>
-            </h3>
+    <div class="col-5">
+        <%= link_to assignments_path do %>
+        <h3 class="text-center">Assignments
+        <% end %> <br><br>
 
-        </div>
+        <%= link_to new_user_assignment_path(current_user) do %>
+        <button type="button" class="btn btn-success">New Assignment </button>
+        <% end %>
+        <button type="button" data-toggle="collapse" data-target="#multiCollapseExample1" aria-expanded="false" aria-controls="multiCollapseExample1" class="btn btn-success">Quick View</button>
+        </h3>
+    </div>
 
+    <div class="col-5">
+        <%= link_to forum_path do %>
+        <h3 class="text-center">Posts 
+        <% end %> <br> <br>
 
-        <div class="col-5">
-             <%= link_to forum_path do %>
-            <h3 class="text-center">Posts 
-            <% end %> <br> <br>
-            <%= link_to new_user_post_path(current_user) do %>
-            <button type="button" class="btn btn-success">New Post </button>
-            <% end %>
-            <button type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2" class="btn btn-success">Quick View</button>
-            </h3>
-        </div>
+        <%= link_to new_user_post_path(current_user) do %>
+        <button type="button" class="btn btn-success">New Post </button>
+        <% end %>
+        <button type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2" class="btn btn-success">Quick View</button>
+        </h3>
+    </div>
 </div>
 
 <div class="row">
     <div class="col-5 assignments collapse multi-collapse" id="multiCollapseExample1">
-    <table class="table table-hover text-center">
-        <thead>
-        <tr>
-            <th scope="col">Due date</th>
-            <th scope="col">Assignment</th>
-        </tr>
-        </thead>
-    <tbody>
-    
-        <% @assignments.each do |assignment| %>
-         <tr>
-            <td>
-             <%= assignment.due_date%>
-            </td>
-            <td>
-             <%= link_to assignment.title, user_assignment_path(current_user, assignment) %>
-            </td>
-        </tr> 
-     <% end %>
-       
+        
+        <table class="table table-hover text-center">
+            <thead>
+            <tr>
+                <th scope="col">Due date</th>
+                <th scope="col">Assignment</th>
+            </tr>
+            </thead>
 
-    </tbody>
-    </table> 
-
+            <tbody>
+            <% @assignments.each do |assignment| %>
+                <tr>
+                <td>
+                <%= assignment.due_date%>
+                </td>
+                <td>
+                <%= link_to assignment.title, user_assignment_path(current_user, assignment) %>
+                </td>
+            </tr> 
+            <% end %>
+            </tbody>
+        </table> 
     </div>
 
-
     <div class="col-5 posts collapse multi-collapse" id="multiCollapseExample2">
+        <% @posts.each do |post| %>
+        <%= link_to post.title, user_post_path(current_user, post) %>
+        <% end %>
+    </div>
+    </tbody>
 
-    <table class="table table-hover text-center">
-        <thead>
-        <tr>
-            <th scope="col">Post</th>
-            <th scope="col">Updated</th>
-        </tr>
-        </thead>
-
-        <tbody>
-            <% @posts.each do |post| %>
-        <tr>
-            <td>
-                <%= link_to post.title, user_post_path(current_user, post) %>
-            </td>
-            <td>
-                <%= post.updated_at.to_formatted_s(:long).to_s[0..17] %>
-            </td>
-
-        </tr>
-            <% end %>
-       </tbody>
-    </table>
-</div>
 </div>
 

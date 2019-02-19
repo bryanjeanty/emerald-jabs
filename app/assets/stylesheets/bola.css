@@ -5,8 +5,8 @@
 body {
    background-color: #47682C;
    animation: fadeIn 1.5s forwards; 
-   font-family: 'Roboto', sans-serif;
- }
+   font-family: 'Montserrat', sans-serif;
+}
  
  @keyframes fadeIn {
    0% {
@@ -38,7 +38,7 @@ a:hover {
 .emerald a {
    text-decoration: none!important;
    font-size: 2rem;
-   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+   font-family: 'Rum Raisin', sans-serif;
 }
 
 .emerald img {
