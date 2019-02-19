@@ -83,8 +83,18 @@
       <% else %>      
 
     <%# #sidebar-toggle %>
+     <div class="barnav">
+           <div class="emerald">
+            <a class="btn btn-default  mx-auto">
+              <div class="emerald"><%= image_tag ("emerald.png"), :title => 'Click here to show/hide side bar' %>
+              </div>
+            </a>
+            <%= link_to root_path, :class => 'navbar-link' do %> 
+              emerald
+            <% end %> 
+          </div>
       
-        <div class="ml-auto">
+        <div class="ml-auto float-right">
           <%= link_to new_user_registration_path, :class => 'navbar-link' do %>
             <button type="button" class="btn btn-primary">Sign Up</button>
           <% end %>
@@ -94,6 +104,8 @@
         </div>
     
     <% end %>
+
+    </div>
   
   <%= yield %>
 
