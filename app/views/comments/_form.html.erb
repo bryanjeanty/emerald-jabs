@@ -1,5 +1,5 @@
 <%= form_with model: @comment, url: post_comments_path(@post), method: :post do |f| %>
-    <div class="form-group" style="width: 90%; margin-left: auto; margin-right: auto;">
+    <div class="form-group new-comment-form">
         <div class="form-group">
             <%= f.label :title %> 
             <%= f.text_field :title, class: "form-control" %> 
