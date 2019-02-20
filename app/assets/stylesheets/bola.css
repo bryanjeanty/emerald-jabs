@@ -8,7 +8,9 @@ body {
    font-family: 'Montserrat', sans-serif;
    background: linear-gradient(to bottom, rgb(11, 22, 5) 0%,rgba(212,189,255,0) 100%); 
 }
-
+.dashBump {
+   margin-top: 4rem;
+}
  @keyframes fadeIn {
    0% {
      opacity: 0; }
