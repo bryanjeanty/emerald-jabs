@@ -10,10 +10,6 @@ body {
    
 }
 
-.emerald-prj-container{
-  margin-top: 5rem;
-}
- 
  @keyframes fadeIn {
    0% {
      opacity: 0; }
@@ -180,7 +176,6 @@ a:hover {
 }
 
 .wrapper {
-   /* width: 1240px; */
    margin: 0 auto;
 }
 
@@ -236,6 +231,7 @@ thead {
    -moz-transition: all 0.5s ease;
    -o-transition: all 0.5s ease;
    transition: all 0.5s ease;
+   min-height: 120vh;
 }
 
 #wrapper.toggled #sidebar-wrapper {
