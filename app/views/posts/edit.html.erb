@@ -15,11 +15,23 @@
             </div>
             <div class="input-group mb-3">
                 <div class="custom-file">
-                    <%= f.file_field :image, class: "form-control-file comment-upload-btn" %>
-                    <%= f.label :choose_image, class: "custom-file-label comment-upload-label" %> 
+                <%= f.file_field :image, class: "form-control-file upload-btn" %>
+                <% if @post.image.attached? %>
+                    <label for="post_choose_image" class="custom-file-label upload-label"><%= @post.image.filename.to_s %></label>
+                <% else %>
+                    <%= f.label :choose_image, class: "custom-file-label upload-label" %> 
+                <% end %>
                 </div> 
             </div>
             <%= f.hidden_field :user_id, :value => current_user.id %>
             <%= f.submit "Update Post", class: "btn btn-primary comment-submit-btn" %>
         </div>
     <% end %>
+
+<div class="text-center">
+    <%= link_to :back do %>
+        <button type="button" class="btn btn-success text-white mt-4 mb-3 back-btn">
+            Back
+        </button>
+    <% end %>
+</div>
