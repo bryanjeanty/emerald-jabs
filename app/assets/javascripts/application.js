@@ -85,12 +85,18 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        let menu_toggle = document.querySelector('.sidenav-toggle');
-        menu_toggle.addEventListener('click', (event) => {
+        let menuToggle = document.querySelector('.sidenav-toggle');
+        menuToggle.addEventListener('click', (event) => {
           event.preventDefault();
           $("#wrapper").toggleClass("toggled");
+          if( $(".barnav").hasClass("image-move-left") ) {
+            $(".barnav").removeClass("image-move-left");
+            $(".barnav").addClass("image-move-back");
+          } else {
+            $(".barnav").removeClass("image-move-back");
+            $(".barnav").addClass("image-move-left");
+          }
         });
-
     });
 });
 

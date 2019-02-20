@@ -24,11 +24,18 @@
         height: 60px;
         padding: 5px 0 5px 20px;
       }
-
       .share-link {
         line-height: 60px;
         padding: 0 1em;
         font-size: 2em;
+      }
+      .image-move-left {
+        margin-left: 250px;
+        transition: margin-left 0.5s;
+      }
+      .image-move-back {
+        margin-left: 0px;
+        transition: margin-left 0.5s;
       }
     </style>
   </head>
@@ -53,6 +60,7 @@
           <button type="button" class="btn btn-danger">Logout</button>
           <% end %>
         </div>
+      </div>
 
         <%# Sidebar  %>
         <div id="sidebar-wrapper">
@@ -71,7 +79,6 @@
             </li>
           </ul>
         </div>
-      </div>
 
   <% else %>
 
