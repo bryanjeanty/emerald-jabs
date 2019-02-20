@@ -62,7 +62,7 @@
           </div>
 
           <div class="ml-auto" style="color: white;">
-            Logged in as <strong><%= current_user.email %></strong>
+            
             <%= link_to destroy_user_session_path, method: :delete, :class => 'navbar-link' do %>
             <button type="button" class="btn btn-danger">Logout</button>
             <% end %>
@@ -72,6 +72,9 @@
         <%# Sidebar  %>
         <div id="sidebar-wrapper">
           <ul class="sidebar-nav">
+            <li><p style="color: white" align="center">
+            Logged in as <strong><%= current_user.email %></strong></p>
+            </li>
             <li>
               <%= link_to root_path do %> Dashboard <% end %>
             </li>
@@ -90,7 +93,7 @@
   <% else %>
 
       <div class="barnav fixed-top shine" style="color: #066D0A;">
-        <div class="emerald shine">
+        <div class="emerald">
           <a class="shine"> 
           <%= link_to root_path, :class => 'navbar-link' do %>
           <%= image_tag ("emerald.png") %> 
