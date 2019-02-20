@@ -30,6 +30,10 @@ Rails.application.routes.draw do
   patch '/users/:user_id/assignments/:id' => 'assignments#update'
   delete '/users/:user_id/assignments/:id' => 'assignments#destroy'
 
+  # Assignment editor routes
+  patch '/assignments/:assignment_id/editors' => 'editors#update', as: 'assignment_editor'
+  delete '/assignments/:assignment_id/editors/:id' => 'editors#destroy'
+
   resources :admin
   resources :workspace
   
