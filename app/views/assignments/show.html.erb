@@ -1,14 +1,5 @@
 <% content_for :title, "Assignment" %>
 
-    <!--<style>
-        .assgn-col {
-            text-align: center;
-            max-height: 100vh;
-        }
-        .header-btn-container > a {
-            margin: 0.25rem 8rem;
-        }
-    </style>-->
 
 <div class="text-center mx-auto">
     <div class="header-btn-container">
@@ -82,11 +73,7 @@
                 <h3>PDF Viewer</h3>
                 <embed src="<%= rails_blob_path(@assignment.file) %>" type="application/pdf" width="600rem" height="600rem">
             </div>
-            <!--<style>
-                .ql-snow {
-                    background-color: white;
-                }
-            </style>-->
+
             <div class="col-6 assgn-col editor-col">
                 <h3>Text Editor</h3>
                 <div id="editor" style="height: 85vh">
@@ -109,16 +96,7 @@
                 </div>
             </div>
         <% else %>
-            <!--<style>
-                .editor-container {
-                    width: 100%;
-                    display: grid;
-                    grid-template-columns: repeat(14, 1fr);
-                }
-                .editor-wrapper {
-                    grid-column: 2 / 14;
-                }
-            </style>-->
+
             <div class="editor-container">
                 <div class="editor-wrapper">
                     <h3>Text Editor</h3>
