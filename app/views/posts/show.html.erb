@@ -8,17 +8,20 @@
         </button>
     <% end %>
 
-    <%= link_to edit_user_post_path(@post.user, @post) do %>
-        <button type="button" class="btn btn-primary mt-4 mb-3">
-            Edit
-        </button>
+    <% if current_user %>
+        <%= link_to edit_user_post_path(@post.user, @post) do %>
+            <button type="button" class="btn btn-primary mt-4 mb-3">
+                Edit
+            </button>
+        <% end %>
     <% end %>
 
-
-    <%= link_to user_post_path(@post.user, @post), method: :delete  do %>
-        <button type="button" class="btn btn-danger mt-4 mb-3 delete-btn">
-            Delete
-        </button>
+    <% if current_user %>
+        <%= link_to user_post_path(@post.user, @post), method: :delete  do %>
+            <button type="button" class="btn btn-danger mt-4 mb-3 delete-btn">
+                Delete
+            </button>
+        <% end %>
     <% end %>
 </div>
 
@@ -100,14 +103,18 @@
                                 <div class="text-comment-btn">
                                     <p class="card-text post-user-email"><small class="text-muted">Posted By: <%= @post.user.email %></small></p>
                                     <div class="edit-btn-container">
-                                        <button class="edit-comment-btn btn btn-primary">
-                                            Edit
-                                        </button>
+                                        <% if current_user %>
+                                            <button class="edit-comment-btn btn btn-primary">
+                                                Edit
+                                            </button>
+                                        <% end %>
                                     </div>
-                                    <%= link_to delete_post_comment_path(@post, comment), method: :delete, class: "delete-btn-link" do %>
-                                        <button class="btn btn-danger">
-                                            Delete
-                                        </button>
+                                    <% if current_user %>
+                                        <%= link_to delete_post_comment_path(@post, comment), method: :delete, class: "delete-btn-link" do %>
+                                            <button class="btn btn-danger">
+                                                Delete
+                                            </button>
+                                        <% end %>
                                     <% end %>
                                 </div>
                             </div>
