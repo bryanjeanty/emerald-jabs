@@ -195,6 +195,7 @@
                 </div>
             </div>
         </div>
+    </div>
         <%= form_with model: comment, url: update_post_comment_path(@post, comment), method: :patch, class: "edit-comment-form" do |f| %>
             <div class="form-group new-comment-form">
                 <div class="form-group">
@@ -208,12 +209,21 @@
                 </div>
                 <div class="input-group mb-3">
                     <div class="custom-file">
-                        <%= f.file_field :image, class: "form-control-file comment-upload-btn" %>
-                        <%= f.label :choose_image, class: "custom-file-label comment-upload-label" %> 
+                        <%= f.file_field :image, class: "form-control-file upload-btn" %>
+                        <% if comment.image.attached? %>
+                            <label for="comment_choose_image" class="custom-file-label upload-label">
+                                <%= comment.image.filename.to_s %>
+                            </label>
+                        <% else %>
+                            <%= f.label :choose_image, class: "custom-file-label upload-label" %>
+                        <% end %> 
                     </div> 
                 </div>
                 <%= f.hidden_field :user_id, :value => current_user.id %>
                 <%= f.submit "Update Comment", class: "btn btn-primary comment-submit-btn" %>
+                <button class="btn btn-danger cancel-edit-btn">
+                    Cancel
+                </button>
             </div>
         <% end %>
     <% end %>

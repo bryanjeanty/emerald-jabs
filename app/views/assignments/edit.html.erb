@@ -17,21 +17,21 @@
         <%= f.label :upload_files_below %>
         <div class="input-group mb-3">
             <div class="custom-file">
-                <%= f.file_field :image, class: "form-control-file comment-upload-btn" %>
+                <%= f.file_field :image, class: "form-control-file upload-btn" %>
                 <% if @assignment.image.attached? %>
-                    <label for="assignment_choose_image" class="custom-file-label comment-upload-label"><%= @assignment.image.filename.to_s %></label>
+                    <label for="assignment_choose_image" class="custom-file-label upload-label"><%= @assignment.image.filename.to_s %></label>
                 <% else %>
-                    <%= f.label :choose_image, class: "custom-file-label comment-upload-label" %>
+                    <%= f.label :choose_image, class: "custom-file-label upload-label" %>
                 <% end %>
             </div> 
         </div>
         <div class="input-group mb-3">
             <div class="custom-file">
-                <%= f.file_field :file, class: "form-control-file comment-upload-btn" %>
+                <%= f.file_field :file, class: "form-control-file upload-btn" %>
                 <% if @assignment.file.attached? %>
-                    <label for="assignment_choose_file" class="custom-file-label comment-upload-label"><%= @assignment.file.filename.to_s %></label>
+                    <label for="assignment_choose_file" class="custom-file-label upload-label"><%= @assignment.file.filename.to_s %></label>
                 <% else %>
-                    <%= f.label :choose_document, class: "custom-file-label comment-upload-label" %>
+                    <%= f.label :choose_document, class: "custom-file-label upload-label" %>
                 <% end %>
             </div> 
         </div>
