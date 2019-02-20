@@ -46,7 +46,7 @@
         <tbody>
             <tr>
                 <td>
-                    <h1 class="card-title"><%= @assignment.title %></h1>
+                    <strong><%= @assignment.title %></strong>
                 <br>
                 </td>
 
@@ -82,6 +82,11 @@
                 <h3>PDF Viewer</h3>
                 <embed src="<%= rails_blob_path(@assignment.file) %>" type="application/pdf" width="600rem" height="600rem">
             </div>
+            <style>
+                .ql-snow {
+                    background-color: white;
+                }
+            </style>
             <div class="col-6 assgn-col editor-col">
                 <h3>Text Editor</h3>
                 <div id="editor" style="height: 85vh">
