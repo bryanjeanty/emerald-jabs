@@ -7,6 +7,7 @@ class AssignmentsController < ApplicationController
   def show
     @user = User.find(params[:user_id])
     @assignment = @user.assignments.find(params[:id])
+    @editor = @assignment.editors.new
     
     respond_to do |format|
       format.html
@@ -46,12 +47,12 @@ class AssignmentsController < ApplicationController
   def update
     @assignment = Assignment.find(params[:id])
     @assignment.update(params.require(:assignment).permit(:title, :due_date, :todo))
-    redirect_to assignments_path
+    redirect_to user_assignment_path(@assignment.user, @assignment)
   end
 
   def destroy
     @assignment = Assignment.find(params[:id])
     @assignment.destroy
-    redirect_to root_path
+    redirect_to assignments_path
   end
 end

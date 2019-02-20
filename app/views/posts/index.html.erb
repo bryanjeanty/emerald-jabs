@@ -3,6 +3,10 @@
             .forum-card {
                 border-radius: 0; 
                 padding: 0;
+                margin: 0;
+                margin-top: 8vh;
+                margin-left: auto;
+                margin-right: auto;
             }
             .forum-contents {
                 border-radius: 0; 
@@ -46,13 +50,15 @@
                 margin-left: -0.7rem;
             }
 </style>
-<div class="text-center">
-    <h1 class="mt-4" style="color: white;" >Public Forum</h1>
-    <%= link_to new_user_post_path(current_user) do %>
-    <button type="button" class="btn btn-success mt-3">New Post </button>
-    <% end %>
-
-    <div class="card col-11 forum-card">
+<div>
+    <div class="text-center">
+        <h1 class="mt-4" style="color: white;" >Public Forum</h1>
+        <%= link_to new_user_post_path(current_user) do %>
+        <button type="button" class="btn btn-success mt-3">New Post</button>
+        <% end %>
+    </div>
+<div style="display: flex">
+    <div class="card col-11 forum-card" style="border: 1px solid black">
         <div class="card-header text-white bg-success forum-header">
             <span class="forum-heading-title-1">#math</span>
             <span class="forum-heading-title-2 text-center">Members</span>
@@ -102,4 +108,5 @@
             <% count += 1 %>  
         <% end %>
     </div>
+</div>
 </div>

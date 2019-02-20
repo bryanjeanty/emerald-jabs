@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let comment = document.querySelectorAll('.comment');
         let editCommentForm = document.querySelectorAll('.edit-comment-form');
         let editCommentBtn = document.querySelectorAll('.edit-comment-btn');
+        let cancelEditBtn = document.querySelectorAll('.cancel-edit-btn');
 
         function toggleEditComment(elem1, elem2) {
             elem1.style.display = 'block';
@@ -27,11 +28,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         for(let i = 0; i < comment.length; i++) {
             editCommentBtn[i].addEventListener('click', (event) => {
-                if (editCommentForm[i].style.display == 'none') {
-                    toggleEditComment(editCommentForm[i], comment[i]);
-                } else {
-                    toggleEditComment(comment[i], editCommentForm[i]);
-                }
+                toggleEditComment(editCommentForm[i], comment[i]);
+            })
+            cancelEditBtn[i].addEventListener('click', (event) => {
+                event.preventDefault();
+                toggleEditComment(comment[i], editCommentForm[i]);
             })
         }
 
@@ -84,12 +85,18 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        let menu_toggle = document.querySelector('.sidenav-toggle');
-        menu_toggle.addEventListener('click', (event) => {
+        let menuToggle = document.querySelector('.sidenav-toggle');
+        menuToggle.addEventListener('click', (event) => {
           event.preventDefault();
           $("#wrapper").toggleClass("toggled");
+          if( $(".barnav").hasClass("image-move-left") ) {
+            $(".barnav").removeClass("image-move-left");
+            $(".barnav").addClass("image-move-back");
+          } else {
+            $(".barnav").removeClass("image-move-back");
+            $(".barnav").addClass("image-move-left");
+          }
         });
-
     });
 });
 
