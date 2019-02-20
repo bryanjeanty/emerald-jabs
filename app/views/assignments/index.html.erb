@@ -1,16 +1,15 @@
 <% content_for :title, "Assignments" %>
 <div class="assignments" style="height: 35rem; width: 100%">
 
-<h1>Assignment</h1>
+  <h1>Assignment</h1>
 
-<%= link_to new_user_assignment_path(current_user) do %>
-            <button type="button" class="btn btn-success">New Assignment</button>
-
-
-
-            <% end %><br><br>
-  <% @assignment.each do |assignment| %>
+  <%= link_to new_user_assignment_path(current_user) do %>
+    <button type="button" class="btn btn-success">New Assignment</button>
+    <% end %>
+    <br><br>
+    <% @assignment.each do |assignment| %>
     <%= link_to assignment.title, user_assignment_path(current_user, assignment) %>
-    (<%= assignment.due_date%>)<br><br>
+    (<%= assignment.due_date%>)
+    <br><br>
   <% end %>
 </div>
