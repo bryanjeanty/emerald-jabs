@@ -24,9 +24,9 @@ default: &default
 development:
   <<: *default
   database: emerald-app_development
-  host: localhost
-  username: postgres
-  password: <%= ENV["POSTGRESQL"]%>
+  # host: localhost
+  # username: postgres
+  # password: <%= ENV["POSTGRESQL"]%>
 
 
   # The specified database role being used to connect to postgres.
