@@ -54,13 +54,33 @@
             </table> 
         </div>
 
-        <div class="col-5 posts collapse multi-collapse" id="multiCollapseExample2">
-            <% @posts.each do |post| %>
-            <%= link_to post.title, user_post_path(current_user, post) %>
-            <% end %>
-        </div>
-        </tbody>
+ 
+ 
+ <div class="col-5 posts collapse multi-collapse" id="multiCollapseExample2">
+            
+    <table class="table table-hover text-center">
+            <thead>
+                <tr>
+                     <th scope="col">Post</th>
+                    <th scope="col">Updated</th>
+                </tr>
+             </thead>
 
-    </div>
+         <tbody>
+                <% @posts.each do |post| %>
+            <tr>
+             <td>
+                <%= link_to post.title, user_post_path(current_user, post) %>
+            </td>
+            <td>
+                <%= post.updated_at.to_formatted_s(:long).to_s[0..17] %>
+            </td>
+
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+
+</div>
 </div>
 
