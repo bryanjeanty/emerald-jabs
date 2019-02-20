@@ -37,6 +37,7 @@ a:hover {
 
 .emerald {
    font-family: 'Rum Raisin', sans-serif;
+   margin-left: 50px;
 }
 
 .emerald a {
@@ -70,9 +71,7 @@ a:hover {
 .barnav {
    display: flex;
    background-color: #11131183;
-   margin: 0;
-   padding: 1rem;
-   /* font-family: 'Rum Raisin', sans-serif; */
+   padding: 1rem 5rem 1rem 1rem;
    height: 5rem;
    
 }
