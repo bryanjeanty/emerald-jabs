@@ -6,14 +6,16 @@ body {
    /* background-color: #47682C; */
    animation: fadeIn 1.5s forwards; 
    font-family: 'Montserrat', sans-serif;
-   background: linear-gradient(to bottom, rgb(11, 22, 5) 0%,rgba(212,189,255,0) 100%);
-   
+   background: linear-gradient(to bottom, rgb(11, 22, 5) 0%,rgba(212,189,255,0) 100%); 
 }
 
 .emerald-prj-container{
   margin-top: 5rem;
 }
- 
+.field {
+   margin: 0 !important;
+   padding: 0 !important;
+}
  @keyframes fadeIn {
    0% {
      opacity: 0; }
@@ -382,4 +384,10 @@ a.shine:hover {
    to {
      -webkit-mask-position: -50%;
    }
+ }
+ div label {
+    color: #fff;
+ }
+ .frmWht {
+    color: #fff;
  }
