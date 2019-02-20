@@ -1,7 +1,7 @@
 <% content_for :title, "Edit Assignment" %>
 
 <div class="text-center">
-    <h1 class="edit-title" style="margin: 2rem;">Edit "<%= @assignment.title %>"</h1>
+    <h1 class="card-title" style="margin: 2rem;">Edit Assignment</h1>
 </div>
 
 <%= form_with(model: @assignment, url: assignments_path) do |f| %>
