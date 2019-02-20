@@ -177,3 +177,8 @@
 .ql-snow {
     background-color: white;
 }
+
+/* Edge case */
+.forum-title-text {
+    color: black;
+}
