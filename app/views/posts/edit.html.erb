@@ -1,6 +1,6 @@
 <% content_for :title, "Edit Post" %>
 <div class="text-center">
-    <h1 class="edit-title" style="margin: 2rem;">Edit "<%= @post.title %>"</h1>
+    <h1 class="card-title" style="margin: 2rem;">Edit Post</h1>
 </div>
     <%= form_with model: @post, url: user_post_path(@user, @post), method: :patch do |f| %>
         <div class="form-group new-comment-form" style="width: 65%; margin-left: auto; margin-right: auto">

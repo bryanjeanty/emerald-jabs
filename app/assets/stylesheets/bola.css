@@ -9,13 +9,6 @@ body {
    background: linear-gradient(to bottom, rgb(11, 22, 5) 0%,rgba(212,189,255,0) 100%); 
 }
 
-.emerald-prj-container{
-  margin-top: 5rem;
-}
-.field {
-   margin: 0 !important;
-   padding: 0 !important;
-}
  @keyframes fadeIn {
    0% {
      opacity: 0; }
@@ -181,7 +174,6 @@ a:hover {
 }
 
 .wrapper {
-   /* width: 1240px; */
    margin: 0 auto;
 }
 
@@ -196,6 +188,15 @@ a:hover {
   background-color: transparent !important;
   
 }
+.card-title {
+  color:white;
+}
+
+.back-link {
+  font-weight: bold;
+  text-decoration: underline !important;
+}
+
 
 div label {
   font-weight:bold;
@@ -228,7 +229,7 @@ thead {
    position: fixed;
    left: 250px;
    width: 0;
-   height: 100%;
+   height: 120vh;
    margin-left: -250px;
    margin-top: -18px;
    overflow-y: auto;
@@ -237,6 +238,7 @@ thead {
    -moz-transition: all 0.5s ease;
    -o-transition: all 0.5s ease;
    transition: all 0.5s ease;
+   min-height: 120vh;
 }
 
 #wrapper.toggled #sidebar-wrapper {
