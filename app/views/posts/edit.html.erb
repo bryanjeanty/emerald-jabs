@@ -15,8 +15,12 @@
             </div>
             <div class="input-group mb-3">
                 <div class="custom-file">
-                    <%= f.file_field :image, class: "form-control-file comment-upload-btn" %>
+                <%= f.file_field :image, class: "form-control-file comment-upload-btn" %>
+                <% if @post.image.attached? %>
+                    <label for="post_choose_image" class="custom-file-label comment-upload-label"><%= @post.image.filename.to_s %></label>
+                <% else %>
                     <%= f.label :choose_image, class: "custom-file-label comment-upload-label" %> 
+                <% end %>
                 </div> 
             </div>
             <%= f.hidden_field :user_id, :value => current_user.id %>
