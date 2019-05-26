@@ -1,6 +1,6 @@
 # Contributing
 
-Feel free to contribute if you're interested or find a problem. I would appreciate if you opened an issue or sent me an email to get my appro$
+Feel free to contribute if you're interested or find a problem. I would appreciate if you opened an issue or sent me an email to get my approval ahead of time. I don't manage much open source technology so I can get back to you in a timely manner 😊
 
 ## Pull Request Process
 
