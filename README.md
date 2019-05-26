@@ -25,13 +25,13 @@ Initial software environment conditions
 
 ## Technology
 
-**_PostgreSQL_**: SQL database used to store user, sessions, documents, images, posts and comments 
-**_Rails_**: Full-stack framework used to create server, connect to database and serve up dynamic HTML content
-**_Active Storage_**: Used for cloud storage of uploaded files
-**_Quill Editor_**: Provided in-browser rich text editor
-**_Prawn_**: Convert HTML to PDF
-**_Devise_**: User registration and session setup
-**_Bootstrap_**: Reliable CSS framework used to quickly add UI components and responsiveness to application
+**_PostgreSQL_**: SQL database used to store user, sessions, documents, images, posts and comments <br>
+**_Rails_**: Full-stack framework used to create server, connect to database and serve up dynamic HTML content <br>
+**_Active Storage_**: Used for cloud storage of uploaded files <br>
+**_Quill Editor_**: Provided in-browser rich text editor <br>
+**_Prawn_**: Convert HTML to PDF <br>
+**_Devise_**: User registration and session setup <br>
+**_Bootstrap_**: Reliable CSS framework used to quickly add UI components and responsiveness to application <br>
 
 ## Installation
 
@@ -90,7 +90,7 @@ $ gem install pg devise activestorage twitter-bootstrap-rails prawn
 
 ## Contributing
 
-Pull requests are welcome. Please read [CONTRIBUTING.md](https://github.com/bryanjeanty/emerald-jabs/blob/master/CONTRIBUTING.md) for more d$
+Pull requests are welcome. Please read [CONTRIBUTING.md](https://github.com/bryanjeanty/emerald-jabs/blob/master/CONTRIBUTING.md) for more details.
 
 ## Author
 
