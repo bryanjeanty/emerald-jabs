@@ -60,7 +60,7 @@ end
 
 
 # Manually added Gems
-gem 'devise', '~> 4.2'
+gem 'devise', '~> 4.7'
 
 gem 'bcrypt', '~> 3.1', '>= 3.1.12'
 gem 'twitter-bootstrap-rails', '~> 4.0'
